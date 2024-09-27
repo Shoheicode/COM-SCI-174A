@@ -29,9 +29,12 @@ The following steps are inspired by the [Three.js documentation](https://threejs
 	</body>
 </html>
 ```
+
+Each Three.js project requires at least one HTML file to structure the webpage, and a JavaScript file to execute the Three.js code. While the following structure and naming conventions are not mandatory, they will be used throughout the course for consistency.
+
 ### main.js
 ```javascript
-import * as THREE from 'three';
+import * as THREE from 'three'; // Imports the library that we will be using which is the Three.js
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
