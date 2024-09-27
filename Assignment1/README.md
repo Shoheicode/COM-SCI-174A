@@ -30,7 +30,7 @@ The following steps are inspired by the [Three.js documentation](https://threejs
 </html>
 ```
 
-Each Three.js project requires at least one HTML file to structure the webpage, and a JavaScript file to execute the Three.js code. While the following structure and naming conventions are not mandatory, they will be used throughout this guide for consistency.
+Each Three.js project requires at least one HTML file to structure the webpage, and a JavaScript file to execute the Three.js code. While the following structure and naming conventions are not mandatory, they will be used throughout the course for consistency.
 
 ### main.js
 ```javascript
