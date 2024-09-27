@@ -20,6 +20,10 @@ points.push( new THREE.Vector3( 10, 0, 0 ) );
 
 const geometryLine = new THREE.BufferGeometry().setFromPoints( points );
 
+const line = new THREE.Line( geometryLine, materialLine );
+
+scene.add( line );
+
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
