@@ -1,10 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-const controls = new OrbitControls(camera, renderer.domElement);
-camera.position.set(0, 5, 10); // Where the camera is.
-controls.target.set(0, 5, 0); // Where the camera is looking towards.
-
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
@@ -35,6 +31,11 @@ const zAxis = createAxisLine(0x0000ff, new THREE.Vector3(0, 0, 0), new THREE.Vec
 scene.add(xAxis);
 scene.add(yAxis);
 scene.add(zAxis);
+
+// Adding controls for the camera
+const controls = new OrbitControls(camera, renderer.domElement);
+camera.position.set(0, 5, 10); // Where the camera is.
+controls.target.set(0, 5, 0); // Where the camera is looking towards.
 
 function animate() {
 	controls.update(); // This will update the camera position and target based on the user input.
