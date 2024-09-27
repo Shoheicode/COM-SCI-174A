@@ -7,3 +7,8 @@ their focus between the mathematical foundations of computer graphics, and hands
 same goes for Friday TA discussions, which will additionally involve Q&A, exam samples, and code
 samples. A major goal of the course is to acquire better programming skills and tooling, so prepare to do
 heavy programming. We will explore web browsers’ developer tools, fault diagnosis, etc.
+
+## Topics Covered
+Rendering Pipeline, Modeling Transformations, Viewing Transformation, Projections, Polygonal
+Representations, Local and Global Illumination, Texture Mapping, Ray Tracing, Particle & Volume
+Rendering
