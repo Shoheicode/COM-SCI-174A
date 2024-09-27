@@ -16,6 +16,7 @@ scene.add( cube );
 
 camera.position.z = 5;
 
+// Is the function that helps create the axis lines that are used for the code (AKA THE THING THAT DRAWS THE LINE)
 function createAxisLine(color, start, end) {
     const geometry = new THREE.BufferGeometry().setFromPoints([start, end]);
     const material = new THREE.LineBasicMaterial({ color: color });
