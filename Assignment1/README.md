@@ -12,6 +12,9 @@ This initial assignment, we will:
 
 The following steps are inspired by the [Three.js documentation](https://threejs.org/docs/#manual/en/introduction/Installation).
 
+## Inital Part of Code:
+### index.html
+
 ### Example of first part of project:
 ![Untitled design](https://github.com/user-attachments/assets/74be88ff-3d4d-4fc1-9ae0-9f7e8390a381)
 
