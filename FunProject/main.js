@@ -14,17 +14,28 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-let speed = 0.1;
+let speedX = 0.1;
+let speedY = 0.1;
 
 function animate() {
 	renderer.render( scene, camera );
 
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
-    if(cube.position.x > 5 || cube.position.x < -5){
-        speed*=-1;
+    if(cube.position.x < -5){
+        speedX = Math.random()*0.09 + 0.01
+    }else if(cube.position.x > 5){
+        speedX = Math.random()*0.09 + 0.01
+        speedX *=-1;
+    }
+    if(cube.position.y < -3){
+        speedY = Math.random()*0.09 + 0.01
+    }else if(cube.position.y > 3){
+        speedY = Math.random()*0.09 + 0.01
+        speedY *=-1;
     }
     
-    cube.position.x += speed;
+    cube.position.x += speedX;
+    cube.position.y += speedY;
 }
 renderer.setAnimationLoop( animate );
