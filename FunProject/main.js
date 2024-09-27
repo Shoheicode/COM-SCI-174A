@@ -26,8 +26,6 @@ const geometryLine = new THREE.BufferGeometry().setFromPoints( points );
 
 const line = new THREE.Line( geometryLine, materialLine );
 
-scene.add(geometryText)
-
 scene.add( line );
 
 const renderer = new THREE.WebGLRenderer();
