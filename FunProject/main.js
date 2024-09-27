@@ -58,8 +58,25 @@ loader.load('https://unpkg.com/three@0.77.0/examples/fonts/helvetiker_regular.ty
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
+
+let speed = 0;
+
 document.body.addEventListener('keydown', (event) => {
-    console.log(event.key);
+    if(event.key == "ArrowDown"){
+        speed = -0.1;
+    }
+    else if(event.key == "ArrowUp"){
+        speed = 0.1;
+    }
+    else{
+        speed = 0;
+    }
+});
+
+document.body.addEventListener('keyup', (event) => {
+    if(event.key == "ArrowDown" || event.key == "ArrowUp"){
+        speed = 0;
+    }
 });
 
 let speedX = 0.1;
@@ -90,6 +107,14 @@ function animate() {
     
     cube.position.x += speedX;
     cube.position.y += speedY;
+    if (player.position.y < -2.5){
+        player.position.y = -2.5;
+    } else if(player.position.y > 2.5){
+        player.position.y = 2.5;
+    }
+    else{
+        player.position.y += speed;
+    }
 
     renderer.render( scene, camera );
 }
