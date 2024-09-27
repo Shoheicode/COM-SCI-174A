@@ -10,6 +10,16 @@ scene.add( cube );
 
 camera.position.z = 5;
 
+//Adding Line
+const materialLine = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+
+const points = [];
+points.push( new THREE.Vector3( - 10, 0, 0 ) );
+points.push( new THREE.Vector3( 0, 10, 0 ) );
+points.push( new THREE.Vector3( 10, 0, 0 ) );
+
+const geometryLine = new THREE.BufferGeometry().setFromPoints( points );
+
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
