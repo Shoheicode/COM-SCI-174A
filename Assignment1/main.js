@@ -37,6 +37,7 @@ scene.add(yAxis);
 scene.add(zAxis);
 
 function animate() {
+	controls.update(); // This will update the camera position and target based on the user input.
 
 	cube.rotation.x += 0.01;
 	cube.rotation.y += 0.01;
