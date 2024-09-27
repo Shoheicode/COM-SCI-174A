@@ -33,19 +33,19 @@ const loader = new FontLoader();
 loader.load('https://unpkg.com/three@0.77.0/examples/fonts/helvetiker_regular.typeface.json', function (font) {
     const textGeometry = new TextGeometry('Hello World!', {
         font: font,
-        size: 20,
-        height: 5,
+        size: 5,
+        height: 0.05,
         curveSegments: 12,
         bevelEnabled: true,
         bevelThickness: 1,
-        bevelSize: 8,
+        bevelSize: 0.005,
         bevelOffset: 0,
-        bevelSegments: 5
+        bevelSegments: 10
     });
 
     const textMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-    textMesh.position.set(0, 5, 0);
+    textMesh.position.set(-15, 5, -50);
     scene.add(textMesh);
 });
 
