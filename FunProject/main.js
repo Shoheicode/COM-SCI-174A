@@ -14,10 +14,17 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
+let speed = 0.1;
+
 function animate() {
 	renderer.render( scene, camera );
 
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
+    if(cube.position.x > 5 || cube.position.x < -5){
+        speed*=-1;
+    }
+    
+    cube.position.x += speed;
 }
 renderer.setAnimationLoop( animate );
