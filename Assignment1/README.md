@@ -67,6 +67,18 @@ function animate() {
 ## Adding Axis:
 
 ## Adding Camera Controls:
+```javascript
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+//.....//
+const controls = new OrbitControls(camera, renderer.domElement);
+camera.position.set(0, 5, 10); // Where the camera is.
+controls.target.set(0, 5, 0); // Where the camera is looking towards.
+//.....//
+function animate() {
+	controls.update(); // This will update the camera position and target based on the user input.
+	//.....//
+}
+```
 
 ### Image of Final Product:
 ![image](https://github.com/user-attachments/assets/130bca9a-68e8-458e-83af-4add9e0c05bf)
