@@ -34,7 +34,7 @@ Each Three.js project requires at least one HTML file to structure the webpage, 
 
 ### main.js
 ```javascript
-import * as THREE from 'three'; // Imports the library that we will be using which is the three.js
+import * as THREE from 'three'; // Imports the library that we will be using which is the Three.js
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
