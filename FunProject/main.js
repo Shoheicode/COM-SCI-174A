@@ -11,6 +11,12 @@ const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
+const geometryPlayer = new THREE.BoxGeometry( 1, 2, 1 );
+const materialPlayer = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const player = new THREE.Mesh( geometryPlayer, materialPlayer );
+player.position.set(-5,0,0)
+scene.add( player );
+
 camera.position.z = 5;
 
 //Adding Line
@@ -52,6 +58,9 @@ loader.load('https://unpkg.com/three@0.77.0/examples/fonts/helvetiker_regular.ty
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
+document.body.addEventListener('keydown', (event) => {
+    console.log(event.key);
+});
 
 let speedX = 0.1;
 let speedY = 0.1;
