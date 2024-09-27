@@ -65,6 +65,23 @@ function animate() {
 ![Untitled design](https://github.com/user-attachments/assets/74be88ff-3d4d-4fc1-9ae0-9f7e8390a381)
 
 ## Adding Axis:
+```javascript
+function createAxisLine(color, start, end) {
+    const geometry = new THREE.BufferGeometry().setFromPoints([start, end]);
+    const material = new THREE.LineBasicMaterial({ color: color });
+    return new THREE.Line(geometry, material);
+}
+
+// Create axis lines
+const xAxis = createAxisLine(0xff0000, new THREE.Vector3(0, 0, 0), new THREE.Vector3(5, 0, 0)); // Red
+const yAxis = createAxisLine(0x00ff00, new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 5, 0)); // Green
+const zAxis = createAxisLine(0x0000ff, new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, 5)); // Blue
+
+// Add axes to scene
+scene.add(xAxis);
+scene.add(yAxis);
+scene.add(zAxis);
+```
 
 ## Adding Camera Controls:
 ```javascript
