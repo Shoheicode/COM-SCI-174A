@@ -14,6 +14,7 @@ The following steps are inspired by the [Three.js documentation](https://threejs
 
 ## Inital Part of Code:
 ### index.html
+### main.js
 
 ### Example of first part of project:
 ![Untitled design](https://github.com/user-attachments/assets/74be88ff-3d4d-4fc1-9ae0-9f7e8390a381)
