@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -28,6 +29,26 @@ const line = new THREE.Line( geometryLine, materialLine );
 
 scene.add( line );
 
+const loader = new FontLoader();
+loader.load('https://unpkg.com/three@0.77.0/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+    const textGeometry = new TextGeometry('Hello World!', {
+        font: font,
+        size: 20,
+        height: 5,
+        curveSegments: 12,
+        bevelEnabled: true,
+        bevelThickness: 1,
+        bevelSize: 8,
+        bevelOffset: 0,
+        bevelSegments: 5
+    });
+
+    const textMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+    const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+    textMesh.position.set(0, 5, 0);
+    scene.add(textMesh);
+});
+
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
@@ -37,8 +58,8 @@ let speedY = 0.1;
 
 // Adding controls for the camera
 const controls = new OrbitControls(camera, renderer.domElement);
-camera.position.set(0, 5, 10); // Where the camera is.
-controls.target.set(0, 5, 0); // Where the camera is looking towards.
+camera.position.set(0, 0, 10); // Where the camera is.
+controls.target.set(0, 0, 0); // Where the camera is looking towards.
 
 function animate() {
 	renderer.render( scene, camera );
