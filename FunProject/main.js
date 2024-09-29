@@ -17,6 +17,12 @@ const player = new THREE.Mesh( geometryPlayer, materialPlayer );
 player.position.set(-5,0,0)
 scene.add( player );
 
+const geometryPlayer2 = new THREE.BoxGeometry( 1, 2, 1 );
+const materialPlayer2 = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const player2 = new THREE.Mesh( geometryPlayer2, materialPlayer2 );
+player2.position.set(5,0,0)
+scene.add( player2 );
+
 camera.position.z = 5;
 
 //Adding Line
