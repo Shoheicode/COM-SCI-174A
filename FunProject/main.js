@@ -134,6 +134,8 @@ function animate() {
         speedY = Math.random()*0.09 + 0.01
         speedY *=-1;
     }
+
+    a.movePlayer(1,2)
     
     cube.position.x += speedX;
     cube.position.y += speedY;
