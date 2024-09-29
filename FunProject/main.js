@@ -94,11 +94,11 @@ let moveDown = true;
 let moveUp = true;
 
 document.body.addEventListener('keydown', (event) => {
-    if(event.key == "ArrowDown"){
+    if(event.key == "ArrowDown" && player.position.y >= -2){
         console.log("moveDown" + moveDown);
         speedPlayer = -0.1;
     }
-    else if(event.key == "ArrowUp"){
+    else if(event.key == "ArrowUp" && player.position.y <= 2){
         console.log("moveUp" + moveUp)
         speedPlayer = 0.1;
     }
@@ -145,18 +145,7 @@ function animate() {
     cube.position.x += speedX;
     cube.position.y += speedY;
 
-    if (player.position.y <= -2){
-        player.position.y = -2;
-        moveDown = false;
-    } else if(player.position.y >= 2){
-        player.position.y = 2;
-        moveUp = false;
-    }
-    else{
-        player.position.y += speedPlayer;
-        moveUp = true;
-        moveDown = true;
-    }
+    player.position.y += speedPlayer;
 
     renderer.render( scene, camera );
 }
