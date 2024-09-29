@@ -95,10 +95,11 @@ let moveUp = true;
 
 document.body.addEventListener('keydown', (event) => {
     if(event.key == "ArrowDown"){
-        console.log(moveDown);
+        console.log("moveDown" + moveDown);
         speedPlayer = -0.1;
     }
     else if(event.key == "ArrowUp"){
+        console.log("moveUp" + moveUp)
         speedPlayer = 0.1;
     }
     else{
