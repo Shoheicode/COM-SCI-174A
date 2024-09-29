@@ -28,7 +28,7 @@ camera.position.z = 5;
 // Create a circle geometry
 const radius = 1; // Radius of the circle
 const segments = 32; // Number of segments to make the circle smooth
-const circleGeometry = new THREE.CircleGeometry(radius, segments);
+const ballGeometry = new THREE.CircleGeometry(radius, segments);
 
 // Create a material
 const materialBall = new THREE.MeshBasicMaterial({ color: 0xffff00, side: THREE.DoubleSide });
