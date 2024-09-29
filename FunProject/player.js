@@ -1,4 +1,4 @@
-class Player {
+export class Player {
     constructor(player, posX, posY){
         this.player = player;
         this.player.position.x = posX;
