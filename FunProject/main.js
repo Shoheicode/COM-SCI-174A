@@ -35,7 +35,7 @@ scene.add( player2 );
 camera.position.z = 5;
 
 // Create a circle geometry
-const radius = 1; // Radius of the circle
+const radius = 0.5; // Radius of the circle
 const segments = 32; // Number of segments to make the circle smooth
 const ballGeometry = new THREE.SphereGeometry(radius, segments, 32);
 
