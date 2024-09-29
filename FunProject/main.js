@@ -111,6 +111,8 @@ document.body.addEventListener('keyup', (event) => {
 let speedX = 0.1;
 let speedY = 0.1;
 
+let x = 0;
+
 // Adding controls for the camera
 const controls = new OrbitControls(camera, renderer.domElement);
 camera.position.set(0, 0, 10); // Where the camera is.
@@ -134,8 +136,6 @@ function animate() {
         speedY = Math.random()*0.09 + 0.01
         speedY *=-1;
     }
-
-    a.movePlayer(1,2)
     
     cube.position.x += speedX;
     cube.position.y += speedY;

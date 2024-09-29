@@ -6,7 +6,11 @@ export class Player {
         this.player.position.z = posZ;
     }
 
-    movePlayer(x,y){
-        this.player.position.x = x;
+    movePlayerX(x){
+        this.player.position.x += x;
+    }
+
+    movePlayerY(y){
+        this.player.position.y += y; 
     }
 }
