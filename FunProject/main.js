@@ -137,8 +137,8 @@ function animate() {
         speedY *=-1;
     }
     
-    cube.position.x += speedX;
-    cube.position.y += speedY;
+    ball.position.x += speedX;
+    ball.position.y += speedY;
 
     player.position.y += speedPlayer;
 
