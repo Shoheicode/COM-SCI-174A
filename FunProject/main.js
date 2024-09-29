@@ -34,7 +34,7 @@ const ballGeometry = new THREE.CircleGeometry(radius, segments);
 const materialBall = new THREE.MeshBasicMaterial({ color: 0xffff00, side: THREE.DoubleSide });
 
 // Create a mesh
-const circle = new THREE.Mesh(ballGeometry, material);
+const circle = new THREE.Mesh(ballGeometry, materialBall);
 
 // Add the circle to the scene
 scene.add(circle);
