@@ -124,15 +124,15 @@ function animate() {
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
 
-    if(cube.position.x < -4.5){
+    if(ball.position.x < -4.5){
         speedX = Math.random()*0.09 + 0.01
-    }else if(cube.position.x > 4.5){
+    }else if(ball.position.x > 4.5){
         speedX = Math.random()*0.09 + 0.01
         speedX *=-1;
     }
-    if(cube.position.y < -2.5){
+    if(ball.position.y < -2.5){
         speedY = Math.random()*0.09 + 0.01
-    }else if(cube.position.y > 2.5){
+    }else if(ball.position.y > 2.5){
         speedY = Math.random()*0.09 + 0.01
         speedY *=-1;
     }
