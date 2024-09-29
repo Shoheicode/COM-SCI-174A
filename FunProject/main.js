@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+import {Player} from './player.js'
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -16,6 +17,8 @@ const materialPlayer = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 const player = new THREE.Mesh( geometryPlayer, materialPlayer );
 player.position.set(-5,0,0)
 scene.add( player );
+
+let a = new Player()
 
 const geometryPlayer2 = new THREE.BoxGeometry( 1, 2, 1 );
 const materialPlayer2 = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
