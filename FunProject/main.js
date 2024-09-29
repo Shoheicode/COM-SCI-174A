@@ -79,23 +79,23 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-let speed = 0;
+let speedPlayer = 0;
 
 document.body.addEventListener('keydown', (event) => {
     if(event.key == "ArrowDown"){
-        speed = -0.1;
+        speedPlayer = -0.1;
     }
     else if(event.key == "ArrowUp"){
-        speed = 0.1;
+        speedPlayer = 0.1;
     }
     else{
-        speed = 0;
+        speedPlayer = 0;
     }
 });
 
 document.body.addEventListener('keyup', (event) => {
     if(event.key == "ArrowDown" || event.key == "ArrowUp"){
-        speed = 0;
+        speedPlayer = 0;
     }
 });
 
@@ -112,6 +112,7 @@ function animate() {
 
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
+
     if(cube.position.x < -4.5){
         speedX = Math.random()*0.09 + 0.01
     }else if(cube.position.x > 4.5){
