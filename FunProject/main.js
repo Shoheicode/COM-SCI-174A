@@ -134,7 +134,7 @@ function animate() {
         player.position.y = 2.5;
     }
     else{
-        player.position.y += speed;
+        player.position.y += speedY;
     }
 
     renderer.render( scene, camera );
