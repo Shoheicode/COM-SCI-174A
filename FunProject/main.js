@@ -18,7 +18,13 @@ const player = new THREE.Mesh( geometryPlayer, materialPlayer );
 player.position.set(-5,0,0)
 scene.add( player );
 
-let a = new Player()
+const geometryPlay = new THREE.BoxGeometry( 1, 2, 1 );
+const materialPlay = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const play = new THREE.Mesh( geometryPlayer, materialPlayer );
+player.position.set(-5,0,0)
+scene.add( player );
+
+let a = new Player(play, 10, 0, 0)
 
 const geometryPlayer2 = new THREE.BoxGeometry( 1, 2, 1 );
 const materialPlayer2 = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
