@@ -90,8 +90,11 @@ document.body.appendChild( renderer.domElement );
 
 let speedPlayer = 0;
 
+let moveDown = false;
+
 document.body.addEventListener('keydown', (event) => {
     if(event.key == "ArrowDown"){
+        console.log(moveDown);
         speedPlayer = -0.1;
     }
     else if(event.key == "ArrowUp"){
@@ -142,6 +145,7 @@ function animate() {
 
     if (player.position.y < -2){
         player.position.y = -2;
+        moveDown = true;
     } else if(player.position.y > 2){
         player.position.y = 2;
     }
