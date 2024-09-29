@@ -30,6 +30,12 @@ const radius = 1; // Radius of the circle
 const segments = 32; // Number of segments to make the circle smooth
 const ballGeometry = new THREE.CircleGeometry(radius, segments);
 
+// Create a mesh
+const circle = new THREE.Mesh(ballGeometry, material);
+
+// Add the circle to the scene
+scene.add(circle);
+
 // Create a material
 const materialBall = new THREE.MeshBasicMaterial({ color: 0xffff00, side: THREE.DoubleSide });
 
