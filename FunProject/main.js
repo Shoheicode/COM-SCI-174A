@@ -139,13 +139,14 @@ function animate() {
     
     cube.position.x += speedX;
     cube.position.y += speedY;
+
     if (player.position.y < -2.5){
         player.position.y = -2.5;
     } else if(player.position.y > 2.5){
         player.position.y = 2.5;
     }
     else{
-        player.position.y += speedY;
+        player.position.y += speedPlayer;
     }
 
     renderer.render( scene, camera );
