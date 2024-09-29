@@ -145,15 +145,17 @@ function animate() {
     cube.position.x += speedX;
     cube.position.y += speedY;
 
-    if (player.position.y < -2){
+    if (player.position.y <= -2){
         player.position.y = -2;
         moveDown = false;
-    } else if(player.position.y > 2){
+    } else if(player.position.y >= 2){
         player.position.y = 2;
         moveUp = false;
     }
     else{
         player.position.y += speedPlayer;
+        moveUp = true;
+        moveDown = true;
     }
 
     renderer.render( scene, camera );
