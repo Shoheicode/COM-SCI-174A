@@ -36,9 +36,6 @@ const circle = new THREE.Mesh(ballGeometry, material);
 // Add the circle to the scene
 scene.add(circle);
 
-// Create a material
-const materialBall = new THREE.MeshBasicMaterial({ color: 0xffff00, side: THREE.DoubleSide });
-
 //Adding Line
 const materialLine = new THREE.LineBasicMaterial( { color: 0x0000ff } );
 
