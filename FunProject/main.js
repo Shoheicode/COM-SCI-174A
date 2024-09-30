@@ -118,10 +118,11 @@ function animate() {
     if(ball.position.x < -4.5){
         speedX = Math.random()*0.05 + 0.05
         if(speedY < 0){
-            speedY = Math.sqrt(1-speedX*speedX) * -1;
+
+            speedY = Math.sqrt(0.1-speedX*speedX) * -1;
         }
         else{
-            speedY = Math.sqrt(1-speedX*speedX);
+            speedY = Math.sqrt(0.1-speedX*speedX);
         }
     }else if(ball.position.x > 4.5){
         speedX = Math.random()*0.05 + 0.05
