@@ -8,6 +8,7 @@ function touchingPlayerBallTouch(player, ball, boxArea){
             return true;
         }
     }
+    return false;
 }
 
 export {touchingPlayerBallTouch};
