@@ -119,7 +119,6 @@ camera.position.set(0, 0, 10); // Where the camera is.
 controls.target.set(0, 0, 0); // Where the camera is looking towards.
 
 function animate() {
-	renderer.render( scene, camera );
 
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
