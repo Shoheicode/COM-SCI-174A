@@ -151,7 +151,7 @@ function animate() {
         player.position.y += speedPlayer;
     }
 
-    if(touchingPlayerBallTouch(player, ball)){
+    if(touchingPlayerBallTouch(player, ball, boxArea)){
         console.log("THEY ARE TOUCHING")
     }
 
