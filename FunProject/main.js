@@ -118,6 +118,7 @@ let speedCap = 0.1
 function animate() {
 
     if(ball.position.x < -4.5){
+        console.log(speedCap)
         speedX = Math.random()*(speedCap/2.0) + (speedCap/2.0)
         if(speedY < 0){
             speedY = Math.sqrt(Math.pow(speedCap,2)-speedX*speedX) * -1;
@@ -144,6 +145,7 @@ function animate() {
         player.position.y += speedPlayer;
     }
 
+    speedCap+=0.00001
     renderer.render( scene, camera );
 }
 renderer.setAnimationLoop( animate );
