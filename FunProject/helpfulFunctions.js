@@ -1,4 +1,4 @@
-function touchingEachOther(){
+function touchingEachOther(objA, objB){
 
 }
 
