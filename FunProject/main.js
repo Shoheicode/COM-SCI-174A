@@ -123,7 +123,7 @@ let speedCap = 0.1
 
 function animate() {
 
-    if(ball.position.x < -4.5){
+    if(ball.position.x < -(width/2-radius)){
         speedX = Math.random()*(speedCap/2.0) + (speedCap/2.0)
         if(speedY < 0){
             speedY = Math.sqrt(Math.pow(speedCap,2)-speedX*speedX) * -1;
@@ -133,13 +133,13 @@ function animate() {
             speedY = Math.sqrt(Math.pow(speedCap,2)-speedX*speedX);
             console.log("GOING DOWN", speedY)
         }
-    }else if(ball.position.x > 4.5){
+    }else if(ball.position.x >= (width/2-radius)){
         speedX = Math.random()*0.05 + 0.05
         speedX *=-1;
     }
-    if(ball.position.y < -2.5){
+    if(ball.position.y < -(height/2-radius)){
         speedY = Math.random()*0.05 + 0.05
-    }else if(ball.position.y > 2.5){
+    }else if(ball.position.y >= -(height/2-radius)){
         speedY = Math.random()*0.05 + 0.05
         speedY *=-1;
     }
