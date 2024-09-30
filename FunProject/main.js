@@ -138,8 +138,9 @@ function animate() {
     
     ball.position.x += speedX;
     ball.position.y += speedY;
-
-    player.position.y += speedPlayer;
+    if (player.position.y + speedPlayer <= 2 && player.position.y + speedPlayer >= -2){
+        player.position.y += speedPlayer;
+    }
 
     renderer.render( scene, camera );
 }
