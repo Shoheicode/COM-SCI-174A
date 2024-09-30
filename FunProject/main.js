@@ -152,7 +152,7 @@ function animate() {
     }
 
     if(touchingEachOther(player, ball)){
-        
+        console.log("THEY ARE TOUCHING")
     }
 
     speedCap+=0.00001
