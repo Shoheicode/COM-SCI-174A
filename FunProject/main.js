@@ -113,7 +113,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 camera.position.set(0, 0, 10); // Where the camera is.
 controls.target.set(0, 0, 0); // Where the camera is looking towards.
 
-speedCap = 0.1
+let speedCap = 0.1
 
 function animate() {
 
