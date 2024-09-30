@@ -7,11 +7,6 @@ import {Player} from './player.js'
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
-
 const geometryPlayer = new THREE.BoxGeometry( 1, 2, 1 );
 const materialPlayer = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 const player = new THREE.Mesh( geometryPlayer, materialPlayer );
@@ -119,9 +114,6 @@ camera.position.set(0, 0, 10); // Where the camera is.
 controls.target.set(0, 0, 0); // Where the camera is looking towards.
 
 function animate() {
-
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
 
     if(ball.position.x < -4.5){
         speedX = Math.random()*0.05 + 0.05
