@@ -49,12 +49,15 @@ scene.add(ball);
 //Adding Line
 const materialLine = new THREE.LineBasicMaterial( { color: 0x0000ff } );
 
+let width = 10;
+let height = 6
+
 const points = [];
-points.push( new THREE.Vector3( -5, -3, 0 ) );
-points.push( new THREE.Vector3( 5, -3, 0 ) );
-points.push( new THREE.Vector3( 5, 3, 0 ) );
-points.push( new THREE.Vector3( -5, 3, 0 ) );
-points.push( new THREE.Vector3( -5, -3, 0 ) );
+points.push( new THREE.Vector3( -width/2, -height/2, 0 ) );
+points.push( new THREE.Vector3( width/2, -height/2, 0 ) );
+points.push( new THREE.Vector3( width/2, height/2, 0 ) );
+points.push( new THREE.Vector3( -width/2, height/2, 0 ) );
+points.push( new THREE.Vector3( -width/2, -height/2, 0 ) );
 
 const geometryLine = new THREE.BufferGeometry().setFromPoints( points );
 
