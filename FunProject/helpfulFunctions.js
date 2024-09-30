@@ -1,5 +1,5 @@
-function touchingPlayerBallTouch(objA, objB){
-    if(objA.position.y < objB.position.y){
+function touchingPlayerBallTouch(player, ball){
+    if(player.position.y < ball.position.y){
         
     }
 }
