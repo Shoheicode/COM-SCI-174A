@@ -1,5 +1,7 @@
-function touchingEachOther(objA, objB){
-
+function touchingPlayerBallTouch(objA, objB){
+    if(objA.position.y < objB.position.y){
+        
+    }
 }
 
-export {touchingEachOther};
+export {touchingPlayerBallTouch};
