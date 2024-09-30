@@ -147,6 +147,10 @@ function animate() {
         player.position.y += speedPlayer;
     }
 
+    if(Math.abs((player.position.y + boxArea[1]) - ball.position.y) < 0.01){
+        console.log("touching")
+    }
+
     speedCap+=0.00001
     renderer.render( scene, camera );
 }
