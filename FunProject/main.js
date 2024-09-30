@@ -14,7 +14,7 @@ player.position.set(-5,0,0)
 scene.add( player );
 
 //Collions detection
-
+let boxArea = [0.5, 1, 0.5] // distance from the edges of the cube in length, width and height
 
 const geometryPlay = new THREE.BoxGeometry( 1, 2, 1 );
 const materialPlay = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
