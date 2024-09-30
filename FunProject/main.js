@@ -131,7 +131,7 @@ function animate() {
         }
         else{
             speedY = Math.sqrt(Math.pow(speedCap,2)-speedX*speedX);
-            console.log("GOING DOWN", speedY)
+            console.log("GOING UP", speedY)
         }
     }else if(ball.position.x > (width/2-radius)){
         speedX = Math.random()*0.05 + 0.05
