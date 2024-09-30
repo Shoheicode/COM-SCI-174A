@@ -1,0 +1,5 @@
+function touchingEachOther(){
+
+}
+
+export {touchingEachOther};
