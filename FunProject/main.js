@@ -151,6 +151,10 @@ function animate() {
         player.position.y += speedPlayer;
     }
 
+    if(touchingEachOther(player, ball)){
+        
+    }
+
     speedCap+=0.00001
     renderer.render( scene, camera );
 }
