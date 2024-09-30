@@ -15,6 +15,7 @@ scene.add( player );
 
 //Collions detection
 
+
 const geometryPlay = new THREE.BoxGeometry( 1, 2, 1 );
 const materialPlay = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 const play = new THREE.Mesh( geometryPlay, materialPlay );
