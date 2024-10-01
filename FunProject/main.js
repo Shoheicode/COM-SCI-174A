@@ -141,7 +141,7 @@ function animate() {
     if(ball.position.y < -(height/2-radius)){
         speedY = Math.random()*(speedCap/2.0) + (speedCap/2.0)
     }else if(ball.position.y > (height/2-radius)){
-        speedY = Math.random()*0.05 + 0.05
+        speedY = Math.random()*(speedCap/2.0) + (speedCap/2.0) 
         speedY *=-1;
     }
     
