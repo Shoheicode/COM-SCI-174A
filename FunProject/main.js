@@ -135,7 +135,7 @@ function animate() {
             console.log("GOING UP", speedY)
         }
     }else if(ball.position.x > (width/2-radius)){
-        speedX = Math.random()*0.05 + 0.05
+        speedX = Math.random()*(speedCap/2.0) + (speedCap/2.0)
         speedX *=-1;
     }
     if(ball.position.y < -(height/2-radius)){
@@ -152,7 +152,7 @@ function animate() {
     }
 
     if(touchingPlayerBallTouch(player, ball, boxArea)){
-        console.log("THEY ARE TOUCHING")
+        
     }
 
     speedCap+=0.00001
