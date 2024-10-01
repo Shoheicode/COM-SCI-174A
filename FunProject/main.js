@@ -126,14 +126,14 @@ function animate() {
 
     if(ball.position.x < -(width/2-radius)){
         speedX = Math.random()*(speedCap/2.0) + (speedCap/2.0)
-        if(speedY < 0){
-            speedY = Math.sqrt(Math.pow(speedCap,2)-speedX*speedX) * -1;
-            console.log("GOING DOWN", speedY)
-        }
-        else{
-            speedY = Math.sqrt(Math.pow(speedCap,2)-speedX*speedX);
-            console.log("GOING UP", speedY)
-        }
+        // if(speedY < 0){
+        //     speedY = Math.sqrt(Math.pow(speedCap,2)-speedX*speedX) * -1;
+        //     console.log("GOING DOWN", speedY)
+        // }
+        // else{
+        //     speedY = Math.sqrt(Math.pow(speedCap,2)-speedX*speedX);
+        //     console.log("GOING UP", speedY)
+        // }
     }else if(ball.position.x > (width/2-radius)){
         speedX = Math.random()*(speedCap/2.0) + (speedCap/2.0)
         speedX *=-1;
