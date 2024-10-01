@@ -152,7 +152,10 @@ function animate() {
     }
 
     if(touchingPlayerBallTouch(player, ball, boxArea)){
-        
+        speedX *=-1;
+        speedY *=-1;
+        ball.position.x += speedX;
+        ball.position.y += speedY;
     }
 
     speedCap+=0.00001
