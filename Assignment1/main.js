@@ -36,7 +36,7 @@ scene.add(zAxis);
 // Adding controls for the camera
 const controls = new OrbitControls(camera, renderer.domElement);
 camera.position.set(0, 5, 10); // Where the camera is.
-controls.target.set(0, 5, 0); // Where the camera is looking towards.
+controls.target.set(0, 0, 0); // Where the camera is looking towards.
 
 function animate() {
 	controls.update(); // This will update the camera position and target based on the user input.
