@@ -131,7 +131,7 @@ geometry.computeBoundingBox()
 
 const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
 const mesh = new THREE.Mesh(geometry, material)
-mesh.position.set(4, 1, 0)
+mesh.position.set(4, 10, 0)
 mesh.geometry.userData.obb = new OBB().fromBox3(
     mesh.geometry.boundingBox
 )
@@ -143,7 +143,7 @@ const mesh2 = new THREE.Mesh(
     geometry,
     new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true })
 )
-mesh2.position.set(-3, 1, 0)
+mesh2.position.set(-3, 10, 0)
 mesh2.geometry.userData.obb = new OBB().fromBox3(
     mesh2.geometry.boundingBox
 )
