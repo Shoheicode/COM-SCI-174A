@@ -167,6 +167,7 @@ function animate() {
         console.log("TOUCHING")
     } else {
         mesh.material.color.set(0x00ff00)
+        console.log("NO TOUCHING")
     }
 
     mesh.rotateY(0.01)
