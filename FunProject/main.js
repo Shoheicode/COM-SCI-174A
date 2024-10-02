@@ -187,7 +187,8 @@ function animate() {
         ballBB.center.add(new THREE.Vector3(speedCap, 0, 0))
         console.log(ballBB.center)
         if(ballBB.intersectsBox(boxBB)){
-            
+            console.log("STOP")
+            ball2.position.x = box.position.x - (1+2.5)
         }
         else{
             ball2.position.x+=speedCap;
