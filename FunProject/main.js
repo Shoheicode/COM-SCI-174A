@@ -159,6 +159,8 @@ const materialBall2 = new THREE.MeshBasicMaterial({ color: 0xffff00, side: THREE
 // Create a mesh
 const ball2 = new THREE.Mesh(ballGeometry2, materialBall2);
 
+const clock = new THREE.Clock()
+
 function animate() {
     mesh.position.x = Math.sin(clock.getElapsedTime() * 0.5) * 4
 
