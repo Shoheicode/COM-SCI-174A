@@ -187,7 +187,7 @@ function animate() {
         ballBB.center.add(new THREE.Vector3(speedCap, 0, 0))
         console.log(ballBB.center)
         if(ballBB.intersectsBox(boxBB)){
-            console.log("STOPPING BEFORE GOING INSIDE")
+            
         }
         else{
             ball2.position.x+=speedCap;
