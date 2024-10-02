@@ -182,6 +182,7 @@ function animate() {
     // Check for intersection
     if (ballBB.intersectsBox(boxBB)) {
         console.log("Intersection detected!");
+        ball2.material.color.set(0xff0000)
     }
 
     ball2.position.x+=0.01;
