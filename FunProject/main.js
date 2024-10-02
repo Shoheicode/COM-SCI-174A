@@ -132,7 +132,7 @@ const mesh2 = new THREE.Mesh(
 )
 mesh2.position.set(-3, 1, 0)
 mesh2.geometry.userData.obb = new OBB().fromBox3(
-    mesh2.geometry.boundingBox as THREE.Box3
+    mesh2.geometry.boundingBox
 )
 
 function animate() {
