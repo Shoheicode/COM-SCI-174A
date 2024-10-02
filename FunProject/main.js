@@ -130,7 +130,7 @@ const geometry = new THREE.BoxGeometry(1, 2, 3)
 geometry.computeBoundingBox()
 
 geometry.computeBoundingBox()
-const material = new THREE.MeshPhongMaterial()
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
 const mesh = new THREE.Mesh(geometry, material)
 mesh.position.set(4, 1, 0)
 mesh.geometry.userData.obb = new OBB().fromBox3(
