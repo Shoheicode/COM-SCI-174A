@@ -136,7 +136,7 @@ mesh2.position.set(-3, 1, 0)
 mesh2.geometry.userData.obb = new OBB().fromBox3(
     mesh2.geometry.boundingBox
 )
-
+mesh2.userData.obb = new OBB()
 scene.add(mesh2)
 
 function animate() {
