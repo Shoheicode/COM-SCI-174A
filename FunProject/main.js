@@ -124,7 +124,14 @@ let speedCap = 0.1
 
 
 //Adding in temporary mesh for testing purposes
-
+const mesh2 = new THREE.Mesh(
+    geometry,
+    new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true })
+)
+mesh2.position.set(-3, 1, 0)
+mesh2.geometry.userData.obb = new OBB().fromBox3(
+    mesh2.geometry.boundingBox as THREE.Box3
+)
 
 function animate() {
 
