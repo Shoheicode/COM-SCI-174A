@@ -146,15 +146,15 @@ function animate() {
     }
 
     if(touchingPlayerBallTouch(player, ball, boxArea)){
-        speedX *=-1;
-        speedY *=-1;
-        ball.position.x += speedX;
-        ball.position.y += speedY;
+        // speedX *=-1;
+        // speedY *=-1;
+        // ball.position.x += speedX;
+        // ball.position.y += speedY;
         speedX = 0;
         speedY = 0;
         
         console.log("TOUCHING PLAYERS")
-        console.log("TOUCHING PLAYERS")
+        console.log(player.position.x)
         console.log("TOUCHING PLAYERS")
     }
     else{
