@@ -122,7 +122,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 camera.position.set(0, 0, 10); // Where the camera is.
 controls.target.set(0, 0, 0); // Where the camera is looking towards.
 
-let speedCap = 0.1
+let speedCap = 1
 
 
 //Adding in temporary mesh for testing purposes
@@ -152,7 +152,7 @@ scene.add(mesh2)
 
 // Create the ball
 const ballGeometry2 = new THREE.SphereGeometry(1, 32, 32);
-const ballMaterial2 = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const ballMaterial2 = new THREE.MeshBasicMaterial({ color: 0xffff00 });
 const ball2 = new THREE.Mesh(ballGeometry2, ballMaterial2);
 ball2.position.set(-5, 10, 0)
 scene.add(ball2);
@@ -176,16 +176,23 @@ function animate() {
     controls.update()
 
     // Update bounding volumes
-    ballBB.center.copy(ball.position);
+    ballBB.center.copy(ball2.position);
     boxBB.setFromObject(box);
 
     // Check for intersection
     if (ballBB.intersectsBox(boxBB)) {
         console.log("Intersection detected!");
-        ball2.material.color.set(0xff0000)
+    }else{
+        console.log(ballBB.center)
+        ballBB.center.add(new THREE.Vector3(speedCap, 0, 0))
+        console.log(ballBB.center)
+        if(ballBB.intersectsBox(boxBB)){
+            console.log("STOPPING BEFORE GOING INSIDE")
+        }
+        else{
+            ball2.position.x+=speedCap;
+        }
     }
-
-    ball2.position.x+=0.01;
 
     mesh.userData.obb.copy(mesh.geometry.userData.obb)
     mesh2.userData.obb.copy(mesh2.geometry.userData.obb)
@@ -195,13 +202,6 @@ function animate() {
         mesh.material.color.set(0xff0000)
     } else {
         mesh.material.color.set(0x00ff00)
-    }
-
-    if (mesh.userData.obb.intersectsSphere(ball2.geometry)) {
-        ball2.material.color.set(0xff0000)
-        console.log("TOUCHING")
-    } else {
-        ball2.material.color.set(0x00ff00)
     }
 
     mesh.rotateY(0.01)
