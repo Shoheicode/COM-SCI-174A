@@ -149,6 +149,18 @@ mesh2.geometry.userData.obb = new OBB().fromBox3(
 )
 mesh2.userData.obb = new OBB()
 scene.add(mesh2)
+const ballGeo = new THREE.SphereGeometry(radius, segments, 32);
+ballGeo.computeBoundingBox()
+const mesh3 = new THREE.Mesh(
+    ballGeo,
+    new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true })
+)
+mesh3.position.set(-3, 10, 0)
+mesh3.geometry.userData.obb = new OBB().fromBox3(
+    mesh3.geometry.boundingBox
+)
+mesh2.userData.obb = new OBB()
+scene.add(mesh3)
 
 const clock = new THREE.Clock()
 
