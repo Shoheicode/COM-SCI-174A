@@ -146,10 +146,10 @@ function animate() {
     }
 
     if(touchingPlayerBallTouch(player, ball, boxArea)){
-        // speedX *=-1;
-        // speedY *=-1;
-        // ball.position.x += speedX;
-        // ball.position.y += speedY;
+        speedX *=-1;
+        speedY *=-1;
+        ball.position.x += speedX;
+        ball.position.y += speedY;
         speedX = 0;
         speedY = 0;
         
@@ -157,9 +157,10 @@ function animate() {
         console.log("TOUCHING PLAYERS")
         console.log("TOUCHING PLAYERS")
     }
-    
-    ball.position.x += speedX;
-    ball.position.y += speedY;
+    else{
+        ball.position.x += speedX;
+        ball.position.y += speedY;
+    }
     if (player.position.y + speedPlayer <= 2 && player.position.y + speedPlayer >= -2){
         player.position.y += speedPlayer;
     }
