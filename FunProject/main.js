@@ -151,7 +151,7 @@ mesh2.geometry.userData.obb = new OBB().fromBox3(
 mesh2.userData.obb = new OBB()
 scene.add(mesh2)
 
-const stats = new Stats()
+const clock = new THREE.Clock()
 
 function animate() {
 
