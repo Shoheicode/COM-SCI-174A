@@ -154,6 +154,22 @@ scene.add(mesh2)
 const clock = new THREE.Clock()
 
 function animate() {
+    mesh.position.x = Math.sin(clock.getElapsedTime() * 0.5) * 4
+
+    controls.update()
+
+    mesh.userData.obb.copy(mesh.geometry.userData.obb)
+    mesh2.userData.obb.copy(mesh2.geometry.userData.obb)
+    mesh.userData.obb.applyMatrix4(mesh.matrixWorld)
+    mesh2.userData.obb.applyMatrix4(mesh2.matrixWorld)
+    if (mesh.userData.obb.intersectsOBB(mesh2.userData.obb)) {
+        mesh.material.color.set(0xff0000)
+    } else {
+        mesh.material.color.set(0x00ff00)
+    }
+
+    mesh.rotateY(0.01)
+    mesh2.rotateY(-0.005)
 
     if(ball.position.x < -(width/2-radius)){
         speedX = Math.random()*(speedCap/2.0) + (speedCap/2.0)
