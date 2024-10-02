@@ -158,6 +158,7 @@ function animate() {
         ball.position.x += speedX;
         ball.position.y += speedY;
     }
+    
     if (player.position.y + speedPlayer <= 2 && player.position.y + speedPlayer >= -2){
         player.position.y += speedPlayer;
     }
