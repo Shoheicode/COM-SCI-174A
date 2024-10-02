@@ -159,6 +159,10 @@ const materialBall2 = new THREE.MeshBasicMaterial({ color: 0xffff00, side: THREE
 // Create a mesh
 const ball2 = new THREE.Mesh(ballGeometry2, materialBall2);
 
+ball2.position.set(-3, 10, 0)
+
+scene.add(ball2)
+
 const clock = new THREE.Clock()
 
 function animate() {
@@ -178,11 +182,11 @@ function animate() {
         console.log("NO TOUCHING")
     }
 
-    if (mesh.userData.obb.intersectsSphere(ball2)) {
-        mesh3.material.color.set(0xff0000)
+    if (mesh.userData.obb.intersectsSphere(ball2.geometry)) {
+        ball2.material.color.set(0xff0000)
         console.log("TOUCHING")
     } else {
-        mesh3.material.color.set(0x00ff00)
+        ball2.material.color.set(0x00ff00)
         console.log("NO TOUCHING")
     }
 
