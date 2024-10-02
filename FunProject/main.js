@@ -186,7 +186,7 @@ function animate() {
         console.log("Intersection detected!");
         speedX *= -1;
         ball2.position.x += speedX2;
-
+        
     }else{
         console.log(ballBB.center)
         ballBB.center.add(new THREE.Vector3(speedX2, speedY2, 0))
