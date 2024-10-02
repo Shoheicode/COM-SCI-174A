@@ -151,6 +151,8 @@ mesh2.geometry.userData.obb = new OBB().fromBox3(
 mesh2.userData.obb = new OBB()
 scene.add(mesh2)
 
+const stats = new Stats()
+
 function animate() {
 
     if(ball.position.x < -(width/2-radius)){
