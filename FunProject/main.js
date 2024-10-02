@@ -170,6 +170,9 @@ const boxBB = new THREE.Box3().setFromObject(box);
 
 const clock = new THREE.Clock()
 
+speedX2 = 0.5
+speedY2 = 0
+
 function animate() {
 
     controls.update()
@@ -181,16 +184,19 @@ function animate() {
     // Check for intersection
     if (ballBB.intersectsBox(boxBB)) {
         console.log("Intersection detected!");
+        
+        ball2.position.x += 
     }else{
         console.log(ballBB.center)
-        ballBB.center.add(new THREE.Vector3(speedCap, 0, 0))
+        ballBB.center.add(new THREE.Vector3(speedX2, speedY2, 0))
         console.log(ballBB.center)
         if(ballBB.intersectsBox(boxBB)){
             console.log("STOP")
             ball2.position.x = box.position.x - (1+2.5)
         }
         else{
-            ball2.position.x+=0.5;
+            ball2.position.x+= speedX;
+            ball2.position.y +=speedY;
         }
     }
 
