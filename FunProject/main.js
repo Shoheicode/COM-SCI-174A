@@ -122,7 +122,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 camera.position.set(0, 0, 10); // Where the camera is.
 controls.target.set(0, 0, 0); // Where the camera is looking towards.
 
-let speedCap = 1
+let speedCap = 0.1
 
 
 //Adding in temporary mesh for testing purposes
@@ -170,7 +170,7 @@ const boxBB = new THREE.Box3().setFromObject(box);
 
 const clock = new THREE.Clock()
 
-let speedX2 = 0.5
+let speedX2 = 0.1
 let speedY2 = 0
 
 function animate() {
@@ -184,9 +184,9 @@ function animate() {
     // Check for intersection
     if (ballBB.intersectsBox(boxBB)) {
         console.log("Intersection detected!");
-        speedX *= -1;
+        speedX2 *= -1;
         ball2.position.x += speedX2;
-        
+
     }else{
         console.log(ballBB.center)
         ballBB.center.add(new THREE.Vector3(speedX2, speedY2, 0))
@@ -196,7 +196,7 @@ function animate() {
             ball2.position.x = box.position.x - (1+2.5)
         }
         else{
-            ball2.position.x+= speedX2;
+            ball2.position.x += speedX2;
             ball2.position.y +=speedY2;
         }
     }
@@ -241,7 +241,6 @@ function animate() {
         player.position.y += speedPlayer;
     }
 
-    // speedCap+=0.00001
     renderer.render( scene, camera );
 }
 renderer.setAnimationLoop( animate );
