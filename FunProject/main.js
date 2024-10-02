@@ -190,10 +190,6 @@ function animate() {
         speedX *=-1;
         ball.position.x += speedX;
         ball.position.y += speedY;
-        
-        console.log("TOUCHING PLAYERS")
-        console.log("PLAYER: " + player.position.x)
-        console.log("BALL X: " + ball.position.x)
     }
     else{
         ball.position.x += speedX;
