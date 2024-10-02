@@ -155,7 +155,7 @@ function animate() {
         
         console.log("TOUCHING PLAYERS")
         console.log("PLAYER: " + player.position.x)
-        console.log("TOUCHING PLAYERS")
+        console.log("BALL X: " + ball.position.x)
     }
     else{
         ball.position.x += speedX;
