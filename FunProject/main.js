@@ -134,7 +134,7 @@ const material = new THREE.MeshPhongMaterial()
 const mesh = new THREE.Mesh(geometry, material)
 mesh.position.set(4, 1, 0)
 mesh.geometry.userData.obb = new OBB().fromBox3(
-    mesh.geometry.boundingBox as THREE.Box3
+    mesh.geometry.boundingBox
 )
 
 const mesh2 = new THREE.Mesh(
