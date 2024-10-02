@@ -137,6 +137,9 @@ mesh.geometry.userData.obb = new OBB().fromBox3(
     mesh.geometry.boundingBox
 )
 
+mesh.userData.obb = new OBB()
+scene.add(mesh)
+
 const mesh2 = new THREE.Mesh(
     geometry,
     new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true })
