@@ -154,7 +154,7 @@ function animate() {
         speedY = 0;
         
         console.log("TOUCHING PLAYERS")
-        console.log(player.position.x)
+        console.log("PLAYER: " + player.position.x)
         console.log("TOUCHING PLAYERS")
     }
     else{
