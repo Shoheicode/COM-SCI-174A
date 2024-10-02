@@ -122,6 +122,10 @@ controls.target.set(0, 0, 0); // Where the camera is looking towards.
 
 let speedCap = 0.1
 
+
+//Adding in temporary mesh for testing purposes
+
+
 function animate() {
 
     if(ball.position.x < -(width/2-radius)){
@@ -158,7 +162,7 @@ function animate() {
         ball.position.x += speedX;
         ball.position.y += speedY;
     }
-    
+
     if (player.position.y + speedPlayer <= 2 && player.position.y + speedPlayer >= -2){
         player.position.y += speedPlayer;
     }
