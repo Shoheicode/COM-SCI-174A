@@ -175,6 +175,17 @@ function animate() {
 
     controls.update()
 
+    // Update bounding volumes
+    ballBB.center.copy(ball.position);
+    boxBB.setFromObject(box);
+
+    // Check for intersection
+    if (ballBB.intersectsBox(boxBB)) {
+        console.log("Intersection detected!");
+    }
+
+    ball2.position.x+=0.01;
+
     mesh.userData.obb.copy(mesh.geometry.userData.obb)
     mesh2.userData.obb.copy(mesh2.geometry.userData.obb)
     mesh.userData.obb.applyMatrix4(mesh.matrixWorld)
