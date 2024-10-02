@@ -171,7 +171,6 @@ const boxBB = new THREE.Box3().setFromObject(box);
 const clock = new THREE.Clock()
 
 function animate() {
-    mesh.position.x = Math.sin(clock.getElapsedTime() * 0.5) * 4
 
     controls.update()
 
@@ -191,7 +190,7 @@ function animate() {
             ball2.position.x = box.position.x - (1+2.5)
         }
         else{
-            ball2.position.x+=speedCap;
+            ball2.position.x+=0.5;
         }
     }
 
@@ -235,7 +234,7 @@ function animate() {
         player.position.y += speedPlayer;
     }
 
-    speedCap+=0.00001
+    // speedCap+=0.00001
     renderer.render( scene, camera );
 }
 renderer.setAnimationLoop( animate );
