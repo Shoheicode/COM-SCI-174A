@@ -128,6 +128,15 @@ let speedCap = 0.1
 //Adding in temporary mesh for testing purposes
 const geometry = new THREE.BoxGeometry(1, 2, 3)
 geometry.computeBoundingBox()
+
+geometry.computeBoundingBox()
+const material = new THREE.MeshPhongMaterial()
+const mesh = new THREE.Mesh(geometry, material)
+mesh.position.set(4, 1, 0)
+mesh.geometry.userData.obb = new OBB().fromBox3(
+    mesh.geometry.boundingBox as THREE.Box3
+)
+
 const mesh2 = new THREE.Mesh(
     geometry,
     new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true })
