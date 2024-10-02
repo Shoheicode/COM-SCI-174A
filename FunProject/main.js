@@ -181,6 +181,14 @@ function animate() {
         console.log("NO TOUCHING")
     }
 
+    if (mesh.userData.obb.intersectsOBB(mesh3.userData.obb)) {
+        mesh3.material.color.set(0xff0000)
+        console.log("TOUCHING")
+    } else {
+        mesh3.material.color.set(0x00ff00)
+        console.log("NO TOUCHING")
+    }
+
     mesh.rotateY(0.01)
     mesh2.rotateY(-0.005)
 
