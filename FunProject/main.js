@@ -156,6 +156,7 @@ function animate() {
         speedY *=-1;
         ball.position.x += speedX;
         ball.position.y += speedY;
+        console.log("TOUCHING PLAYERS")
     }
 
     speedCap+=0.00001
