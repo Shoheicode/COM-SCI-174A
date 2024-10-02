@@ -150,7 +150,7 @@ mesh2.geometry.userData.obb = new OBB().fromBox3(
 mesh2.userData.obb = new OBB()
 scene.add(mesh2)
 const ballGeo = new THREE.SphereGeometry(radius, segments, 32);
-ballGeo.computeBoundingBox()
+ballGeo.computeBoundingSphere()
 const mesh3 = new THREE.Mesh(
     ballGeo,
     new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true })
