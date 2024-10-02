@@ -164,6 +164,7 @@ function animate() {
     mesh2.userData.obb.applyMatrix4(mesh2.matrixWorld)
     if (mesh.userData.obb.intersectsOBB(mesh2.userData.obb)) {
         mesh.material.color.set(0xff0000)
+        console.log("TOUCHING")
     } else {
         mesh.material.color.set(0x00ff00)
     }
