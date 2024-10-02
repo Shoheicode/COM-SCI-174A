@@ -150,18 +150,17 @@ mesh2.geometry.userData.obb = new OBB().fromBox3(
 mesh2.userData.obb = new OBB()
 scene.add(mesh2)
 
-// Create a circle geometry
-const ballGeometry2 = new THREE.SphereGeometry(radius, segments, 32);
+// Create the ball
+const ballGeometry2 = new THREE.SphereGeometry(1, 32, 32);
+const ballMaterial2 = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const ball2 = new THREE.Mesh(ballGeometry2, ballMaterial2);
+scene.add(ball);
 
-// Create a material
-const materialBall2 = new THREE.MeshBasicMaterial({ color: 0xffff00, side: THREE.DoubleSide });
-
-// Create a mesh
-const ball2 = new THREE.Mesh(ballGeometry2, materialBall2);
-
-ball2.position.set(-3, 10, 0)
-
-scene.add(ball2)
+// Create the box
+const boxGeometry = new THREE.BoxGeometry(5, 5, 5);
+const boxMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const box = new THREE.Mesh(boxGeometry, boxMaterial);
+scene.add(box);
 
 const clock = new THREE.Clock()
 
@@ -176,10 +175,8 @@ function animate() {
     mesh2.userData.obb.applyMatrix4(mesh2.matrixWorld)
     if (mesh.userData.obb.intersectsOBB(mesh2.userData.obb)) {
         mesh.material.color.set(0xff0000)
-        console.log("TOUCHING")
     } else {
         mesh.material.color.set(0x00ff00)
-        console.log("NO TOUCHING")
     }
 
     if (mesh.userData.obb.intersectsSphere(ball2.geometry)) {
@@ -187,7 +184,6 @@ function animate() {
         console.log("TOUCHING")
     } else {
         ball2.material.color.set(0x00ff00)
-        console.log("NO TOUCHING")
     }
 
     mesh.rotateY(0.01)
