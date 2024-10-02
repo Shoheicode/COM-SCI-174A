@@ -144,19 +144,19 @@ function animate() {
         speedY = Math.random()*(speedCap/2.0) + (speedCap/2.0) 
         speedY *=-1;
     }
+
+    if(touchingPlayerBallTouch(player, ball, boxArea)){
+        // speedX *=-1;
+        // speedY *=-1;
+        // ball.position.x += speedX;
+        // ball.position.y += speedY;
+        console.log("TOUCHING PLAYERS")
+    }
     
     ball.position.x += speedX;
     ball.position.y += speedY;
     if (player.position.y + speedPlayer <= 2 && player.position.y + speedPlayer >= -2){
         player.position.y += speedPlayer;
-    }
-
-    if(touchingPlayerBallTouch(player, ball, boxArea)){
-        speedX *=-1;
-        speedY *=-1;
-        ball.position.x += speedX;
-        ball.position.y += speedY;
-        console.log("TOUCHING PLAYERS")
     }
 
     speedCap+=0.00001
