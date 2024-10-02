@@ -126,6 +126,8 @@ let speedCap = 0.1
 
 
 //Adding in temporary mesh for testing purposes
+const geometry = new THREE.BoxGeometry(1, 2, 3)
+geometry.computeBoundingBox()
 const mesh2 = new THREE.Mesh(
     geometry,
     new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true })
