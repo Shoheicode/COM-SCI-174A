@@ -150,6 +150,11 @@ function animate() {
         // speedY *=-1;
         // ball.position.x += speedX;
         // ball.position.y += speedY;
+        speedX = 0;
+        speedY = 0;
+        
+        console.log("TOUCHING PLAYERS")
+        console.log("TOUCHING PLAYERS")
         console.log("TOUCHING PLAYERS")
     }
     
