@@ -170,7 +170,7 @@ const boxBB = new THREE.Box3().setFromObject(box);
 
 const clock = new THREE.Clock()
 
-let speedX2 = 0.1
+let speedX2 = 0.5
 let speedY2 = 0
 
 function animate() {
