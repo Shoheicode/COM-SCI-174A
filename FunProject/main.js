@@ -154,13 +154,19 @@ scene.add(mesh2)
 const ballGeometry2 = new THREE.SphereGeometry(1, 32, 32);
 const ballMaterial2 = new THREE.MeshBasicMaterial({ color: 0xff0000 });
 const ball2 = new THREE.Mesh(ballGeometry2, ballMaterial2);
+ball2.position.set(-5, 10, 0)
 scene.add(ball);
 
 // Create the box
 const boxGeometry = new THREE.BoxGeometry(5, 5, 5);
 const boxMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 const box = new THREE.Mesh(boxGeometry, boxMaterial);
+box.position.set(0, 10, 0)
 scene.add(box);
+
+// Set up bounding volumes
+const ballBB = new THREE.Sphere(new THREE.Vector3(), 1);
+const boxBB = new THREE.Box3().setFromObject(box);
 
 const clock = new THREE.Clock()
 
