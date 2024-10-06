@@ -77,8 +77,16 @@ const positions = new Float32Array([
      l, -l, l, // 15
   
     // Right face
+    l, -l, -l, // 16
+    l, -l,  l, // 17
+    l,  l,  l, // 18
+    l,  l, -l, // 19
 
      // Back face
+     -l, -l, -l, // 20
+     l, -l,  -l, // 21
+     l,  l,  -l, // 22
+    -l,  l,  -l, // 23
   ]);
   
   const indices = [
@@ -99,8 +107,12 @@ const positions = new Float32Array([
     12, 14, 15,
 
     // Right face
+    16, 17, 18,
+    16, 18, 19,
 
     // Back face
+    20, 21, 22,
+    20, 22, 23,
   ];
   
   // Compute normals
@@ -130,8 +142,16 @@ const positions = new Float32Array([
     0, -1, 0,
   
     // Right face
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
 
     // Back face
+    0, 0, -1,
+    0, 0, -1,
+    0, 0, -1,
+    0, 0, -1,
   ]);
 
 const custom_cube_geometry = new THREE.BufferGeometry();
