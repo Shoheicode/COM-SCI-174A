@@ -65,6 +65,10 @@ const positions = new Float32Array([
     -l,  l, -l, // 7
   
     // Top face
+    -l, l, l, // 8
+    -l, l, -l, // 9
+     l, l, -l, // 10 
+     l, l, l, // 11
   
     // Bottom face
   
@@ -83,6 +87,8 @@ const positions = new Float32Array([
     4, 6, 7,
   
     // Top face
+    8, 9, 10,
+    8, 10, 11,
   
     // Bottom face
   
@@ -106,6 +112,10 @@ const positions = new Float32Array([
     -1, 0, 0,
   
     // Top face
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
   
     // Bottom face
   
