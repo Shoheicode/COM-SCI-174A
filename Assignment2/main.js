@@ -99,16 +99,16 @@ const positions = new Float32Array([
     4, 6, 7,
   
     // Top face
-    8, 9, 10,
-    8, 10, 11,
+    11, 10, 9,
+    11, 9, 8,
   
     // Bottom face
     12, 13, 14,
     12, 14, 15,
 
     // Right face
-    16, 17, 18,
-    16, 18, 19,
+    19, 18, 17,
+    19, 17, 16,
 
     // Back face
     20, 21, 22,
