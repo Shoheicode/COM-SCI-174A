@@ -111,9 +111,11 @@ const positions = new Float32Array([
     19, 17, 16,
 
     // Back face
-    20, 21, 22,
-    20, 22, 23,
+    23, 22, 21,
+    23, 21, 20,
   ];
+
+  //ASK WHY THE ORDER CHANGES FOR TOP, RIGHT, AND BACK FACE. I KNOW IT HAS TO DO WITH NORMAL VECTOR
   
   // Compute normals
   const normals = new Float32Array([
