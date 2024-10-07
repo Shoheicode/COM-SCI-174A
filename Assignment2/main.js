@@ -178,8 +178,9 @@ function translationMatrix(tx, ty, tz) {
 // TODO: Implement the other transformation functions.
 function rotationMatrixZ(theta) {
 	return new THREE.Matrix4().set(
-    Math.cos(theta), -Math.sin(theta), 0, 0
-    Math.cos(theta), -Math.sin(theta),
+    Math.cos(theta), -Math.sin(theta), 0, 0,
+    Math.cos(theta), -Math.sin(theta), 0, 0,
+    
 	);
 }
 
