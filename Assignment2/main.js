@@ -189,7 +189,10 @@ for (let i = 0; i < 7; i++) {
 // TODO: Transform cubes
 const translation = translationMatrix(0, 2*l, 0);
 let model_transformation = new THREE.Matrix4();
-
+for (let i = 0; i < cubes.length; i++) {
+	  cubes[i].setMatrix(model_transformation);
+    model_transformation.multiplyMatrices(translation, model_transformation);
+}
 
 
 function animate() {
