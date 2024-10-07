@@ -178,7 +178,7 @@ function translationMatrix(tx, ty, tz) {
 // TODO: Implement the other transformation functions.
 function rotationMatrixZ(theta) {
 	return new THREE.Matrix4().set(
-    Math.cos(theta), -Math.sin(theta), 0, 0,
+    Math.cos(theta), -Math.sin(theta), 0, 0.5,
     Math.sin(theta), Math.cos(theta), 0, 0,
     0, 0, 1, 0,
     0, 0, 0, 1
@@ -188,7 +188,7 @@ function rotationMatrixZ(theta) {
 function scalingMatrix(sx, sy, sz) {
   return new THREE.Matrix4().set(
     sx, 0, 0, 0,
-		0,sy, 0, 0,
+		0, sy, 0, 0,
 		0, 0, sz, 0,
 		0, 0, 0, 1
   );
@@ -204,9 +204,19 @@ for (let i = 0; i < 7; i++) {
 
 console.log(cubes);
 
+//Scale the cubes
+const scale = scalingMatrix(1.0, 1.5, 1.0)
+let model_transformation = new THREE.Matrix4();
+model_transformation = scale
+for (let i = 0; i < cubes.length; i++) {
+  console.log(cubes[i])
+  cubes[i].applyMatrix4(model_transformation);
+  cubes[i].updateMatrix();
+}
+
 // TODO: Transform cubes
 const translation = translationMatrix(0, 2*l, 0);
-let model_transformation = new THREE.Matrix4();
+model_transformation = new THREE.Matrix4();
 for (let i = 0; i < cubes.length; i++) {
     console.log(cubes[i])
 	  cubes[i].applyMatrix4(model_transformation);
@@ -214,8 +224,8 @@ for (let i = 0; i < cubes.length; i++) {
     cubes[i].updateMatrix();
 }
 
-//Scale the cubes
-const sclae = rotationMatrixZ(1 * (Math.PI/180.0))
+//Rotate the cubes
+const rotation = rotationMatrixZ(1 * (Math.PI/180.0))
 model_transformation = new THREE.Matrix4();
 for (let i = 0; i < cubes.length; i++) {
   console.log(cubes[i])
@@ -223,16 +233,6 @@ for (let i = 0; i < cubes.length; i++) {
   model_transformation.multiplyMatrices(rotation, model_transformation);
   cubes[i].updateMatrix();
 }
-
-// //Rotate the cubes
-// const rotation = rotationMatrixZ(1 * (Math.PI/180.0))
-// model_transformation = new THREE.Matrix4();
-// for (let i = 0; i < cubes.length; i++) {
-//   console.log(cubes[i])
-//   cubes[i].applyMatrix4(model_transformation);
-//   model_transformation.multiplyMatrices(rotation, model_transformation);
-//   cubes[i].updateMatrix();
-// }
 
 
 function animate() {
