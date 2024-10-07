@@ -186,12 +186,16 @@ for (let i = 0; i < 7; i++) {
 	scene.add(cube);
 }
 
+console.log(cubes);
+
 // TODO: Transform cubes
-const translation = translationMatrix(0, 2*l, 0);
+const translation = translationMatrix(0, 2*l+0.1, 0);
 let model_transformation = new THREE.Matrix4();
 for (let i = 0; i < cubes.length; i++) {
-	  cubes[i].setMatrix(model_transformation);
+    console.log(cubes[i])
+	  cubes[i].applyMatrix4(model_transformation);
     model_transformation.multiplyMatrices(translation, model_transformation);
+    cubes[i].updateMatrix();
 }
 
 
