@@ -166,7 +166,7 @@ scene.add(cube);
 
 // TODO: Implement wireframe geometry
 
-
+//translation matrix
 function translationMatrix(tx, ty, tz) {
 	return new THREE.Matrix4().set(
 		1, 0, 0, tx,
@@ -228,7 +228,6 @@ for (let i = 0; i < cubes.length; i++) {
 const rotation = rotationMatrixZ(20 * (Math.PI/180.0))
 model_transformation = rotation
 for (let i = 0; i < cubes.length; i++) {
-  console.log(cubes[i])
   cubes[i].applyMatrix4(model_transformation);
   //model_transformation.multiplyMatrices(rotation, model_transformation);
   cubes[i].updateMatrix();
