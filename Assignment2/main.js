@@ -219,13 +219,13 @@ const translation = translationMatrix(0, 2*l, 0); // Translate 2l units in the y
 model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
 for (let i = 0; i < cubes.length; i++) {
 	cubes[i].applyMatrix4(model_transformation)
-    model_transformation.multiplyMatrices(translation, model_transformation);
+  model_transformation.multiplyMatrices(translation, model_transformation);
 }
 
 // //Rotate the cubes
 let angle = 10.0 * (Math.PI/180.0)
 model_transformation = new THREE.Matrix4();
-for (let i = 1; i < cubes.length; i++) {
+for (let i = 0; i < cubes.length; i++) {
   const translateX = -Math.sin(angle)*1;
   const translateY = Math.cos(angle)*1;
 
