@@ -214,7 +214,7 @@ for (let i = 0; i < cubes.length; i++) {
     cubes[i].updateMatrix();
 }
 
-//Rotate the cubes
+//Scale the cubes
 const sclae = rotationMatrixZ(1 * (Math.PI/180.0))
 model_transformation = new THREE.Matrix4();
 for (let i = 0; i < cubes.length; i++) {
@@ -224,15 +224,15 @@ for (let i = 0; i < cubes.length; i++) {
   cubes[i].updateMatrix();
 }
 
-//Rotate the cubes
-const rotation = rotationMatrixZ(1 * (Math.PI/180.0))
-model_transformation = new THREE.Matrix4();
-for (let i = 0; i < cubes.length; i++) {
-  console.log(cubes[i])
-  cubes[i].applyMatrix4(model_transformation);
-  model_transformation.multiplyMatrices(rotation, model_transformation);
-  cubes[i].updateMatrix();
-}
+// //Rotate the cubes
+// const rotation = rotationMatrixZ(1 * (Math.PI/180.0))
+// model_transformation = new THREE.Matrix4();
+// for (let i = 0; i < cubes.length; i++) {
+//   console.log(cubes[i])
+//   cubes[i].applyMatrix4(model_transformation);
+//   model_transformation.multiplyMatrices(rotation, model_transformation);
+//   cubes[i].updateMatrix();
+// }
 
 
 function animate() {
