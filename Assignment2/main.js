@@ -226,7 +226,7 @@ for (let i = 0; i < cubes.length; i++) {
 
 //Rotate the cubes
 const rotation = rotationMatrixZ(20 * (Math.PI/180.0))
-model_transformation = new THREE.Matrix4();
+model_transformation = rotation
 for (let i = 0; i < cubes.length; i++) {
   console.log(cubes[i])
   cubes[i].applyMatrix4(model_transformation);
