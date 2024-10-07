@@ -224,14 +224,14 @@ for (let i = 0; i < cubes.length; i++) {
 
 // //Rotate the cubes
 let angle = 10.0 * (Math.PI/180.0)
-model_transformation = rotationMatrixZ(angle)
-for (let i = 1; i < cubes.length; i++) {
-  const translateX = -Math.sin(angle)*1;
-  const translateY = Math.cos(angle)*1;
+model_transformation = new THREE.Matrix4()
+for (let i = 0; i < cubes.length; i++) {
+  const translateX = -Math.sin(angle)*1.5;
+  const translateY = Math.cos(angle)*1.5;
 
-  //const translationMa = translationMatrix(translateX, translateY, 0);
+  const translationMa = translationMatrix(translateX, translateY, 0);
   const rotate = rotationMatrixZ(i * angle);
-  //model_transformation.multiplyMatrices(model_transformation, rotate);
+  model_transformation.multiplyMatrices(model_transformation, rotate);
 
   cubes[i].applyMatrix4(model_transformation);
   
