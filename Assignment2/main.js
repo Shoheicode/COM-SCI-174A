@@ -180,7 +180,8 @@ function rotationMatrixZ(theta) {
 	return new THREE.Matrix4().set(
     Math.cos(theta), -Math.sin(theta), 0, 0,
     Math.cos(theta), -Math.sin(theta), 0, 0,
-    
+    0, 0, 1, 0,
+    0, 0, 0, 1
 	);
 }
 
