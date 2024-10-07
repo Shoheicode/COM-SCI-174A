@@ -179,7 +179,7 @@ function translationMatrix(tx, ty, tz) {
 function rotationMatrixZ(theta) {
 	return new THREE.Matrix4().set(
     Math.cos(theta), -Math.sin(theta), 0, 0,
-    Math.sin(theta), Math.cos(theta), 0, 0.5,
+    Math.sin(theta), Math.cos(theta), 0, 0,
     0, 0, 1, 0,
     0, 0, 0, 1
 	);
@@ -225,12 +225,12 @@ for (let i = 0; i < cubes.length; i++) {
 }
 
 //Rotate the cubes
-const rotation = rotationMatrixZ(1 * (Math.PI/180.0))
+const rotation = rotationMatrixZ(20 * (Math.PI/180.0))
 model_transformation = new THREE.Matrix4();
 for (let i = 0; i < cubes.length; i++) {
   console.log(cubes[i])
   cubes[i].applyMatrix4(model_transformation);
-  model_transformation.multiplyMatrices(rotation, model_transformation);
+  //model_transformation.multiplyMatrices(rotation, model_transformation);
   cubes[i].updateMatrix();
 }
 
