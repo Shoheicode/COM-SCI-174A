@@ -209,16 +209,14 @@ const scale = scalingMatrix(1.0, 1.5, 1.0)
 let model_transformation = new THREE.Matrix4();
 model_transformation = scale
 for (let i = 0; i < cubes.length; i++) {
-  console.log(cubes[i])
   cubes[i].applyMatrix4(model_transformation);
   cubes[i].updateMatrix();
 }
 
 // TODO: Transform cubes
-const translation = translationMatrix(0, 2*l, 0);
+const translation = translationMatrix(0.5, 2*l, 0);
 model_transformation = new THREE.Matrix4();
 for (let i = 0; i < cubes.length; i++) {
-    console.log(cubes[i])
 	  cubes[i].applyMatrix4(model_transformation);
     model_transformation.multiplyMatrices(translation, model_transformation);
     cubes[i].updateMatrix();
@@ -227,7 +225,7 @@ for (let i = 0; i < cubes.length; i++) {
 //Rotate the cubes
 const rotation = rotationMatrixZ(20 * (Math.PI/180.0))
 model_transformation = rotation
-for (let i = 0; i < cubes.length; i++) {
+for (let i = 1; i < cubes.length; i++) {
   cubes[i].applyMatrix4(model_transformation);
   //model_transformation.multiplyMatrices(rotation, model_transformation);
   cubes[i].updateMatrix();
