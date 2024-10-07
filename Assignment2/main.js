@@ -234,7 +234,7 @@ for (let i = 1; i < cubes.length; i++) {
 
   model_transformation.multiplyMatrices(translationMa, rotate);
   cubes[i].applyMatrix4(model_transformation);
-  cubes[i].updateMatrix();
+  
 }
 
 
