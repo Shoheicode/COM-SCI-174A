@@ -179,10 +179,19 @@ function translationMatrix(tx, ty, tz) {
 function rotationMatrixZ(theta) {
 	return new THREE.Matrix4().set(
     Math.cos(theta), -Math.sin(theta), 0, 0,
-    Math.cos(theta), -Math.sin(theta), 0, 0,
+    Math.sin(theta), Math.cos(theta), 0, 0,
     0, 0, 1, 0,
     0, 0, 0, 1
 	);
+}
+
+function scalingMatrix(sx, sy, sz) {
+  return new THREE.Matrix4().set(
+    sx, 0, 0, 0,
+		0,sy, 0, 0,
+		0, 0, sz, 0,
+		0, 0, 0, 1
+  );
 }
 
 let cubes = [];
@@ -203,6 +212,26 @@ for (let i = 0; i < cubes.length; i++) {
 	  cubes[i].applyMatrix4(model_transformation);
     model_transformation.multiplyMatrices(translation, model_transformation);
     cubes[i].updateMatrix();
+}
+
+//Rotate the cubes
+const sclae = rotationMatrixZ(1 * (Math.PI/180.0))
+model_transformation = new THREE.Matrix4();
+for (let i = 0; i < cubes.length; i++) {
+  console.log(cubes[i])
+  cubes[i].applyMatrix4(model_transformation);
+  model_transformation.multiplyMatrices(rotation, model_transformation);
+  cubes[i].updateMatrix();
+}
+
+//Rotate the cubes
+const rotation = rotationMatrixZ(1 * (Math.PI/180.0))
+model_transformation = new THREE.Matrix4();
+for (let i = 0; i < cubes.length; i++) {
+  console.log(cubes[i])
+  cubes[i].applyMatrix4(model_transformation);
+  model_transformation.multiplyMatrices(rotation, model_transformation);
+  cubes[i].updateMatrix();
 }
 
 
