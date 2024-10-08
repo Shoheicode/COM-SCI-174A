@@ -229,10 +229,13 @@ for (let i = 0; i < cubes.length; i++) {
   
 }
 
-const translation = translationMatrix(0, 2*(scaleH/2.0) + 0.01, 0); // Translate 2l units in the y direction
+let translation = translationMatrix(0, 2*(scaleH/2.0) + 0.01, 0); // Translate 2l units in the y direction
 model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
 for (let i = 0; i < cubes.length; i++) {
 	cubes[i].applyMatrix4(model_transformation)
+  
+  const translateX = -Math.sin(i * angle)*1.5;
+  translation = translationMatrix(0, 2*(scaleH/2.0) + 0.01, 0);
   model_transformation.multiplyMatrices(translation, model_transformation);
 }
 
