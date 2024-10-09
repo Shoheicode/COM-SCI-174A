@@ -204,14 +204,28 @@ for (let i = 0; i < 7; i++) {
 
 console.log(cubes);
 
+
 const scaleH = 1.5
-let angle = 10.0 * (Math.PI/180.0)
-let translation = translationMatrix(0, 2*(1.0/2.0) + 0.01, 0); // Translate 2l units in the y direction
+let angle = 20.0 * (Math.PI/180.0)
+
+let translation = translationMatrix(0, 2*(1.0/2.0), 0); // Translate 2l units in the y direction
 let model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
 for (let i = 0; i < cubes.length; i++) {
 	cubes[i].applyMatrix4(model_transformation)
   cubes[i].updateMatrix()
   model_transformation.multiplyMatrices(translation, model_transformation);
+}
+for (let i = 0; i < 7; i++) {
+  const translateX = -Math.sin(i * angle)*1.5;
+  const translateY = Math.cos(i *angle)*1.5;
+
+  const translationMa = translationMatrix(0, 0, 0);
+  const rotate = rotationMatrixZ(i * angle);
+  console.log(rotate)
+  cubes[i].applyMatrix4(rotate);
+  cubes[i].updateMatrix()
+  // cubes[i].applyMatrix4(translationMa);
+ 
 }
 
 //Scale the cubes
@@ -222,22 +236,6 @@ for (let i = 0; i < cubes.length; i++) {
   cubes[i].applyMatrix4(model_transformation);
   cubes[i].updateMatrix();
 }
-
-// //Rotate the cubes
-model_transformation = new THREE.Matrix4()
-for (let i = 0; i < 3; i++) {
-  const translateX = -Math.sin(i * angle)*1.5;
-  const translateY = Math.cos(i *angle)*1.5;
-
-  const translationMa = translationMatrix(translateX, translateY, 0);
-  const rotate = rotationMatrixZ(i * angle);
-  cubes[i].applyMatrix4(rotate);
-  cubes[i].updateMatrix()
-  // cubes[i].applyMatrix4(translationMa);
-  cubes[i].updateMatrix()
-  
-}
-
 
 function animate() {
     
