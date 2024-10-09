@@ -211,9 +211,10 @@ scene.add(c)
 const scaleH = 1.5
 let tiltAngle = THREE.MathUtils.degToRad(20);
 
-let translation = translationMatrix(0, 2*(1.0/2.0)+0.1, 0); // Translate 2l units in the y direction
+let translation = translationMatrix(0, 2*(1.0/2.0), 0); // Translate 2l units in the y direction
 let model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
 for (let i = 0; i < cubes.length; i++) {
+  
 	cubes[i].applyMatrix4(model_transformation)
   cubes[i].updateMatrix()
   model_transformation.multiplyMatrices(translation, model_transformation);
@@ -223,6 +224,12 @@ let scale = scalingMatrix(1.0,scaleH, 1.0); // Translate 2l units in the y direc
 let model_transformation1 = new THREE.Matrix4(); // model transformation matrix we will update
 for (let i = 0; i < cubes.length; i++) {
 	cubes[i].applyMatrix4(scale)
+  cubes[i].updateMatrix()
+  // model_transformation1.multiplyMatrices(scale, model_transformation1);
+}
+
+for (let i = 0; i < cubes.length; i++) {   
+	cubes[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
   cubes[i].updateMatrix()
   // model_transformation1.multiplyMatrices(scale, model_transformation1);
 }
