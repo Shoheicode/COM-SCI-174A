@@ -233,7 +233,7 @@ for (let i = 0; i < 3; i++) {
   const rotate = rotationMatrixZ(i * angle);
   cubes[i].applyMatrix4(rotate);
   cubes[i].updateMatrix()
-  cubes[i].applyMatrix4(translationMa);
+  // cubes[i].applyMatrix4(translationMa);
   cubes[i].updateMatrix()
   
 }
