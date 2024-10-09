@@ -236,6 +236,16 @@ for (let i = 0; i < cubes.length; i++) {
 	cubes[i].applyMatrix4(model_transformation)
   cubes[i].updateMatrix()
   
+  let r = Math.random();
+  let b = Math.random();
+  let g = Math.random();
+  console.log("r:" +  r)
+  console.log("b:" +  b)
+  console.log("g:" +  g)
+  const color7 = new THREE.Color( r,b,g);
+  cubes[i].material.color.set(r,b,g)
+  
+  
   const translateX = -Math.sin(i * angle)*1.5;
   const translateY = Math.cos(i*angle) * 1.5;
   translation = translationMatrix(translateX, translateY, 0);
