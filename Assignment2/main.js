@@ -228,10 +228,16 @@ for (let i = 0; i < cubes.length; i++) {
   // model_transformation1.multiplyMatrices(scale, model_transformation1);
 }
 
-for (let i = 1; i < cubes.length; i++) {   
+for (let i = 1; i < cubes.length; i++) {
+  //cubes[i].applyMatrix4(translationMatrix(cubes[i-1].position.x+.5,cubes[i-1].position.y+0.5, 0 ))   
 	cubes[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
   cubes[i].updateMatrix()
-  cubes[i].applyMatrix4(translationMatrix(cubes[i-1].position.x+.5,cubes[i-1].position.y+0.5, 0 ))
+}
+
+for (let i = 1; i < cubes.length; i++) {
+  //cubes[i].applyMatrix4(translationMatrix(cubes[i-1].position.x+.5,cubes[i-1].position.y+0.5, 0 ))   
+	cubes[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
+  cubes[i].updateMatrix()
 }
 
 
