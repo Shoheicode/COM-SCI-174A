@@ -336,9 +336,8 @@ function onKeyPress(event) {
         case 's': // Note we only do this if s is pressed.
             still = !still;
             break;
-        case 'w':
+        case 'w': //Handles the wireframe and allows for the object to change
             visible = !visible;
-            console.log("HIHI")
             break;
         default:
             console.log(`Key ${event.key} pressed`);
