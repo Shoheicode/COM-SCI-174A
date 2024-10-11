@@ -65,10 +65,10 @@ const positions = new Float32Array([
     -l,  l, -l, // 7
   
     // Top face
-    -l, l, l, // 8
-    -l, l, -l, // 9
-     l, l, -l, // 10 
-     l, l, l, // 11
+    -l, l, -l, // 8
+    -l, l,  l, // 9
+     l, l, l, // 10 
+     l, l, -l, // 11
   
     // Bottom face
     -l, -l, l, // 12
@@ -99,8 +99,8 @@ const positions = new Float32Array([
     4, 6, 7,
   
     // Top face
-    11, 10, 9,
-    11, 9, 8,
+    8, 9, 10,
+    8, 10, 11,
   
     // Bottom face
     12, 13, 14,
@@ -163,8 +163,6 @@ custom_cube_geometry.setIndex(new THREE.BufferAttribute(new Uint16Array(indices)
 
 let cube = new THREE.Mesh( custom_cube_geometry, phong_material );
 scene.add(cube);
-
-// TODO: Implement wireframe geometry
 
 //translation matrix
 function translationMatrix(tx, ty, tz) {
