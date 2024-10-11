@@ -114,7 +114,7 @@ const positions = new Float32Array([
     20, 21, 22,
     20, 22, 23,
   ];
-  
+
   // Compute normals
   const normals = new Float32Array([
     // Front face
@@ -161,6 +161,50 @@ custom_cube_geometry.setIndex(new THREE.BufferAttribute(new Uint16Array(indices)
 
 let cube = new THREE.Mesh( custom_cube_geometry, phong_material );
 scene.add(cube);
+
+const wireframe_vertices = new Float32Array([
+  // Front face
+  -l, -l, l,    l, -l, l,
+  l, -l, l,    l, l, l,
+  l, l, l,    -l, l, l,
+  -l, l, l,    -l, -l, l,
+  // Top face
+  -l, l, -l,   -l, l, l,
+  -l, l, l,    l, l, l,
+  l, l, l,     l, l, -l,
+  l, l, -l,    -l, l, -l,
+  // Right face
+  l, -l, -l,   l, -l, l,
+  l, -l, l,    l, l, l,
+  l, l, l,     l, l, -l,
+  l, l, -l,    l, -l, -l,
+  // Back face
+  -l, -l, -l,   l, -l, -l,
+  l, -l, -l,   l, l, -l,
+  l, l, -l,    -l, l, -l,
+  -l, l, -l,   -l, -l, -l,
+  // Bottom face
+  -l, -l, -l,  -l, -l, l,
+  -l, -l, l,    l, -l, l,
+  l, -l, l,     l, -l, -l,
+  l, -l, -l,   -l, -l, -l,
+  // Left face
+  -l, -l, -l,   -l, l, -l,
+  -l, l, -l,    -l, l, l,
+  -l, l, l,    -l, -l, l
+]);
+
+// Create geometry from the vertices
+const wireframe_geometry = new THREE.BufferGeometry();
+wireframe_geometry.setAttribute('position', new THREE.BufferAttribute(wireframe_vertices, 3));
+
+// Create a LineSegments object with the geometry
+const line = new THREE.LineSegments(wireframe_geometry, new THREE.LineBasicMaterial({ color: 0xffffff }));
+
+line.position.x = 10
+
+// Add the wireframe to the scene
+scene.add(line);
 
 //translation matrix
 function translationMatrix(tx, ty, tz) {
