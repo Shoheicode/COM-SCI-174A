@@ -234,23 +234,29 @@ function scalingMatrix(sx, sy, sz) {
   );
 }
 
+//FOR VISIBILITY OF WIREFRAME
+let isVisible = true;
+
 let cubes = [];
-let cubes_wireframe = [];
 for (let i = 0; i < 7; i++) {
 	let cube = new THREE.Mesh(custom_cube_geometry, phong_material);
-	let cubeW = new THREE.LineSegments(wireframe_geometry);
   cube.matrixAutoUpdate = false;
 	cubes.push(cube);
-  cubeW.visible = false;
-  cubes_wireframe.push(cubeW);
 	scene.add(cube);
 }
 
-let c = new THREE.Mesh(custom_cube_geometry, phong_material)
-c.position.x = 2;
-c.applyMatrix4(scalingMatrix(1.0,1.5,1.0))
-scene.add(c)
+let cubes_wireframe = [];
+for (let i = 0; i < 7; i++){
+  let cubeW = new THREE.LineSegments(wireframe_geometry);
+  cubeW.visible = isVisible;
+  cubes_wireframe.push(cubeW);
+  scene.add(cubeW);
+}
 
+// let c = new THREE.Mesh(custom_cube_geometry, phong_material)
+// c.position.x = 2;
+// c.applyMatrix4(scalingMatrix(1.0,1.5,1.0))
+// scene.add(c)
 
 const scaleH = 1.5
 let tiltAngle = THREE.MathUtils.degToRad(10);
@@ -264,8 +270,22 @@ for (let i = 0; i < cubes.length; i++) {
   model_transformation.multiplyMatrices(translation, model_transformation);
 }
 
+model_transformation = new THREE.Matrix4();
+for (let i = 0; i < cubes.length; i++) {
+  
+	cubes_wireframe[i].applyMatrix4(model_transformation)
+  cubes_wireframe[i].updateMatrix()
+  model_transformation.multiplyMatrices(translation, model_transformation);
+}
+
 let scale = scalingMatrix(1.0,scaleH, 1.0); // Translate 2l units in the y direction
-let model_transformation1 = new THREE.Matrix4(); // model transformation matrix we will update
+for (let i = 0; i < cubes.length; i++) {
+	cubes[i].applyMatrix4(scale)
+  cubes[i].updateMatrix()
+  // model_transformation1.multiplyMatrices(scale, model_transformation1);
+}
+
+
 for (let i = 0; i < cubes.length; i++) {
 	cubes[i].applyMatrix4(scale)
   cubes[i].updateMatrix()
