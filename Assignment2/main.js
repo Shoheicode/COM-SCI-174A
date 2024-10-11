@@ -199,7 +199,7 @@ const wireframe_geometry = new THREE.BufferGeometry();
 wireframe_geometry.setAttribute('position', new THREE.BufferAttribute(wireframe_vertices, 3));
 
 // Create a LineSegments object with the geometry
-const line = new THREE.LineSegments(wireframe_geometry, new THREE.LineBasicMaterial({ color: 0xffffff }));
+const line = new THREE.LineSegments(wireframe_geometry);
 
 line.position.x = 10
 
@@ -235,9 +235,11 @@ function scalingMatrix(sx, sy, sz) {
 }
 
 let cubes = [];
+let cubes_wireframe = [];
 for (let i = 0; i < 7; i++) {
 	let cube = new THREE.Mesh(custom_cube_geometry, phong_material);
-	cube.matrixAutoUpdate = false;
+	let cubeW = 
+  cube.matrixAutoUpdate = false;
 	cubes.push(cube);
 	scene.add(cube);
 }
