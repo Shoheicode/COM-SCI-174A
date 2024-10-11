@@ -235,12 +235,13 @@ function scalingMatrix(sx, sy, sz) {
 }
 
 //FOR VISIBILITY OF WIREFRAME
-let visible = false;
+let visible = true;
 
 let cubes = [];
 for (let i = 0; i < 7; i++) {
 	let cube = new THREE.Mesh(custom_cube_geometry, phong_material);
   cube.matrixAutoUpdate = false;
+  cube.visible = visible;
 	cubes.push(cube);
 	scene.add(cube);
 }
@@ -248,7 +249,7 @@ for (let i = 0; i < 7; i++) {
 let cubes_wireframe = [];
 for (let i = 0; i < 7; i++){
   let cubeW = new THREE.LineSegments(wireframe_geometry);
-  cubeW.visible = visible;
+  cubeW.visible = !visible;
   cubes_wireframe.push(cubeW);
   scene.add(cubeW);
 }
@@ -298,8 +299,13 @@ for (let i = 1; i < cubes.length; i++) {
 }
 
 for (let i = 1; i < cubes.length; i++) {
-  cubes_wireframe[i].applyMatrix4(translationMatrix(0,1,0))   
+  let dis = cubes_wireframe[i].position.x
+  let disY = Math.cos(tiltAngle)*1.5
+  let disX = Math.sin(tiltAngle)*1
+  console.log(disY)
+  cubes_wireframe[i].applyMatrix4(translationMatrix(0,-1.5 * i + 0.75,0))   
 	cubes_wireframe[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
+  cubes_wireframe[i].applyMatrix4(translationMatrix(-disX*(i-1),disY*i-0.75,0))
 }
 
 
@@ -316,7 +322,7 @@ function animate() {
       cubes_wireframe[i].visible = false;
     }
   }
-  if(visible){
+  else if(visible){
     for (let i = 0; i < 7; i++){
       cubes_wireframe[i].visible = true;
       cubes[i].visible = false;
