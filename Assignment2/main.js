@@ -234,12 +234,6 @@ for (let i = 1; i < cubes.length; i++) {
   cubes[i].updateMatrix()
 }
 
-for (let i = 1; i < cubes.length; i++) {
-  cubes[i].applyMatrix4(translationMatrix(cubes[i-1].position.x+i*.5,cubes[i-1].position.y+i*0.5, 0 ))   
-	//cubes[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
-  cubes[i].updateMatrix()
-}
-
 
 
 function animate() {
