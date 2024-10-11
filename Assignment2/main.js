@@ -238,9 +238,11 @@ let cubes = [];
 let cubes_wireframe = [];
 for (let i = 0; i < 7; i++) {
 	let cube = new THREE.Mesh(custom_cube_geometry, phong_material);
-	let cubeW = 
+	let cubeW = new THREE.LineSegments(wireframe_geometry);
   cube.matrixAutoUpdate = false;
 	cubes.push(cube);
+  cubeW.visible = false;
+  cubes_wireframe.push(cubeW);
 	scene.add(cube);
 }
 
