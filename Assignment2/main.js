@@ -235,7 +235,7 @@ function scalingMatrix(sx, sy, sz) {
 }
 
 //FOR VISIBILITY OF WIREFRAME
-let isVisible = true;
+let visible = false;
 
 let cubes = [];
 for (let i = 0; i < 7; i++) {
@@ -248,7 +248,7 @@ for (let i = 0; i < 7; i++) {
 let cubes_wireframe = [];
 for (let i = 0; i < 7; i++){
   let cubeW = new THREE.LineSegments(wireframe_geometry);
-  cubeW.visible = isVisible;
+  cubeW.visible = visible;
   cubes_wireframe.push(cubeW);
   scene.add(cubeW);
 }
@@ -306,12 +306,41 @@ for (let i = 1; i < cubes.length; i++) {
 function animate() {
     
 	renderer.render( scene, camera );
-    controls.update();
+  controls.update();
 
-    // TODO
-    // Animate the cube
+  // TODO
+  // Animate the cube
+  if(!visible){
+    for (let i = 0; i < 7; i++){
+      cubes[i].visible = true;
+      cubes_wireframe[i].visible = false;
+    }
+  }
+  if(visible){
+    for (let i = 0; i < 7; i++){
+      cubes_wireframe[i].visible = true;
+      cubes[i].visible = false;
+    }
+  }
 
 }
 renderer.setAnimationLoop( animate );
 
 // TODO: Add event listener
+
+let still = false;
+window.addEventListener('keydown', onKeyPress); // onKeyPress is called each time a key is pressed
+// Function to handle keypress
+function onKeyPress(event) {
+    switch (event.key) {
+        case 's': // Note we only do this if s is pressed.
+            still = !still;
+            break;
+        case 'w':
+            visible = !visible;
+            console.log("HIHI")
+            break;
+        default:
+            console.log(`Key ${event.key} pressed`);
+    }
+}
