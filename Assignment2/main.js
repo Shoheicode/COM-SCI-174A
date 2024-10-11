@@ -253,10 +253,10 @@ for (let i = 0; i < 7; i++){
   scene.add(cubeW);
 }
 
-// let c = new THREE.Mesh(custom_cube_geometry, phong_material)
-// c.position.x = 2;
-// c.applyMatrix4(scalingMatrix(1.0,1.5,1.0))
-// scene.add(c)
+let c = new THREE.Mesh(custom_cube_geometry, phong_material)
+c.position.x = 2;
+c.applyMatrix4(scalingMatrix(1.0,1.5,1.0))
+scene.add(c)
 
 const scaleH = 1.5
 let tiltAngle = THREE.MathUtils.degToRad(10);
@@ -278,6 +278,7 @@ for (let i = 0; i < cubes.length; i++) {
   model_transformation.multiplyMatrices(translation, model_transformation);
 }
 
+model_transformation = new THREE.Matrix4();
 let scale = scalingMatrix(1.0,scaleH, 1.0); // Translate 2l units in the y direction
 for (let i = 0; i < cubes.length; i++) {
 	cubes[i].applyMatrix4(scale)
@@ -287,8 +288,7 @@ for (let i = 0; i < cubes.length; i++) {
 
 
 for (let i = 0; i < cubes.length; i++) {
-	cubes[i].applyMatrix4(scale)
-  cubes[i].updateMatrix()
+	cubes_wireframe[i].applyMatrix4(scale)
   // model_transformation1.multiplyMatrices(scale, model_transformation1);
 }
 
