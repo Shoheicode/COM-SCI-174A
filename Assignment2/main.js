@@ -209,9 +209,9 @@ scene.add(c)
 
 
 const scaleH = 1.5
-let tiltAngle = THREE.MathUtils.degToRad(20);
+let tiltAngle = THREE.MathUtils.degToRad(10);
 
-let translation = translationMatrix(0, 2*(1.0/2.0), 0); // Translate 2l units in the y direction
+let translation = translationMatrix(0, 2*(1.0/2.0)+0.01, 0); // Translate 2l units in the y direction
 let model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
 for (let i = 0; i < cubes.length; i++) {
   
@@ -228,11 +228,11 @@ for (let i = 0; i < cubes.length; i++) {
   // model_transformation1.multiplyMatrices(scale, model_transformation1);
 }
 
-for (let i = 1; i < cubes.length; i++) {
-  //cubes[i].applyMatrix4(translationMatrix(cubes[i-1].position.x+.5,cubes[i-1].position.y+0.5, 0 ))   
-	cubes[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
-  cubes[i].updateMatrix()
-}
+// for (let i = 1; i < cubes.length; i++) {
+//   //cubes[i].applyMatrix4(translationMatrix(cubes[i-1].position.x+.5,cubes[i-1].position.y+0.5, 0 ))   
+// 	cubes[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
+//   cubes[i].updateMatrix()
+// }
 
 
 
