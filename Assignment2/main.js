@@ -282,15 +282,11 @@ for (let i = 0; i < cubes.length; i++) {
 let scale = scalingMatrix(1.0,scaleH, 1.0); // Translate 2l units in the y direction
 for (let i = 0; i < cubes.length; i++) {
 	cubes[i].matrix.multiply(scale)
-  //cubes[i].updateMatrix()
-  // model_transformation1.multiplyMatrices(scale, model_transformation1);
 }
 
 
 for (let i = 0; i < cubes.length; i++) {
 	cubes_wireframe[i].matrix.multiply(scale)
-  // cubes_wireframe[i].updateMatrix()
-  // model_transformation1.multiplyMatrices(scale, model_transformation1);
 }
 
 // for (let i = 1; i < cubes.length; i++) {
