@@ -263,7 +263,7 @@ scene.add(c)
 const scaleH = 1.5
 let tiltAngle = THREE.MathUtils.degToRad(10);
 
-let translation = translationMatrix(0, 2*(1.5/2.0), 0); // Translate 2l units in the y direction
+let translation = translationMatrix(0, 2*(scaleH/2.0), 0); // Translate 2l units in the y direction
 let model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
 for (let i = 0; i < cubes.length; i++) {
   
