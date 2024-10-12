@@ -249,7 +249,7 @@ let cubes = [];
 for (let i = 0; i < 7; i++) {
 	let cube = new THREE.Mesh(custom_cube_geometry, phong_material);
   cube.matrixAutoUpdate = false;
-  cube.visible = visible;
+  cube.visible = !visible;
 	cubes.push(cube);
 	scene.add(cube);
 }
@@ -300,15 +300,19 @@ for (let i = 0; i < cubes.length; i++) {
 
 let M = new THREE.Matrix4();
 line2.matrixAutoUpdate = false
+line3.matrixAutoUpdate = false
+line3.matrix.copy(scalingMatrix(1,1.5,1))
 let r = rotationMatrixZ(tiltAngle)
-M = M.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
+let s = scalingMatrix(1,1.5,1)
+M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
+
+M = M.multiplyMatrices(s, M)
 // let r = rotationMatrixZ(tiltAngle)
 // line2.matrix.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
 // line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
-M = M.multiplyMatrices(translationMatrix(-0.5,-0.5,0),M)
+M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
 
-M = M.multiplyMatrices(translationMatrix(0,1,0),M)
-
+M = M.multiplyMatrices(translationMatrix(0,1.5,0),M)
 
 line2.matrix.copy(M)
 
@@ -348,18 +352,18 @@ function animate() {
 
   // TODO
   // Animate the cube
-  if(!visible){
-    for (let i = 0; i < 7; i++){
-      cubes[i].visible = true;
-      cubes_wireframe[i].visible = false;
-    }
-  }
-  else if(visible){
-    for (let i = 0; i < 7; i++){
-      cubes_wireframe[i].visible = true;
-      cubes[i].visible = false;
-    }
-  }
+  // if(!visible){
+  //   for (let i = 0; i < 7; i++){
+  //     cubes[i].visible = true;
+  //     cubes_wireframe[i].visible = false;
+  //   }
+  // }
+  // else if(visible){
+  //   for (let i = 0; i < 7; i++){
+  //     cubes_wireframe[i].visible = true;
+  //     cubes[i].visible = false;
+  //   }
+  // }
 
 }
 renderer.setAnimationLoop( animate );
