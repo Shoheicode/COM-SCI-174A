@@ -163,7 +163,6 @@ let cube = new THREE.Mesh( custom_cube_geometry, phong_material );
 let cube2 = new THREE.Mesh( custom_cube_geometry, phong_material );
 
 scene.add(cube);
-scene.add(cube2)
 
 const wireframe_vertices = new Float32Array([
   // Front face
@@ -205,6 +204,12 @@ wireframe_geometry.setAttribute('position', new THREE.BufferAttribute(wireframe_
 const line = new THREE.LineSegments(wireframe_geometry);
 
 line.position.x = 10
+
+const line2 = new THREE.LineSegments(wireframe_geometry);
+const line3 = new THREE.LineSegments(wireframe_geometry);
+
+scene.add(line2)
+scene.add(line3)
 
 // Add the wireframe to the scene
 scene.add(line);
@@ -292,13 +297,16 @@ for (let i = 0; i < cubes.length; i++) {
 	cubes_wireframe[i].matrix.multiply(scale)
 }
 
-cube.matrixAutoUpdate = false
-cube.matrix.copy(translationMatrix(1,1,0))
+line2.matrixAutoUpdate = false
+line2.matrix.copy(translationMatrix(0.5,0.5,0))
 let r = rotationMatrixZ(tiltAngle)
-cube.matrix.multiply(r)
-// console.log(-0.5*Math.sin(tiltAngle) - 0.5*Math.cos(tiltAngle))
+line2.matrix.multiply(r)
+console.log(-0.5 -(-0.5*Math.sin(tiltAngle) - 0.5*Math.cos(tiltAngle)) + 0.5)
+console.log(-0.5*Math.cos(tiltAngle) - (-0.5)*Math.sin(tiltAngle))
 // cube.matrix.multiply(translationMatrix(-0.5,-0.5,0))
-// cube.matrix.multiply(translationMatrix(0, 1 - (-0.5*Math.sin(tiltAngle) - 0.5*Math.cos(tiltAngle)),0))
+// /cube.matrix.multiply(translationMatrix(-0.5, -0.5,0))
+line2.matrix.multiply(translationMatrix(0,-0.5 -(-0.5*Math.sin(tiltAngle) - 0.5*Math.cos(tiltAngle)) + 0.5,0))
+
 
 // cube.matrix.multiply(translationMatrix(0,Math.sin(tiltAngle) * 1,0))
 // cube.position.x -=0.5
