@@ -298,12 +298,13 @@ for (let i = 0; i < cubes.length; i++) {
 }
 
 line2.matrixAutoUpdate = false
-line2.matrix.copy(translationMatrix(0.5,0.5,0))
 let r = rotationMatrixZ(tiltAngle)
-line2.applyMatrix4(r)
+line2.matrix.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
+line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
+
 // console.log(-0.5 -(-0.5*Math.sin(tiltAngle) - 0.5*Math.cos(tiltAngle)) + 0.5)
 // console.log(-0.5*Math.cos(tiltAngle) - (-0.5)*Math.sin(tiltAngle))
-line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
+//line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
 // // /cube.matrix.multiply(translationMatrix(-0.5, -0.5,0))
 // line2.matrix.multiply(translationMatrix(0,-0.5 -(-0.5*Math.sin(tiltAngle) - 0.5*Math.cos(tiltAngle)) + 0.5,0))
 
