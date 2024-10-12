@@ -298,24 +298,55 @@ for (let i = 0; i < cubes.length; i++) {
 }
 
 
-let M = new THREE.Matrix4();
-line2.matrixAutoUpdate = false
-line3.matrixAutoUpdate = false
-line3.matrix.copy(scalingMatrix(1,1.5,1))
-let r = rotationMatrixZ(tiltAngle)
-let s = scalingMatrix(1,1.5,1)
-M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
-
-M = M.multiplyMatrices(s, M)
+// let M = new THREE.Matrix4();
+// line2.matrixAutoUpdate = false
+// line3.matrixAutoUpdate = false
+// line3.matrix.copy(scalingMatrix(1,1.5,1))
 // let r = rotationMatrixZ(tiltAngle)
-// line2.matrix.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
-// line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
-M = M.multiplyMatrices(r,M)
-M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
+// let s = scalingMatrix(1,1.5,1)
+// M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
 
-M = M.multiplyMatrices(translationMatrix(0,1.5,0),M)
+// M = M.multiplyMatrices(s, M)
+// // let r = rotationMatrixZ(tiltAngle)
+// // line2.matrix.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
+// // line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
+// M = M.multiplyMatrices(r,M)
+// M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
 
-line2.matrix.copy(M)
+// M = M.multiplyMatrices(translationMatrix(0,1.5,0),M)
+
+// line2.matrix.copy(M)
+
+let cubes_wireframe1 = [];
+for (let i = 0; i < 3; i++){
+  let cubeW = new THREE.LineSegments(wireframe_geometry);
+  cubeW.matrixAutoUpdate = false;
+  cubeW.visible = visible;
+  cubes_wireframe1.push(cubeW);
+  scene.add(cubeW);
+}
+
+for (let i = 0; i < cubes_wireframe1.length;i++){
+  let M = new THREE.Matrix4();
+  // line2.matrixAutoUpdate = false
+  // line3.matrixAutoUpdate = false
+  //line3.matrix.copy(scalingMatrix(1,1.5,1))
+  let r = rotationMatrixZ(i*tiltAngle)
+  let s = scalingMatrix(1,1.5,1)
+  M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
+  
+  M = M.multiplyMatrices(s, M)
+  // let r = rotationMatrixZ(tiltAngle)
+  // line2.matrix.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
+  // line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
+  M = M.multiplyMatrices(r,M)
+  M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
+  if(i <= 1){
+    M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
+  
+  }
+  cubes_wireframe1[i].matrix.copy(M)
+}
 
 // console.log(-0.5 -(-0.5*Math.sin(tiltAngle) - 0.5*Math.cos(tiltAngle)) + 0.5)
 // console.log(-0.5*Math.cos(tiltAngle) - (-0.5)*Math.sin(tiltAngle))
