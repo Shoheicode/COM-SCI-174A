@@ -297,6 +297,7 @@ cube.matrix.copy(translationMatrix(0.5,0.5,0))
 let r = rotationMatrixZ(tiltAngle)
 cube.matrix.multiply(r)
 console.log(-0.5*Math.sin(tiltAngle) + 0.5*Math.cos(tiltAngle))
+cube.matrix.multiply(translationMatrix(0.5, -0.5*Math.sin(tiltAngle) + 0.5*Math.cos(tiltAngle),0))
 
 // cube.matrix.multiply(translationMatrix(0,Math.sin(tiltAngle) * 1,0))
 // cube.position.x -=0.5
