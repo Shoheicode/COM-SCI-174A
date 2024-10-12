@@ -292,7 +292,6 @@ for (let i = 0; i < cubes.length; i++) {
 	cubes_wireframe[i].matrix.multiply(scale)
 }
 
-
 cube.matrixAutoUpdate = false
 cube.matrix.copy(translationMatrix(0.5,0.5,0))
 let r = rotationMatrixZ(tiltAngle)
