@@ -297,10 +297,20 @@ for (let i = 0; i < cubes.length; i++) {
 	cubes_wireframe[i].matrix.multiply(scale)
 }
 
+
+let M = new THREE.Matrix4();
 line2.matrixAutoUpdate = false
 let r = rotationMatrixZ(tiltAngle)
-line2.matrix.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
-line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
+M = M.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
+// let r = rotationMatrixZ(tiltAngle)
+// line2.matrix.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
+// line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
+M = M.multiplyMatrices(translationMatrix(-0.5,-0.5,0),M)
+
+M = M.multiplyMatrices(translationMatrix(0,1,0),M)
+
+
+line2.matrix.copy(M)
 
 // console.log(-0.5 -(-0.5*Math.sin(tiltAngle) - 0.5*Math.cos(tiltAngle)) + 0.5)
 // console.log(-0.5*Math.cos(tiltAngle) - (-0.5)*Math.sin(tiltAngle))
