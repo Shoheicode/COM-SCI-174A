@@ -160,7 +160,10 @@ custom_cube_geometry.setAttribute('normal', new THREE.BufferAttribute(normals, 3
 custom_cube_geometry.setIndex(new THREE.BufferAttribute(new Uint16Array(indices), 1));
 
 let cube = new THREE.Mesh( custom_cube_geometry, phong_material );
+let cube2 = new THREE.Mesh( custom_cube_geometry, phong_material );
+
 scene.add(cube);
+scene.add(cube2)
 
 const wireframe_vertices = new Float32Array([
   // Front face
@@ -261,7 +264,7 @@ c.applyMatrix4(scalingMatrix(1.0,1.5,1.0))
 scene.add(c)
 
 const scaleH = 1.5
-let tiltAngle = THREE.MathUtils.degToRad(10);
+let tiltAngle = THREE.MathUtils.degToRad(20);
 
 let translation = translationMatrix(0, 2*(scaleH/2.0), 0); // Translate 2l units in the y direction
 let model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
@@ -288,6 +291,19 @@ for (let i = 0; i < cubes.length; i++) {
 for (let i = 0; i < cubes.length; i++) {
 	cubes_wireframe[i].matrix.multiply(scale)
 }
+
+
+cube.matrixAutoUpdate = false
+cube.matrix.copy(translationMatrix(0.5,0.5,0))
+let r = rotationMatrixZ(tiltAngle)
+cube.matrix.multiply(r)
+console.log(-0.5*Math.sin(tiltAngle) + 0.5*Math.cos(tiltAngle))
+
+// cube.matrix.multiply(translationMatrix(0,Math.sin(tiltAngle) * 1,0))
+// cube.position.x -=0.5
+// cube.position.y -= 0.5
+
+//cube.position.y+=1
 
 // for (let i = 1; i < cubes.length; i++) {
 //   cubes[i].applyMatrix4(translationMatrix(0,1,0))   
