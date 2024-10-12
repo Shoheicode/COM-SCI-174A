@@ -269,7 +269,7 @@ c.applyMatrix4(scalingMatrix(1.0,1.5,1.0))
 scene.add(c)
 
 const scaleH = 1.5
-let tiltAngle = THREE.MathUtils.degToRad(20);
+let tiltAngle = THREE.MathUtils.degToRad(10);
 
 let translation = translationMatrix(0, 2*(scaleH/2.0), 0); // Translate 2l units in the y direction
 let model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
@@ -318,7 +318,7 @@ for (let i = 0; i < cubes.length; i++) {
 // line2.matrix.copy(M)
 
 let cubes_wireframe1 = [];
-for (let i = 0; i < 3; i++){
+for (let i = 0; i < 7; i++){
   let cubeW = new THREE.LineSegments(wireframe_geometry);
   cubeW.matrixAutoUpdate = false;
   cubeW.visible = visible;
@@ -341,9 +341,12 @@ for (let i = 0; i < cubes_wireframe1.length;i++){
   // line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
   M = M.multiplyMatrices(r,M)
   M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
-  if(i <= 1){
-    M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
   
+  if(i <=1){
+    M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
+  }
+  else{
+    M = M.multiplyMatrices(translationMatrix(-0.15*i,i*1.5,0),M)
   }
   cubes_wireframe1[i].matrix.copy(M)
 }
