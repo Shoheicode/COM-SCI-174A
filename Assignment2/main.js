@@ -310,6 +310,7 @@ M = M.multiplyMatrices(s, M)
 // let r = rotationMatrixZ(tiltAngle)
 // line2.matrix.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
 // line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
+M = M.multiplyMatrices(r,M)
 M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
 
 M = M.multiplyMatrices(translationMatrix(0,1.5,0),M)
