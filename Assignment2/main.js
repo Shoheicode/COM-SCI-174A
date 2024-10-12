@@ -249,6 +249,7 @@ for (let i = 0; i < 7; i++) {
 let cubes_wireframe = [];
 for (let i = 0; i < 7; i++){
   let cubeW = new THREE.LineSegments(wireframe_geometry);
+  cubeW.matrixAutoUpdate = false;
   cubeW.visible = !visible;
   cubes_wireframe.push(cubeW);
   scene.add(cubeW);
@@ -262,51 +263,50 @@ scene.add(c)
 const scaleH = 1.5
 let tiltAngle = THREE.MathUtils.degToRad(10);
 
-let translation = translationMatrix(0, 2*(1.0/2.0), 0); // Translate 2l units in the y direction
+let translation = translationMatrix(0, 2*(1.5/2.0), 0); // Translate 2l units in the y direction
 let model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
 for (let i = 0; i < cubes.length; i++) {
   
-	cubes[i].applyMatrix4(model_transformation)
-  cubes[i].updateMatrix()
+	cubes[i].matrix.copy(model_transformation)
   model_transformation.multiplyMatrices(translation, model_transformation);
 }
 
 model_transformation = new THREE.Matrix4();
 for (let i = 0; i < cubes.length; i++) {
   
-	cubes_wireframe[i].applyMatrix4(model_transformation)
-  cubes_wireframe[i].updateMatrix()
+	cubes_wireframe[i].matrix.copy(model_transformation)
   model_transformation.multiplyMatrices(translation, model_transformation);
 }
 
-model_transformation = new THREE.Matrix4();
+// model_transformation = new THREE.Matrix4();
 let scale = scalingMatrix(1.0,scaleH, 1.0); // Translate 2l units in the y direction
 for (let i = 0; i < cubes.length; i++) {
-	cubes[i].applyMatrix4(scale)
-  cubes[i].updateMatrix()
+	cubes[i].matrix.multiply(scale)
+  //cubes[i].updateMatrix()
   // model_transformation1.multiplyMatrices(scale, model_transformation1);
 }
 
 
 for (let i = 0; i < cubes.length; i++) {
-	cubes_wireframe[i].applyMatrix4(scale)
+	cubes_wireframe[i].matrix.multiply(scale)
+  // cubes_wireframe[i].updateMatrix()
   // model_transformation1.multiplyMatrices(scale, model_transformation1);
 }
 
-for (let i = 1; i < cubes.length; i++) {
-  cubes[i].applyMatrix4(translationMatrix(0,1,0))   
-	cubes[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
-}
+// for (let i = 1; i < cubes.length; i++) {
+//   cubes[i].applyMatrix4(translationMatrix(0,1,0))   
+// 	cubes[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
+// }
 
-for (let i = 1; i < cubes.length; i++) {
-  let dis = cubes_wireframe[i].position.x
-  let disY = Math.cos(tiltAngle)*1.5
-  let disX = Math.sin(tiltAngle)*1
-  console.log(disY)
-  cubes_wireframe[i].applyMatrix4(translationMatrix(0,-1.5 * i + 0.75,0))   
-	cubes_wireframe[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
-  cubes_wireframe[i].applyMatrix4(translationMatrix(-disX*(i-1),disY*i-0.75,0))
-}
+// for (let i = 1; i < cubes.length; i++) {
+//   let dis = cubes_wireframe[i].position.x
+//   let disY = Math.cos(tiltAngle)*1.5
+//   let disX = Math.sin(tiltAngle)*1
+//   console.log(disY)
+//   cubes_wireframe[i].applyMatrix4(translationMatrix(0,-1.5 * i + 0.75,0))   
+// 	cubes_wireframe[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
+//   cubes_wireframe[i].applyMatrix4(translationMatrix(-disX*(i-1),disY*i-0.75,0))
+// }
 
 
 function animate() {
