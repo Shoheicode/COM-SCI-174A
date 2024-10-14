@@ -271,41 +271,45 @@ scene.add(c)
 const scaleH = 1.5
 let tiltAngle = THREE.MathUtils.degToRad(20);
 
-let translation = translationMatrix(0, 2*(scaleH/2.0), 0); // Translate 2l units in the y direction
-let model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
-for (let i = 0; i < cubes.length; i++) {
+// let translation = translationMatrix(0, 2*(scaleH/2.0), 0); // Translate 2l units in the y direction
+// let model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
+// for (let i = 0; i < cubes.length; i++) {
   
-	cubes[i].matrix.copy(model_transformation)
-  model_transformation.multiplyMatrices(translation, model_transformation);
-}
-
-model_transformation = new THREE.Matrix4();
-for (let i = 0; i < cubes.length; i++) {
-  
-	cubes_wireframe[i].matrix.copy(model_transformation)
-  model_transformation.multiplyMatrices(translation, model_transformation);
-}
+// 	cubes[i].matrix.copy(model_transformation)
+//   model_transformation.multiplyMatrices(translation, model_transformation);
+// }
 
 // model_transformation = new THREE.Matrix4();
-let scale = scalingMatrix(1.0,scaleH, 1.0); // Translate 2l units in the y direction
-for (let i = 0; i < cubes.length; i++) {
-	cubes[i].matrix.multiply(scale)
-}
+// for (let i = 0; i < cubes.length; i++) {
+  
+// 	cubes_wireframe[i].matrix.copy(model_transformation)
+//   model_transformation.multiplyMatrices(translation, model_transformation);
+// }
+
+// // model_transformation = new THREE.Matrix4();
+// let scale = scalingMatrix(1.0,scaleH, 1.0); // Translate 2l units in the y direction
+// for (let i = 0; i < cubes.length; i++) {
+// 	cubes[i].matrix.multiply(scale)
+// }
 
 
-for (let i = 0; i < cubes.length; i++) {
-	cubes_wireframe[i].matrix.multiply(scale)
-}
+// for (let i = 0; i < cubes.length; i++) {
+// 	cubes_wireframe[i].matrix.multiply(scale)
+// }
 
-let cubes_wireframe1 = [];
-for (let i = 0; i < 7; i++){
-  let cubeW = new THREE.LineSegments(wireframe_geometry);
-  cubeW.matrixAutoUpdate = false;
-  cubeW.visible = visible;
-  cubes_wireframe1.push(cubeW);
-  scene.add(cubeW);
-}
+// let cubes_wireframe1 = [];
+// for (let i = 0; i < 7; i++){
+//   let cubeW = new THREE.LineSegments(wireframe_geometry);
+//   cubeW.matrixAutoUpdate = false;
+//   cubeW.visible = visible;
+//   cubes_wireframe1.push(cubeW);
+//   scene.add(cubeW);
+// }
 
+//
+
+
+//FOR WIRE FRAME CUBES
 let heightTotal = 0
 let widthTotal = 0
 for (let i = 0; i < 7;i++){
@@ -341,7 +345,7 @@ for (let i = 0; i < 7;i++){
     console.log(heightTotal)
     console.log("AFTER WIDTH: " + widthTotal)
   }
-  cubes_wireframe1[i].matrix.copy(M)
+  cubes_wireframe[i].matrix.copy(M)
 }
 
 
