@@ -334,17 +334,10 @@ for (let i = 0; i < 7;i++){
     }
   }
   else{
-    console.log("I VALUE CUBE:" + i)
-    console.log(heightTotal)
-    console.log("BEFORE WIDTH: " + widthTotal)
-    console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*tiltAngle)*hyp)
-    console.log("COS: " + Math.cos(THREE.MathUtils.degToRad(90) -(i-1)*tiltAngle)*hyp)
     heightTotal2 += Math.sin(rightAngle - pastTiltAngle) * hyp
     widthTotal2 += -Math.cos(rightAngle - pastTiltAngle) * hyp
 
     M = M.multiplyMatrices(translationMatrix(widthTotal2,heightTotal2,0),M)
-    console.log(heightTotal)
-    console.log("AFTER WIDTH: " + widthTotal)
   }
   cubes_wireframe[i].matrix.copy(M)
 }
@@ -357,7 +350,10 @@ const clock = new THREE.Clock();
 let MAX_ANGLE = THREE.MathUtils.degToRad(20) // 20 degrees converted to radians
 let T = 3 // oscilation persiod in seconds
 
-
+function timeToRotate(a_time){
+    let time = Math.cos((a_time*Math.PI)/3 + Math.PI)
+    return (0.5) + 0.5*time
+}
 
 function animate() {
 
@@ -367,6 +363,8 @@ function animate() {
 	renderer.render( scene, camera );
   controls.update();
 
+  let rotation_angle = timeToRotate(animation_time) * tiltAngle
+
   // TODO
   // Animate the cube
   if(!visible){
@@ -374,11 +372,82 @@ function animate() {
       cubes[i].visible = true;
       cubes_wireframe[i].visible = false;
     }
+    // FOR NORMAL CUBES
+    let heightTotal = 0
+    let widthTotal = 0
+    for (let i = 0; i < 7;i++){
+      let M = new THREE.Matrix4();
+      let r = rotationMatrixZ(i*rotation_angle)
+      let s = scalingMatrix(1,1.5,1)
+      M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
+      
+      M = M.multiplyMatrices(s, M)
+      M = M.multiplyMatrices(r,M)
+      M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
+
+      let rightAngle = THREE.MathUtils.degToRad(90)
+      let pastrotation_angle = (i-1)*rotation_angle
+      let hyp = 1.5
+      if(i <=1){
+        M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
+        if (i == 1){
+          heightTotal += 1.5
+          widthTotal += 0
+        }
+      }
+      else{
+        console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*rotation_angle)*hyp)
+        console.log("COS: " + Math.cos(THREE.MathUtils.degToRad(90) -(i-1)*rotation_angle)*hyp)
+        heightTotal += Math.sin(rightAngle - pastrotation_angle) * hyp
+        widthTotal += -Math.cos(rightAngle - pastrotation_angle) * hyp
+
+        M = M.multiplyMatrices(translationMatrix(widthTotal,heightTotal,0),M)
+      }
+      cubes[i].matrix.copy(M)
+    }
   }
   else if(visible){
     for (let i = 0; i < 7; i++){
       cubes_wireframe[i].visible = true;
       cubes[i].visible = false;
+    }
+    //FOR WIRE FRAME CUBES
+    let heightTotal2 = 0
+    let widthTotal2 = 0
+    for (let i = 0; i < 7;i++){
+      let M = new THREE.Matrix4();
+      let r = rotationMatrixZ(i*rotation_angle)
+      let s = scalingMatrix(1,1.5,1)
+      M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
+      
+      M = M.multiplyMatrices(s, M)
+      M = M.multiplyMatrices(r,M)
+      M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
+
+      let rightAngle = THREE.MathUtils.degToRad(90)
+      let pastrotation_angle = (i-1)*rotation_angle
+      let hyp = 1.5
+      if(i <=1){
+        M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
+        if (i == 1){
+          heightTotal2 += 1.5
+          widthTotal2 += 0
+        }
+      }
+      else{
+        console.log("I VALUE CUBE:" + i)
+        console.log(heightTotal)
+        console.log("BEFORE WIDTH: " + widthTotal)
+        console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*rotation_angle)*hyp)
+        console.log("COS: " + Math.cos(THREE.MathUtils.degToRad(90) -(i-1)*rotation_angle)*hyp)
+        heightTotal2 += Math.sin(rightAngle - pastrotation_angle) * hyp
+        widthTotal2 += -Math.cos(rightAngle - pastrotation_angle) * hyp
+
+        M = M.multiplyMatrices(translationMatrix(widthTotal2,heightTotal2,0),M)
+        console.log(heightTotal)
+        console.log("AFTER WIDTH: " + widthTotal)
+      }
+      cubes_wireframe[i].matrix.copy(M)
     }
   }
 
