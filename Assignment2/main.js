@@ -259,6 +259,9 @@ that each block needs to move depending on the angle
 let heightTotal = 0
 let widthTotal = 0
 for (let i = 0; i < 7;i++){
+  /* 
+    Added Matrix Multiplier that will act as the main way to transform the cubes
+  */
   let M = new THREE.Matrix4();
   let r = rotationMatrixZ(i*tiltAngle)
   let s = scalingMatrix(1,1.5,1)
