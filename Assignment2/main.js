@@ -245,6 +245,7 @@ for (let i = 0; i < 7; i++){
   scene.add(cubeW);
 }
 
+//Stores the scale height value and the tilt angle
 const scaleH = 1.5
 let tiltAngle = THREE.MathUtils.degToRad(20);
 
