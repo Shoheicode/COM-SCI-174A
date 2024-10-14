@@ -269,7 +269,7 @@ c.applyMatrix4(scalingMatrix(1.0,1.5,1.0))
 scene.add(c)
 
 const scaleH = 1.5
-let tiltAngle = THREE.MathUtils.degToRad(20);
+let tiltAngle = THREE.MathUtils.degToRad(10);
 
 let translation = translationMatrix(0, 2*(scaleH/2.0), 0); // Translate 2l units in the y direction
 let model_transformation = new THREE.Matrix4(); // model transformation matrix we will update
@@ -345,7 +345,7 @@ for (let i = 0; i < 7;i++){
     let hyp = 1.5
     console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*tiltAngle)*1.5)
     console.log("COS: " + Math.cos(i*tiltAngle)*0.75)
-    M = M.multiplyMatrices(translationMatrix(-0.26,,0),M)
+    M = M.multiplyMatrices(translationMatrix(0,Math.sin(rightAngle - pastTiltAngle) * 1.5 + 1.5*(i-1),0),M)
   }
   cubes_wireframe1[i].matrix.copy(M)
 }
