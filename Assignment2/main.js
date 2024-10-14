@@ -358,11 +358,13 @@ function timeToRotate(a_time){
 function animate() {
 
   delta_animation_time = clock.getDelta();
-  animation_time += delta_animation_time; 
+  if(!still){
+    animation_time += delta_animation_time; 
+  }
     
 	renderer.render( scene, camera );
   controls.update();
-
+  
   let rotation_angle = timeToRotate(animation_time) * tiltAngle
 
   // TODO
