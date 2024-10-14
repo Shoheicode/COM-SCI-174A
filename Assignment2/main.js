@@ -271,9 +271,9 @@ for (let i = 0; i < 7;i++){
   M = M.multiplyMatrices(r,M) // Multiplies the M matrix by the rotation matrix which makes the block around the z axis at the origin
   M = M.multiplyMatrices(translationMatrix(-0.5,-scaleH/2,0),M) // Moves the block back to it's original starting point 
 
-  let rightAngle = THREE.MathUtils.degToRad(90)
-  let pastTiltAngle = (i-1)*tiltAngle
-  let hyp = 1.5
+  let rightAngle = THREE.MathUtils.degToRad(90) // gets the right angle to help with calculations later
+  let pastTiltAngle = (i-1)*tiltAngle // Gets the past angle for the else statement which is needed for calculations
+  let hyp = 1.5 // the hypotenuse, aka the height of the cube
   if(i <=1){
     M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
     if (i == 1){
