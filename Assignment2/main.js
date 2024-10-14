@@ -351,8 +351,9 @@ for (let i = 0; i < 7;i++){
 
     M = M.multiplyMatrices(translationMatrix(0,heightTotal,0),M)
     heightTotal += Math.sin(rightAngle - pastTiltAngle) * hyp
-    widthTotal += Math.sin(rightAngle - pastTiltAngle) * hyp
+    widthTotal += Math.cos(rightAngle - pastTiltAngle) * hyp
     console.log(heightTotal)
+    console.log(widthTotal)
   }
   cubes_wireframe1[i].matrix.copy(M)
 }
