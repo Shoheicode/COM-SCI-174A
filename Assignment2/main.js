@@ -357,7 +357,12 @@ const clock = new THREE.Clock();
 MAX_ANGLE = THREE.MathUtils.degToRad(20) // 20 degrees converted to radians
 T = 3 // oscilation persiod in seconds
 
+
+
 function animate() {
+
+  delta_animation_time = clock.getDelta();
+  animation_time += delta_animation_time; 
     
 	renderer.render( scene, camera );
   controls.update();
