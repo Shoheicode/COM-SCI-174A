@@ -263,8 +263,8 @@ for (let i = 0; i < 7;i++){
     Added Matrix Multiplier that will act as the main way to transform the cubes
   */
   let M = new THREE.Matrix4();
-  let r = rotationMatrixZ(i*tiltAngle)
-  let s = scalingMatrix(1,1.5,1)
+  let r = rotationMatrixZ(i*tiltAngle) // Gets the rotationZ angle matrix
+  let s = scalingMatrix(1,scaleH,1) // Gets the scaling matrix
   M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
   
   M = M.multiplyMatrices(s, M)
