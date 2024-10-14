@@ -307,9 +307,6 @@ let tiltAngle = THREE.MathUtils.degToRad(20);
 // }
 
 // FOR NORMAL CUBES
-
-
-//FOR WIRE FRAME CUBES
 let heightTotal = 0
 let widthTotal = 0
 for (let i = 0; i < 7;i++){
@@ -342,6 +339,45 @@ for (let i = 0; i < 7;i++){
     widthTotal += -Math.cos(rightAngle - pastTiltAngle) * hyp
 
     M = M.multiplyMatrices(translationMatrix(widthTotal,heightTotal,0),M)
+    console.log(heightTotal)
+    console.log("AFTER WIDTH: " + widthTotal)
+  }
+  cubes_wireframe[i].matrix.copy(M)
+}
+
+//FOR WIRE FRAME CUBES
+let heightTotal2 = 0
+let widthTotal2 = 0
+for (let i = 0; i < 7;i++){
+  let M = new THREE.Matrix4();
+  let r = rotationMatrixZ(i*tiltAngle)
+  let s = scalingMatrix(1,1.5,1)
+  M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
+  
+  M = M.multiplyMatrices(s, M)
+  M = M.multiplyMatrices(r,M)
+  M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
+
+  let rightAngle = THREE.MathUtils.degToRad(90)
+  let pastTiltAngle = (i-1)*tiltAngle
+  let hyp = 1.5
+  if(i <=1){
+    M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
+    if (i == 1){
+      heightTotal2 += 1.5
+      widthTotal2 += 0
+    }
+  }
+  else{
+    console.log("I VALUE CUBE:" + i)
+    console.log(heightTotal)
+    console.log("BEFORE WIDTH: " + widthTotal)
+    console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*tiltAngle)*hyp)
+    console.log("COS: " + Math.cos(THREE.MathUtils.degToRad(90) -(i-1)*tiltAngle)*hyp)
+    heightTotal2 += Math.sin(rightAngle - pastTiltAngle) * hyp
+    widthTotal2 += -Math.cos(rightAngle - pastTiltAngle) * hyp
+
+    M = M.multiplyMatrices(translationMatrix(widthTotal2,heightTotal2,0),M)
     console.log(heightTotal)
     console.log("AFTER WIDTH: " + widthTotal)
   }
