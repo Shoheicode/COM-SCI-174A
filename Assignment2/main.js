@@ -250,6 +250,8 @@ const scaleH = 1.5
 let tiltAngle = THREE.MathUtils.degToRad(20);
 
 // FOR NORMAL CUBES
+
+//These values keep track of the height that will change based on the angle 
 let heightTotal = 0
 let widthTotal = 0
 for (let i = 0; i < 7;i++){
