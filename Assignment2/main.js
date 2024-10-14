@@ -306,7 +306,7 @@ let tiltAngle = THREE.MathUtils.degToRad(20);
 //   scene.add(cubeW);
 // }
 
-//
+// FOR NORMAL CUBES
 
 
 //FOR WIRE FRAME CUBES
