@@ -21,6 +21,7 @@ const createAxisLine = (color, start, end) => {
     const material = new THREE.LineBasicMaterial({ color: color });
     return new THREE.Line(geometry, material);
 };
+//Creating the axis lines
 const xAxis = createAxisLine(0xff0000, new THREE.Vector3(0, 0, 0), new THREE.Vector3(3, 0, 0)); // Red
 const yAxis = createAxisLine(0x00ff00, new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 3, 0)); // Green
 const zAxis = createAxisLine(0x0000ff, new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, 3)); // Blue
