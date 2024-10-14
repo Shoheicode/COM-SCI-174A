@@ -342,7 +342,7 @@ for (let i = 0; i < 7;i++){
     console.log(heightTotal)
     console.log("AFTER WIDTH: " + widthTotal)
   }
-  cubes_wireframe[i].matrix.copy(M)
+  cubes[i].matrix.copy(M)
 }
 
 //FOR WIRE FRAME CUBES
