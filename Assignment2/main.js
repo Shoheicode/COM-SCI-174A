@@ -344,16 +344,21 @@ for (let i = 0; i < 7;i++){
   if(i <=1){
     M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
     heightTotal += Math.sin(rightAngle - pastTiltAngle) * 1.5
+    widthTotal += Math.cos(rightAngle - pastTiltAngle) * hyp
+    console.log(heightTotal)
+    console.log("with" + widthTotal)
   }
   else{
+    console.log(heightTotal)
+    console.log("BEFORE WIDTH: " + widthTotal)
     console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*tiltAngle)*hyp)
     console.log("COS: " + Math.cos(THREE.MathUtils.degToRad(90) -(i-1)*tiltAngle)*hyp)
 
-    M = M.multiplyMatrices(translationMatrix(0,heightTotal,0),M)
+    M = M.multiplyMatrices(translationMatrix(widthTotal,heightTotal,0),M)
     heightTotal += Math.sin(rightAngle - pastTiltAngle) * hyp
-    widthTotal += Math.cos(rightAngle - pastTiltAngle) * hyp
+    widthTotal += -Math.cos(rightAngle - pastTiltAngle) * hyp
     console.log(heightTotal)
-    console.log(widthTotal)
+    console.log("AFTER WIDTH: " + widthTotal)
   }
   cubes_wireframe1[i].matrix.copy(M)
 }
