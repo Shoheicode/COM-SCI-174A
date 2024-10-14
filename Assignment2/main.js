@@ -318,7 +318,7 @@ for (let i = 0; i < cubes.length; i++) {
 // line2.matrix.copy(M)
 
 let cubes_wireframe1 = [];
-for (let i = 0; i < 4; i++){
+for (let i = 0; i < 7; i++){
   let cubeW = new THREE.LineSegments(wireframe_geometry);
   cubeW.matrixAutoUpdate = false;
   cubeW.visible = visible;
@@ -326,7 +326,7 @@ for (let i = 0; i < 4; i++){
   scene.add(cubeW);
 }
 
-for (let i = 0; i < 4;i++){
+for (let i = 0; i < 7;i++){
   let M = new THREE.Matrix4();
   let r = rotationMatrixZ(i*tiltAngle)
   let s = scalingMatrix(1,1.5,1)
@@ -340,9 +340,12 @@ for (let i = 0; i < 4;i++){
     M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
   }
   else{
-    console.log("SIN: " + Math.sin(90-(i-1)*tiltAngle)*1.5)
+    let rightAngle = THREE.MathUtils.degToRad(90)
+    let pastTiltAngle = (i-1)*tiltAngle
+    let hyp = 1.5
+    console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*tiltAngle)*1.5)
     console.log("COS: " + Math.cos(i*tiltAngle)*0.75)
-    M = M.multiplyMatrices(translationMatrix(-0.26,Math.sin(90-(i-1)*tiltAngle)*1.5*i,0),M)
+    M = M.multiplyMatrices(translationMatrix(-0.26,,0),M)
   }
   cubes_wireframe1[i].matrix.copy(M)
 }
