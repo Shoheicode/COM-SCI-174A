@@ -245,11 +245,6 @@ for (let i = 0; i < 7; i++){
   scene.add(cubeW);
 }
 
-let c = new THREE.Mesh(custom_cube_geometry, phong_material)
-c.position.x = 2;
-c.applyMatrix4(scalingMatrix(1.0,1.5,1.0))
-scene.add(c)
-
 const scaleH = 1.5
 let tiltAngle = THREE.MathUtils.degToRad(20);
 
