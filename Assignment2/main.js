@@ -349,6 +349,7 @@ for (let i = 0; i < 7;i++){
     console.log("with" + widthTotal)
   }
   else{
+    console.log("I VALUE CUBE:" + i)
     console.log(heightTotal)
     console.log("BEFORE WIDTH: " + widthTotal)
     console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*tiltAngle)*hyp)
