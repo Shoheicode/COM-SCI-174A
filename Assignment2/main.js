@@ -297,26 +297,6 @@ for (let i = 0; i < cubes.length; i++) {
 	cubes_wireframe[i].matrix.multiply(scale)
 }
 
-
-// let M = new THREE.Matrix4();
-// line2.matrixAutoUpdate = false
-// line3.matrixAutoUpdate = false
-// line3.matrix.copy(scalingMatrix(1,1.5,1))
-// let r = rotationMatrixZ(tiltAngle)
-// let s = scalingMatrix(1,1.5,1)
-// M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
-
-// M = M.multiplyMatrices(s, M)
-// // let r = rotationMatrixZ(tiltAngle)
-// // line2.matrix.multiplyMatrices(r, translationMatrix(0.5,0.5,0))
-// // line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
-// M = M.multiplyMatrices(r,M)
-// M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
-
-// M = M.multiplyMatrices(translationMatrix(0,1.5,0),M)
-
-// line2.matrix.copy(M)
-
 let cubes_wireframe1 = [];
 for (let i = 0; i < 7; i++){
   let cubeW = new THREE.LineSegments(wireframe_geometry);
@@ -343,10 +323,10 @@ for (let i = 0; i < 7;i++){
   let hyp = 1.5
   if(i <=1){
     M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
-    heightTotal += Math.sin(rightAngle - pastTiltAngle) * 1.5
-    widthTotal += Math.cos(rightAngle - pastTiltAngle) * hyp
-    console.log(heightTotal)
-    console.log("with" + widthTotal)
+    if (i == 1){
+      heightTotal += 1.5
+      widthTotal += 0
+    }
   }
   else{
     console.log("I VALUE CUBE:" + i)
@@ -354,10 +334,10 @@ for (let i = 0; i < 7;i++){
     console.log("BEFORE WIDTH: " + widthTotal)
     console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*tiltAngle)*hyp)
     console.log("COS: " + Math.cos(THREE.MathUtils.degToRad(90) -(i-1)*tiltAngle)*hyp)
-
-    M = M.multiplyMatrices(translationMatrix(widthTotal,heightTotal,0),M)
     heightTotal += Math.sin(rightAngle - pastTiltAngle) * hyp
     widthTotal += -Math.cos(rightAngle - pastTiltAngle) * hyp
+
+    M = M.multiplyMatrices(translationMatrix(widthTotal,heightTotal,0),M)
     console.log(heightTotal)
     console.log("AFTER WIDTH: " + widthTotal)
   }
