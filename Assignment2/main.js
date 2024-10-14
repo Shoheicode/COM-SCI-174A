@@ -345,34 +345,6 @@ for (let i = 0; i < 4;i++){
   cubes_wireframe1[i].matrix.copy(M)
 }
 
-// console.log(-0.5 -(-0.5*Math.sin(tiltAngle) - 0.5*Math.cos(tiltAngle)) + 0.5)
-// console.log(-0.5*Math.cos(tiltAngle) - (-0.5)*Math.sin(tiltAngle))
-//line2.matrix.multiply(translationMatrix(-0.5,-0.5,0))
-// // /cube.matrix.multiply(translationMatrix(-0.5, -0.5,0))
-// line2.matrix.multiply(translationMatrix(0,-0.5 -(-0.5*Math.sin(tiltAngle) - 0.5*Math.cos(tiltAngle)) + 0.5,0))
-
-
-// cube.matrix.multiply(translationMatrix(0,Math.sin(tiltAngle) * 1,0))
-// cube.position.x -=0.5
-// cube.position.y -= 0.5
-
-//cube.position.y+=1
-
-// for (let i = 1; i < cubes.length; i++) {
-//   cubes[i].applyMatrix4(translationMatrix(0,1,0))   
-// 	cubes[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
-// }
-
-// for (let i = 1; i < cubes.length; i++) {
-//   let dis = cubes_wireframe[i].position.x
-//   let disY = Math.cos(tiltAngle)*1.5
-//   let disX = Math.sin(tiltAngle)*1
-//   console.log(disY)
-//   cubes_wireframe[i].applyMatrix4(translationMatrix(0,-1.5 * i + 0.75,0))   
-// 	cubes_wireframe[i].applyMatrix4(rotationMatrixZ(i*tiltAngle))
-//   cubes_wireframe[i].applyMatrix4(translationMatrix(-disX*(i-1),disY*i-0.75,0))
-// }
-
 
 function animate() {
     
