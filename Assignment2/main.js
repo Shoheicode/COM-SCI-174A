@@ -160,11 +160,6 @@ custom_cube_geometry.setAttribute('position', new THREE.BufferAttribute(position
 custom_cube_geometry.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
 custom_cube_geometry.setIndex(new THREE.BufferAttribute(new Uint16Array(indices), 1));
 
-// let cube = new THREE.Mesh( custom_cube_geometry, phong_material );
-// let cube2 = new THREE.Mesh( custom_cube_geometry, phong_material );
-
-// scene.add(cube);
-
 const wireframe_vertices = new Float32Array([
   // Front face
   -l, -l, l,    l, -l, l,
