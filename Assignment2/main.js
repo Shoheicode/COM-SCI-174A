@@ -352,7 +352,7 @@ function animate() {
 	renderer.render( scene, camera );
   controls.update();
   
-  let rotation_angle = timeToRotate(animation_time) * tiltAngle
+  let rotation_angle = timeToRotate(animation_time) * MAX_ANGLE
 
   // TODO
   // Animate the cube
