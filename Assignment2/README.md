@@ -312,4 +312,5 @@ Now we use the `still` variable to stop the swinging of the cubes when the `s` k
 4. If the file is too large, you probably did something wrong. Make sure you only zip the necessary files.
 
 # My Submission:
+![Untitled design (1)](https://github.com/user-attachments/assets/2ed6d1dd-f9f2-4a1b-8cc2-13cbec4b9c4c)
 
