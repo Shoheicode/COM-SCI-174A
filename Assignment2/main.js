@@ -352,18 +352,18 @@ function animate() {
 
   // TODO
   // Animate the cube
-  // if(!visible){
-  //   for (let i = 0; i < 7; i++){
-  //     cubes[i].visible = true;
-  //     cubes_wireframe[i].visible = false;
-  //   }
-  // }
-  // else if(visible){
-  //   for (let i = 0; i < 7; i++){
-  //     cubes_wireframe[i].visible = true;
-  //     cubes[i].visible = false;
-  //   }
-  // }
+  if(!visible){
+    for (let i = 0; i < 7; i++){
+      cubes[i].visible = true;
+      cubes_wireframe[i].visible = false;
+    }
+  }
+  else if(visible){
+    for (let i = 0; i < 7; i++){
+      cubes_wireframe[i].visible = true;
+      cubes[i].visible = false;
+    }
+  }
 
 }
 renderer.setAnimationLoop( animate );
