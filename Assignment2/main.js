@@ -354,8 +354,8 @@ let delta_animation_time;
 let rotation_angle;
 const clock = new THREE.Clock();
 
-MAX_ANGLE = THREE.MathUtils.degToRad(20) // 20 degrees converted to radians
-T = 3 // oscilation persiod in seconds
+let MAX_ANGLE = THREE.MathUtils.degToRad(20) // 20 degrees converted to radians
+let T = 3 // oscilation persiod in seconds
 
 
 
