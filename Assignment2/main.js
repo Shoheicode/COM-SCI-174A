@@ -159,10 +159,10 @@ custom_cube_geometry.setAttribute('position', new THREE.BufferAttribute(position
 custom_cube_geometry.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
 custom_cube_geometry.setIndex(new THREE.BufferAttribute(new Uint16Array(indices), 1));
 
-let cube = new THREE.Mesh( custom_cube_geometry, phong_material );
-let cube2 = new THREE.Mesh( custom_cube_geometry, phong_material );
+// let cube = new THREE.Mesh( custom_cube_geometry, phong_material );
+// let cube2 = new THREE.Mesh( custom_cube_geometry, phong_material );
 
-scene.add(cube);
+// scene.add(cube);
 
 const wireframe_vertices = new Float32Array([
   // Front face
@@ -205,11 +205,11 @@ const line = new THREE.LineSegments(wireframe_geometry);
 
 line.position.x = 10
 
-const line2 = new THREE.LineSegments(wireframe_geometry);
-const line3 = new THREE.LineSegments(wireframe_geometry);
+// const line2 = new THREE.LineSegments(wireframe_geometry);
+// const line3 = new THREE.LineSegments(wireframe_geometry);
 
-scene.add(line2)
-scene.add(line3)
+// scene.add(line2)
+// scene.add(line3)
 
 // Add the wireframe to the scene
 scene.add(line);
@@ -326,11 +326,8 @@ for (let i = 0; i < 7; i++){
   scene.add(cubeW);
 }
 
-for (let i = 0; i < cubes_wireframe1.length;i++){
+for (let i = 0; i < 4;i++){
   let M = new THREE.Matrix4();
-  // line2.matrixAutoUpdate = false
-  // line3.matrixAutoUpdate = false
-  //line3.matrix.copy(scalingMatrix(1,1.5,1))
   let r = rotationMatrixZ(i*tiltAngle)
   let s = scalingMatrix(1,1.5,1)
   M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
