@@ -349,6 +349,13 @@ for (let i = 0; i < 7;i++){
   cubes_wireframe[i].matrix.copy(M)
 }
 
+let animation_time = 0;
+let delta_animation_time;
+let rotation_angle;
+const clock = new THREE.Clock();
+
+MAX_ANGLE = THREE.MathUtils.degToRad(20) // 20 degrees converted to radians
+T = 3 // oscilation persiod in seconds
 
 function animate() {
     
