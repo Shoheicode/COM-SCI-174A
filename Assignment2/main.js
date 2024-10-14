@@ -340,7 +340,9 @@ for (let i = 0; i < 4;i++){
     M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
   }
   else{
-    M = M.multiplyMatrices(translationMatrix(-0.15*i,i*1.5,0),M)
+    console.log("SIN: " + Math.sin(i*tiltAngle)*0.5)
+    console.log("COS: " + Math.cos(i*tiltAngle)*0.5)
+    M = M.multiplyMatrices(translationMatrix(-0.26,i*1.488,0),M)
   }
   cubes_wireframe1[i].matrix.copy(M)
 }
