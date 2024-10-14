@@ -196,14 +196,6 @@ const wireframe_vertices = new Float32Array([
 const wireframe_geometry = new THREE.BufferGeometry();
 wireframe_geometry.setAttribute('position', new THREE.BufferAttribute(wireframe_vertices, 3));
 
-// Create a LineSegments object with the geometry
-const line = new THREE.LineSegments(wireframe_geometry);
-
-line.position.x = 10
-
-// Add the wireframe to the scene
-scene.add(line);
-
 //translation matrix
 function translationMatrix(tx, ty, tz) {
 	return new THREE.Matrix4().set(
