@@ -326,6 +326,8 @@ for (let i = 0; i < 7; i++){
   scene.add(cubeW);
 }
 
+let heightTotal = 0
+let widthTotal = 0
 for (let i = 0; i < 7;i++){
   let M = new THREE.Matrix4();
   let r = rotationMatrixZ(i*tiltAngle)
@@ -335,17 +337,22 @@ for (let i = 0; i < 7;i++){
   M = M.multiplyMatrices(s, M)
   M = M.multiplyMatrices(r,M)
   M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
-  
+
+  let rightAngle = THREE.MathUtils.degToRad(90)
+  let pastTiltAngle = (i-1)*tiltAngle
+  let hyp = 1.5
   if(i <=1){
     M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
+    heightTotal += Math.sin(rightAngle - pastTiltAngle) * 1.5
   }
   else{
-    let rightAngle = THREE.MathUtils.degToRad(90)
-    let pastTiltAngle = (i-1)*tiltAngle
-    let hyp = 1.5
-    console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*tiltAngle)*1.5)
-    console.log("COS: " + Math.cos(i*tiltAngle)*0.75)
-    M = M.multiplyMatrices(translationMatrix(0,Math.sin(rightAngle - pastTiltAngle) * 1.5 + 1.5*(i-1),0),M)
+    console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*tiltAngle)*hyp)
+    console.log("COS: " + Math.cos(THREE.MathUtils.degToRad(90) -(i-1)*tiltAngle)*hyp)
+
+    M = M.multiplyMatrices(translationMatrix(0,heightTotal,0),M)
+    heightTotal += Math.sin(rightAngle - pastTiltAngle) * hyp
+    widthTotal += Math.sin(rightAngle - pastTiltAngle) * hyp
+    console.log(heightTotal)
   }
   cubes_wireframe1[i].matrix.copy(M)
 }
