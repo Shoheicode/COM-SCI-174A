@@ -201,12 +201,6 @@ const line = new THREE.LineSegments(wireframe_geometry);
 
 line.position.x = 10
 
-// const line2 = new THREE.LineSegments(wireframe_geometry);
-// const line3 = new THREE.LineSegments(wireframe_geometry);
-
-// scene.add(line2)
-// scene.add(line3)
-
 // Add the wireframe to the scene
 scene.add(line);
 
