@@ -267,8 +267,8 @@ for (let i = 0; i < 7;i++){
   let s = scalingMatrix(1,scaleH,1) // Gets the scaling matrix
   M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M) // Multiplies the M matrix by the translation Matrix which moves the block to 0.5, 0.5
   
-  M = M.multiplyMatrices(s, M) // Multiplies the M matrix by the Scale which makes the block bigger in the y direction
-  M = M.multiplyMatrices(r,M)
+  M = M.multiplyMatrices(s, M) // Multiplies the M matrix by the Scale matrix which makes the block bigger in the y direction
+  M = M.multiplyMatrices(r,M) // Multiplies the M matrix by the rotation matrix which makes the block around the z axis at the origin
   M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
 
   let rightAngle = THREE.MathUtils.degToRad(90)
