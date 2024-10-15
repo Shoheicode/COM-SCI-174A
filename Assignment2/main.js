@@ -360,6 +360,7 @@ function animate() {
     animation_time += delta_animation_time; 
   }
     
+  //Updates the renderer and makes it animate
 	renderer.render( scene, camera );
   controls.update();
   
