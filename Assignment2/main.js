@@ -410,11 +410,24 @@ function animate() {
         }
       }
       else{
+        // Otherwise, we have a different formula we use to figure out the height that each cube needs to get to. 
         
         heightTotal += Math.sin(rightAngle - pastrotation_angle) * hyp
         widthTotal += -Math.cos(rightAngle - pastrotation_angle) * hyp
 
-        M = M.multiplyMatrices(translationMatrix(widthTotal,heightTotal,0),M)
+        /* 
+          Both these equations help figure out how much to move the cube from the the starting translation point after
+          the cubes rotate since the rotated cubes height that you need to move up are different due to the fact that 
+          the point that we are trying to get to ends up being lower than the traditioanl height of 1.5
+
+          Thus, we have to add all the previous heights and the previous width to the current height in order for the
+          code to translate well. 
+        */
+      
+        //Have a variable to store the value of the translation matrix
+        let newTranslation = translationMatrix(widthTotal,heightTotal,0)
+
+        M = M.multiplyMatrices(newTranslation,M)
       }
       cubes[i].matrix.copy(M)
     }
