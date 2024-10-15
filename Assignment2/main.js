@@ -480,6 +480,8 @@ function animate() {
   }
 
 }
+
+//Animator
 renderer.setAnimationLoop( animate );
 
 // TODO: Add event listener
