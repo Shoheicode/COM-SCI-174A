@@ -308,6 +308,8 @@ for (let i = 0; i < 7;i++){
 //FOR WIRE FRAME CUBES
 let heightTotal2 = 0
 let widthTotal2 = 0
+
+//Same comments as above
 for (let i = 0; i < 7;i++){
   let M = new THREE.Matrix4();
   let r = rotationMatrixZ(i*tiltAngle)
