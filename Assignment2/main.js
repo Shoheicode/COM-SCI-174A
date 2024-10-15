@@ -373,6 +373,8 @@ function animate() {
   // TODO
   // Animate the cube
   if(!visible){
+
+    //Turns the normal cubes visible and the wireframe cubes invisible
     for (let i = 0; i < 7; i++){
       cubes[i].visible = true;
       cubes_wireframe[i].visible = false;
@@ -435,7 +437,9 @@ function animate() {
       cubes[i].matrix.copy(M)
     }
   }
-  else if(visible){
+  else if(visible){ // If the wireframe is visible
+
+    //Turns the wireframe blocks visible and the normal cubes invisible
     for (let i = 0; i < 7; i++){
       cubes_wireframe[i].visible = true;
       cubes[i].visible = false;
