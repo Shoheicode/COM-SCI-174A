@@ -346,7 +346,7 @@ let MAX_ANGLE = THREE.MathUtils.degToRad(10) // 10 degrees converted to radians
 let T = 3 // oscilation persiod in seconds
 
 function timeToRotate(a_time){
-    //Using a per
+    //Using a (1/2)+(1/2)*cos((x*pi)/3+pi)
     let time = Math.cos((a_time*Math.PI)/T + Math.PI)
     return (0.5) + 0.5*time
 }
