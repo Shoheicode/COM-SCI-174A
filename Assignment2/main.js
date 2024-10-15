@@ -274,22 +274,21 @@ for (let i = 0; i < 7;i++){
   let rightAngle = THREE.MathUtils.degToRad(90) // gets the right angle to help with calculations later
   let pastTiltAngle = (i-1)*tiltAngle // Gets the past angle for the else statement which is needed for calculations
   let hyp = 1.5 // the hypotenuse, aka the height of the cube
-  if(i <=1){
+  if(i <=1){ // Checks the first cube and applies the matrixs of translation to the cubes.
     M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
-    if (i == 1){
+    if (i == 1){ // if the cube equals 1, we add the to the height total and move it to the left by none.
       heightTotal += 1.5
       widthTotal += 0
     }
   }
-  else{
-    console.log("I VALUE CUBE:" + i)
-    console.log(heightTotal)
-    console.log("BEFORE WIDTH: " + widthTotal)
-    console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*tiltAngle)*hyp)
-    console.log("COS: " + Math.cos(THREE.MathUtils.degToRad(90) -(i-1)*tiltAngle)*hyp)
-    heightTotal += Math.sin(rightAngle - pastTiltAngle) * hyp
-    widthTotal += -Math.cos(rightAngle - pastTiltAngle) * hyp
+  else{ // Otherwise, we have a different formula we use to figure out the height that each cube needs to get to. 
+    heightTotal += Math.sin(rightAngle - pastTiltAngle) * hyp // heightTotal += sin(PI - pastTiltAngle) * the height of the cube
+    widthTotal += -Math.cos(rightAngle - pastTiltAngle) * hyp // widthTotal += cos(PI - pastTiltAngle) * the height to of the cube
 
+    /* 
+      Both these equations help figure out how much to move the cube from the the starting translation point after
+    
+    */
     M = M.multiplyMatrices(translationMatrix(widthTotal,heightTotal,0),M)
     console.log(heightTotal)
     console.log("AFTER WIDTH: " + widthTotal)
