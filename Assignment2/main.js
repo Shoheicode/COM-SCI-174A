@@ -387,10 +387,13 @@ function animate() {
     let heightTotal = 0
     let widthTotal = 0
     for (let i = 0; i < 7;i++){
+      /* 
+        Added Matrix Multiplier that will act as the main way to transform the cubes
+      */
       let M = new THREE.Matrix4();
-      let r = rotationMatrixZ(i*rotation_angle)
-      let s = scalingMatrix(1,1.5,1)
-      M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M)
+      let r = rotationMatrixZ(i*rotation_angle) // Gets the rotationZ angle matrix
+      let s = scalingMatrix(1,1.5,1) // Gets the scaling matrix
+      M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M) // Multiplies the M matrix by the translation Matrix which moves the block to (0.5, 0.5, 0) 
       
       M = M.multiplyMatrices(s, M)
       M = M.multiplyMatrices(r,M)
