@@ -426,9 +426,12 @@ function animate() {
       
         //Have a variable to store the value of the translation matrix
         let newTranslation = translationMatrix(widthTotal,heightTotal,0)
-
+      
+        //Multiply the translation matrix to the current M
         M = M.multiplyMatrices(newTranslation,M)
       }
+
+      //Apply the multiplication matrix that has all the scales and translations in it.
       cubes[i].matrix.copy(M)
     }
   }
