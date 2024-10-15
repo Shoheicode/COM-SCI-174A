@@ -402,9 +402,9 @@ function animate() {
       let rightAngle = THREE.MathUtils.degToRad(90) // gets the right angle to help with calculations later
       let pastrotation_angle = (i-1)*rotation_angle // Gets the past angle for the else statement which is needed for calculations
       let hyp = 1.5 // the hypotenuse, aka the height of the cube
-      if(i <=1){
-        M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M)
-        if (i == 1){
+      if(i <=1){ // Checks the first cube and second cube and applies the matrixs of translation to the cubes.
+        M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M) // Apply the same tranlastion to both the first and second cube multiplied by i
+        if (i == 1){  // if it is the second cube, we add the to the height total and move it to the left by none.
           heightTotal += 1.5
           widthTotal += 0
         }
