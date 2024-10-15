@@ -395,9 +395,9 @@ function animate() {
       let s = scalingMatrix(1,1.5,1) // Gets the scaling matrix
       M = M.multiplyMatrices(translationMatrix(0.5,0.5,0),M) // Multiplies the M matrix by the translation Matrix which moves the block to (0.5, 0.5, 0) 
       
-      M = M.multiplyMatrices(s, M)
-      M = M.multiplyMatrices(r,M)
-      M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)
+      M = M.multiplyMatrices(s, M) // Multiplies the M matrix by the Scale matrix which makes the block bigger in the y direction
+      M = M.multiplyMatrices(r,M) // Multiplies the M matrix by the rotation matrix which makes the block around the z axis at the origin
+      M = M.multiplyMatrices(translationMatrix(-0.5,-0.75,0),M)// Moves the block back to it's original starting point 
 
       let rightAngle = THREE.MathUtils.degToRad(90)
       let pastrotation_angle = (i-1)*rotation_angle
