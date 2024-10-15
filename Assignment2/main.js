@@ -346,7 +346,8 @@ let MAX_ANGLE = THREE.MathUtils.degToRad(10) // 10 degrees converted to radians
 let T = 3 // oscilation persiod in seconds
 
 function timeToRotate(a_time){
-    let time = Math.cos((a_time*Math.PI)/3 + Math.PI)
+    //Using a per
+    let time = Math.cos((a_time*Math.PI)/T + Math.PI)
     return (0.5) + 0.5*time
 }
 
@@ -364,6 +365,7 @@ function animate() {
 	renderer.render( scene, camera );
   controls.update();
   
+  // Converts the time to a percentage of how much to rotate at a given time
   let rotation_angle = timeToRotate(animation_time) * MAX_ANGLE
 
   // TODO
