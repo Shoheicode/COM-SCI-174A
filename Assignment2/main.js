@@ -293,7 +293,11 @@ for (let i = 0; i < 7;i++){
       Thus, we have to add all the previous heights and the previous width to the current height in order for the
       code to translate well. 
     */
-    M = M.multiplyMatrices(translationMatrix(widthTotal,heightTotal,0),M)
+   
+    //Have a variable to store the value of the translation matrix
+    let newTranslation = translationMatrix(widthTotal,heightTotal,0)
+    
+    M = M.multiplyMatrices(newTranslation,M) 
     console.log(heightTotal)
     console.log("AFTER WIDTH: " + widthTotal)
   }
