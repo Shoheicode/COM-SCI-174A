@@ -405,13 +405,12 @@ function animate() {
       if(i <=1){ // Checks the first cube and second cube and applies the matrixs of translation to the cubes.
         M = M.multiplyMatrices(translationMatrix(0,i*1.5,0),M) // Apply the same tranlastion to both the first and second cube multiplied by i
         if (i == 1){  // if it is the second cube, we add the to the height total and move it to the left by none.
-          heightTotal += 1.5
+          heightTotal += 1.5 // Adds the 1.5 to the height total
           widthTotal += 0
         }
       }
       else{
-        console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*rotation_angle)*hyp)
-        console.log("COS: " + Math.cos(THREE.MathUtils.degToRad(90) -(i-1)*rotation_angle)*hyp)
+        
         heightTotal += Math.sin(rightAngle - pastrotation_angle) * hyp
         widthTotal += -Math.cos(rightAngle - pastrotation_angle) * hyp
 
