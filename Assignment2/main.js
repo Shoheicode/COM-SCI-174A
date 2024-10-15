@@ -444,7 +444,7 @@ function animate() {
       cubes_wireframe[i].visible = true;
       cubes[i].visible = false;
     }
-    //FOR WIRE FRAME CUBES
+    //FOR WIRE FRAME CUBES (NOTE, same comments for normal cube so read comments above)
     let heightTotal2 = 0
     let widthTotal2 = 0
     for (let i = 0; i < 7;i++){
@@ -468,11 +468,6 @@ function animate() {
         }
       }
       else{
-        console.log("I VALUE CUBE:" + i)
-        console.log(heightTotal)
-        console.log("BEFORE WIDTH: " + widthTotal)
-        console.log("SIN: " + Math.sin(THREE.MathUtils.degToRad(90)-(i-1)*rotation_angle)*hyp)
-        console.log("COS: " + Math.cos(THREE.MathUtils.degToRad(90) -(i-1)*rotation_angle)*hyp)
         heightTotal2 += Math.sin(rightAngle - pastrotation_angle) * hyp
         widthTotal2 += -Math.cos(rightAngle - pastrotation_angle) * hyp
 
