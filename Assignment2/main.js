@@ -378,6 +378,12 @@ function animate() {
       cubes_wireframe[i].visible = false;
     }
     // FOR NORMAL CUBES
+
+    /*
+    These values keep track of the height and width total that will change based on the angle
+    This is mainly because when we translate, we just need to keep track of the total height and width
+    that each block needs to move depending on the angle
+    */
     let heightTotal = 0
     let widthTotal = 0
     for (let i = 0; i < 7;i++){
