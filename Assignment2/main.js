@@ -352,7 +352,10 @@ function timeToRotate(a_time){
 
 function animate() {
 
+  //For time keeping
   delta_animation_time = clock.getDelta();
+
+  //Checks if the pause/still button is pressed and if it was pressed or the thing is paused, it will stop moving.
   if(!still){
     animation_time += delta_animation_time; 
   }
