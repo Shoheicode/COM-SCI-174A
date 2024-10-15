@@ -225,7 +225,7 @@ function scalingMatrix(sx, sy, sz) {
 }
 
 //FOR VISIBILITY OF WIREFRAME
-let visible = true;
+let visible = false;
 
 let cubes = [];
 for (let i = 0; i < 7; i++) {
