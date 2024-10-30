@@ -387,6 +387,12 @@ function onKeyDown(event) {
     }
 }
 
+function timeToRotate(a_time){
+    //Using a (1/2)+(1/2)*cos((x*pi)/3+pi)
+    let time = Math.cos((a_time*Math.PI)/T + Math.PI)
+    return (0.5) + 0.5*time
+}
+
 function animate() {
     requestAnimationFrame(animate);
 
@@ -396,6 +402,7 @@ function animate() {
     let period10 = time % 10.0;
 
     // TODO: Update sun light
+
 
     // TODO: Loop through all the orbiting planets and apply transformation to create animation effect
     planets.forEach(function (obj, index) {
