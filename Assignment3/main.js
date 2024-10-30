@@ -86,7 +86,7 @@ let spherePlanet1 = new THREE.Mesh(planet1, materialPlanet1);
 scene.add(spherePlanet1)
 
 // TODO: Create Planet 2: Swampy Green-Blue with Dynamic Shading
-let planet2 = null;
+let planet2 = new THREE.SphereGeometry(1,8,8);
 
 // TODO: Create Planet 3: Muddy Brown-Orange Planet with Ring
 let planet3 = null;
