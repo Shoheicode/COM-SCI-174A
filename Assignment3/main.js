@@ -82,7 +82,7 @@ scene.add(sunLight)
 let planet1 = new THREE.SphereGeometry(1,32,32);
 let materialPlanet1 = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0x000000 });
 let spherePlanet1 = new THREE.Mesh(planet1, materialPlanet1);
-spherePlanet1.position.set(5,0,0)
+// spherePlanet1.position.set(5,0,0)
 scene.add(spherePlanet1)
 
 // TODO: Create Planet 2: Swampy Green-Blue with Dynamic Shading
@@ -430,7 +430,7 @@ function animate() {
         
         // TODO: Implement the model transformations for the planets
         // Hint: Some of the planets have the same set of transformation matrices, but for some you have to apply some additional transformation to make it work (e.g. planet4's moon, planet3's wobbling effect(optional)).
-
+        
 
         planet.matrix.copy(model_transform);
         planet.matrixAutoUpdate = false;
