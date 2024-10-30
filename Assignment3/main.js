@@ -103,7 +103,7 @@ let moon = null;
 // e.g. { mesh: planet1, distance: 5, speed: 1 },
 planets = [
     // TODO: Fill in the planet's data here
-    // {mesh: spherePlanet1, distance: 5, speed: 1}
+    {mesh: spherePlanet1, distance: 5, speed: 1}
 ];
 
 // Handle window resize
@@ -430,7 +430,8 @@ function animate() {
         
         // TODO: Implement the model transformations for the planets
         // Hint: Some of the planets have the same set of transformation matrices, but for some you have to apply some additional transformation to make it work (e.g. planet4's moon, planet3's wobbling effect(optional)).
-        
+        model_transform = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
+        model_transform = model_transform.multiply(translationMatrix(distance,0,0),model_transform)
 
         planet.matrix.copy(model_transform);
         planet.matrixAutoUpdate = false;
