@@ -158,6 +158,7 @@ function createGouraudMaterial(materialProperties) {
 
 // Custom Phong Shader has already been implemented, no need to make change.
 function createPhongMaterial(materialProperties) {
+    // console.log(materialProperties)
     const numLights = 1;
     // Vertex Shader
     let vertexShader = `
@@ -475,14 +476,18 @@ function animate() {
     
     // TODO: Apply Gouraud/Phong shading alternatively to Planet 2
     if(Math.floor(time) % 2 == 0){
-        // planets[1].mesh.material = createPhongMaterial(planets[1].mesh.material)
+        // console.log(spherePlanet2)
+        // console.log(materialPlanet2)
+        spherePlanet2.material = createPhongMaterial(materialPlanet2)
     }
     if(Math.floor(time) % 2 == 1){
+        spherePlanet2.material = createPhongMaterial(materialPlanet2)
         // planets[1].mesh.material = createGouraudMaterial(planets[1].mesh.material)
     }
 
     // TODO: Update customized planet material uniforms
     // e.g. updatePlanetMaterialUniforms(planets[1].mesh);
+    updatePlanetMaterialUniforms(planets[1].mesh);
     
 
     // Update controls only when the camera is not attached
