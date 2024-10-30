@@ -480,7 +480,8 @@ function animate() {
     if(Math.floor(time) % 2 == 0){
         // console.log(spherePlanet2)
         // console.log(materialPlanet2)
-        // spherePlanet2.material = createPhongMaterial(materialPlanet2)
+        spherePlanet2.material = createPhongMaterial(materialPlanet2)
+        console.log(spherePlanet2.material)
     }
     if(Math.floor(time) % 2 == 1){
         // spherePlanet2.material = createPhongMaterial(materialPlanet2)
