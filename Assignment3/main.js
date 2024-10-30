@@ -79,8 +79,8 @@ scene.add(sunLight)
 
 // Create orbiting planets
 // TODO: Create Planet 1: Flat-shaded Gray Planet
-let planet1 = new THREE.SphereGeometry(1,32,32);
-let materialPlanet1 = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0x000000 });
+let planet1 = new THREE.SphereGeometry(1,8,6);
+let materialPlanet1 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000 });
 let spherePlanet1 = new THREE.Mesh(planet1, materialPlanet1);
 // spherePlanet1.position.set(5,0,0)
 scene.add(spherePlanet1)
