@@ -400,9 +400,8 @@ function animate() {
     // TODO: Animate sun radius and color
     let period10 = time % 10.0;
 
-    const scale = period10 < 5 ? 
-        1 + 2 * (period10 / 5) : // 1 to 3 in the first 5 seconds
-        3 - 2 * ((period10 - 5) / 5); // 3 back to 1 in the next 5 seconds
+     // Auxiliary variable that goes from 0 to 1 in the first 5 seconds, then 1 to 0 in the next 5 seconds
+    const animationFactor = Math.abs((elapsedTime % 10) / 5 - 1);
 
     sphereSun.scale.set(scale, scale, scale)
     
