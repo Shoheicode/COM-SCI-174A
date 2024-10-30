@@ -103,7 +103,7 @@ let moon = null;
 // e.g. { mesh: planet1, distance: 5, speed: 1 },
 planets = [
     // TODO: Fill in the planet's data here
-
+    {mesh: spherePlanet1, distance: 5, speed: 1}
 ];
 
 // Handle window resize
