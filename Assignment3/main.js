@@ -80,13 +80,13 @@ scene.add(sunLight)
 // Create orbiting planets
 // TODO: Create Planet 1: Flat-shaded Gray Planet
 let planet1 = new THREE.SphereGeometry(1,8,6);
-let materialPlanet1 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true });
+let materialPlanet1 = new THREE.MeshPhongMaterial({ color: 0x80FFFF, emissive: 0x000000,flatShading:true });
 let spherePlanet1 = new THREE.Mesh(planet1, materialPlanet1);
 scene.add(spherePlanet1)
 
 // TODO: Create Planet 2: Swampy Green-Blue with Dynamic Shading
 let planet2 = new THREE.SphereGeometry(1,8,8);
-let materialPlanet2 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true });
+let materialPlanet2 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true, shininess:40, });
 let spherePlanet2 = new THREE.Mesh(planet2, materialPlanet2);
 scene.add(spherePlanet2)
 
@@ -105,7 +105,8 @@ let moon = null;
 // e.g. { mesh: planet1, distance: 5, speed: 1 },
 planets = [
     // TODO: Fill in the planet's data here
-    {mesh: spherePlanet1, distance: 5, speed: 1}
+    {mesh: spherePlanet1, distance: 5, speed: 1},
+    {mesh: spherePlanet2, distance: 8, speed: 5/8}
 ];
 
 // Handle window resize
