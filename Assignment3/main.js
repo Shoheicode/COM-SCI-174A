@@ -91,7 +91,14 @@ let spherePlanet2 = new THREE.Mesh(planet2, materialPlanet2);
 scene.add(spherePlanet2)
 
 // TODO: Create Planet 3: Muddy Brown-Orange Planet with Ring
-let planet3 = null;
+let planet3 = new THREE.SphereGeometry(1, 16, 16);
+let materialPlanet3 = createPhongMaterial(
+    {
+        
+    }
+)
+let spherePlanet3 = new THREE.Mesh(planet3, materialPlanet3);
+scene.add(spherePlanet3)
 // Planet 3 Ring
 let ring = null;
 
