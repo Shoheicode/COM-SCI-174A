@@ -66,7 +66,7 @@ let sphere = new THREE.Mesh(geometry, material);
 scene.add(sphere);
 
 // TODO: Create the sun
-let sun = null;
+let sun = THREE.SphereGeometry();
 
 // TODO: Create sun light
 let sunLight = null;
