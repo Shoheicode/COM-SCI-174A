@@ -407,8 +407,14 @@ function animate() {
     let period10 = time % 10.0;
 
     // TODO: Update sun light
-    let size = timeToGetBigger(period10) * 2 + 1;
-    sun.scale(size, size, size)
+    console.log(timeToGetBigger(period10) * 2 + 1)
+    // if(period10 <= 5){
+    //     let size = timeToGetBigger(period10) * 2 + 1;
+    //     sun.scale(size, size, size)
+    // }else{
+    //     let size = timeToGetBigger(period10) * 2 + 1;
+    //     sun.scale(1/size, 1/size, 1/size)
+    // }
 
     // TODO: Loop through all the orbiting planets and apply transformation to create animation effect
     planets.forEach(function (obj, index) {
