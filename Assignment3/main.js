@@ -79,7 +79,11 @@ scene.add(sunLight)
 
 // Create orbiting planets
 // TODO: Create Planet 1: Flat-shaded Gray Planet
-let planet1 = null;
+let planet1 = new THREE.SphereGeometry(1,32,32);
+let materialPlanet1 = new THREE.MeshBasicMaterial({ color: 0xffffff });
+let spherePlanet1 = new THREE.Mesh(planet1, materialPlanet1);
+spherePlanet1.position.set(5,0,0)
+scene.add(spherePlanet1)
 
 // TODO: Create Planet 2: Swampy Green-Blue with Dynamic Shading
 let planet2 = null;
@@ -414,7 +418,7 @@ function animate() {
     
     // TODO: Update sun light
     sunLight.color.setRGB(1, colorFactor, colorFactor)
-
+    sunLight.power = Math.pow(10, scale)
 
     // TODO: Loop through all the orbiting planets and apply transformation to create animation effect
     planets.forEach(function (obj, index) {
