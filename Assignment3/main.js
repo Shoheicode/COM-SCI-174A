@@ -104,7 +104,12 @@ let materialPlanet3 = createPhongMaterial(
 let spherePlanet3 = new THREE.Mesh(planet3, materialPlanet3);
 scene.add(spherePlanet3)
 // Planet 3 Ring
-let ring = null;
+let ring = new THREE.RingGeometry(1.5, 2.5, 64);
+let materialRing = createRingMaterial();
+let planet3Ring = new THREE.Mesh(ring, materialRing);
+planet3Ring.rotation.x = Math.PI / 2; // Rotate the ring to lie flat
+spherePlanet3.add(planet3Ring)
+
 
 // TODO: Create Planet 4: Soft Light Blue Planet
 let planet4 = null;
@@ -353,14 +358,24 @@ function createRingMaterial(materialProperties) {
         varying vec3 vPosition;
 
         void main() {
-
+            float brightness = 0.5 + 0.5 * sin(vUv.x * 20.0); // Sinusoidal bands
+            gl_FragColor = vec4(color * brightness, 1.0);
         }
     `;
 
+    // let shape_color = new THREE.Vector4(
+    //     materialProperties.color.r, 
+    //     materialProperties.color.g, 
+    //     materialProperties.color.b,
+    //     1.0
+    // );
+
     // TODO: Fill in the values to be passed in to create the custom shader
     return new THREE.ShaderMaterial({
-        uniforms: {color: null},
-
+        uniforms: {color: { value: new THREE.Color(0xC0C0C0)}},
+        vertexShader: vertexShader,
+        // fragmentShader: fragmentShader,
+        side: THREE.DoubleSide
     });
 }
 
@@ -463,6 +478,15 @@ function onKeyDown(event) {
         
         //...
     }
+}
+
+function applyWobbleEffect(time) {
+    
+    console.log(time)
+    const wobbleX = 0.05 * Math.sin(time * 2.0);
+    const wobbleZ = 0.05 * Math.sin(time * 1.5);
+    planet3Ring.rotation.x = wobbleX;
+    planet3Ring.rotation.z = wobbleZ;
 }
 
 function animate() {
@@ -573,7 +597,6 @@ function animate() {
     // console.log(spherePlanet2.position.y)
     updatePlanetMaterialUniforms(spherePlanet2);
     updatePlanetMaterialUniforms(spherePlanet3);
-    
 
     // Update controls only when the camera is not attached
     if (controls.enabled) {
