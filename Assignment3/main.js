@@ -73,7 +73,9 @@ scene.add(sphereSun);
 
 
 // TODO: Create sun light
-let sunLight = null;
+let sunLight = new THREE.PointLight(0xff0000, 1, 100);
+sunLight.position.set(0,0,0);
+scene.add(sunLight)
 
 // Create orbiting planets
 // TODO: Create Planet 1: Flat-shaded Gray Planet
