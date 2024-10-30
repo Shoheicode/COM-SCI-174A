@@ -558,7 +558,15 @@ function animate() {
     if(Math.floor(time) % 2 == 0){
         // console.log(spherePlanet2)
         // console.log(materialPlanet2)
-        spherePlanet2.material = createPhongMaterial(materialPlanet2)
+        spherePlanet2.material = createPhongMaterial(
+            { 
+                color: new THREE.Color(0x80FFFF), 
+                ambient: 0.0,
+                diffusivity: 0.5, 
+                specularity: 1.0,
+                smoothness: 40.0 
+            }
+        )
         console.log(spherePlanet2.material)
     }
     if(Math.floor(time) % 2 == 1){
