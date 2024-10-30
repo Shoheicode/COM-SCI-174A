@@ -439,6 +439,8 @@ function animate() {
 
         planet.matrix.copy(model_transform);
         planet.matrixAutoUpdate = false;
+
+        console.log(planet.matrix)
         
         // Camera attachment logic here, when certain planet is being attached, we want the camera to be following the planet by having the same transformation as the planet itself. No need to make changes.
         if (attachedObject === index){
@@ -478,16 +480,17 @@ function animate() {
     if(Math.floor(time) % 2 == 0){
         // console.log(spherePlanet2)
         // console.log(materialPlanet2)
-        spherePlanet2.material = createPhongMaterial(materialPlanet2)
+        // spherePlanet2.material = createPhongMaterial(materialPlanet2)
     }
     if(Math.floor(time) % 2 == 1){
-        spherePlanet2.material = createPhongMaterial(materialPlanet2)
+        // spherePlanet2.material = createPhongMaterial(materialPlanet2)
         // planets[1].mesh.material = createGouraudMaterial(planets[1].mesh.material)
     }
 
     // TODO: Update customized planet material uniforms
     // e.g. updatePlanetMaterialUniforms(planets[1].mesh);
-    updatePlanetMaterialUniforms(planets[1].mesh);
+    // console.log(spherePlanet2.position.y)
+    updatePlanetMaterialUniforms(spherePlanet2);
     
 
     // Update controls only when the camera is not attached
