@@ -251,6 +251,7 @@ function createPhongMaterial(materialProperties) {
         uniform vec3 squared_scale;
         uniform vec3 camera_center;
         varying vec3 N, vertex_worldspace;
+        varying vec3 vColor;  // Varying to pass the calculated color to the fragment shader
 
         // ***** PHONG SHADING HAPPENS HERE: *****
         vec3 phong_model_lights(vec3 N, vec3 vertex_worldspace) {
@@ -276,9 +277,12 @@ function createPhongMaterial(materialProperties) {
         uniform mat4 projection_camera_model_transform;
 
         void main() {
-            gl_Position = projection_camera_model_transform * vec4(position, 1.0);
             N = normalize(mat3(model_transform) * normal / squared_scale);
             vertex_worldspace = (model_transform * vec4(position, 1.0)).xyz;
+            vColor = shape_color.xyz * ambient;  // Start with ambient component
+            vColor += phong_model_lights(N, vertex_worldspace);  // Add lighting calculation
+
+            gl_Position = projection_camera_model_transform * vec4(position, 1.0);
         }
     `;
     // Fragment Shader
