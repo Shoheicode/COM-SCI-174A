@@ -118,7 +118,9 @@ document.addEventListener('keydown', onKeyDown, false);
 animate();
 
 // TODO: Implement the Gouraud Shader for Planet 2
-function createGouraudMaterial(materialProperties) {    
+function createGouraudMaterial(materialProperties) {  
+    console.log(materialProperties)
+    const numLights = 1;  
     // TODO: Implement the Vertex Shader in GLSL
     let vertexShader = `
         precision mediump float;
@@ -236,7 +238,6 @@ function createGouraudMaterial(materialProperties) {
 
 // Custom Phong Shader has already been implemented, no need to make change.
 function createPhongMaterial(materialProperties) {
-    // console.log(materialProperties)
     const numLights = 1;
     // Vertex Shader
     let vertexShader = `
@@ -518,7 +519,7 @@ function animate() {
         planet.matrix.copy(model_transform);
         planet.matrixAutoUpdate = false;
 
-        console.log(planet.matrix)
+        // console.log(planet.matrix)
         
         // Camera attachment logic here, when certain planet is being attached, we want the camera to be following the planet by having the same transformation as the planet itself. No need to make changes.
         if (attachedObject === index){
@@ -567,10 +568,10 @@ function animate() {
                 smoothness: 40.0 
             }
         )
-        console.log(spherePlanet2.material)
+        // console.log(spherePlanet2.material)
     }
     if(Math.floor(time) % 2 == 1){
-        spherePlanet2.material = createPhongMaterial(
+        spherePlanet2.material = createGouraudMaterial(
             { 
                 color: new THREE.Color(0x80FFFF), 
                 ambient: 0.0,
