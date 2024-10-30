@@ -391,14 +391,8 @@ function onKeyDown(event) {
     }
 }
 
-function timeToGetBigger(a_time){
-    let T = 3 // oscilation persiod in seconds
-    //Using a (1/2)+(1/2)*cos((x*pi)/3+pi)
-    let time = Math.cos((a_time*Math.PI)/T + Math.PI)
-    return (0.5) + 0.5*time
-}
-
 function animate() {
+    
     requestAnimationFrame(animate);
 
     let time = clock.getElapsedTime();
@@ -406,17 +400,14 @@ function animate() {
     // TODO: Animate sun radius and color
     let period10 = time % 10.0;
 
+    const scale = period10 < 5 ? 
+        1 + 2 * (period10 / 5) : // 1 to 3 in the first 5 seconds
+        3 - 2 * ((period10 - 5) / 5); // 3 back to 1 in the next 5 seconds
+
+    sphereSun.scale.set(scale, scale, scale)
+    
     // TODO: Update sun light
-    console.log(timeToGetBigger(period10) * 2 + 1)
-    if(period10 <= 5){
-        // let size = timeToGetBigger(period10) * 2 + 1;
-        sun.scale(1, 1, 1)
-        console.log("Get Bigger " + timeToGetBigger(period10) * 2 + 1)
-    }else{
-        // let size = timeToGetBigger(period10) * 2 + 1;
-        // sun.scale(1/size, 1/size, 1/size)
-        console.log("GET SMALLER" + timeToGetBigger(period10) * 2 + 1)
-    }
+
 
     // TODO: Loop through all the orbiting planets and apply transformation to create animation effect
     planets.forEach(function (obj, index) {
