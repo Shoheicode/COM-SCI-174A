@@ -73,7 +73,7 @@ scene.add(sphereSun);
 
 
 // TODO: Create sun light
-let sunLight = new THREE.PointLight(0xff0000, 1, 100);
+let sunLight = new THREE.PointLight(0xff0000, 1, 0, 1);
 sunLight.position.set(0,0,0);
 scene.add(sunLight)
 
@@ -413,6 +413,7 @@ function animate() {
     sphereSun.material.color.setRGB(1, colorFactor, colorFactor)
     
     // TODO: Update sun light
+    sunLight.color.setRGB(1, colorFactor, colorFactor)
 
 
     // TODO: Loop through all the orbiting planets and apply transformation to create animation effect
