@@ -387,7 +387,7 @@ function onKeyDown(event) {
     }
 }
 
-function timeToRotate(a_time){
+function timeToGetBigger(a_time){
     //Using a (1/2)+(1/2)*cos((x*pi)/3+pi)
     let time = Math.cos((a_time*Math.PI)/T + Math.PI)
     return (0.5) + 0.5*time
