@@ -474,7 +474,12 @@ function animate() {
     });
     
     // TODO: Apply Gouraud/Phong shading alternatively to Planet 2
-    
+    if(Math.floor(time) % 2 == 0){
+        // planets[1].mesh.material = createPhongMaterial(planets[1].mesh.material)
+    }
+    if(Math.floor(time) % 2 == 1){
+        // planets[1].mesh.material = createGouraudMaterial(planets[1].mesh.material)
+    }
 
     // TODO: Update customized planet material uniforms
     // e.g. updatePlanetMaterialUniforms(planets[1].mesh);
