@@ -94,7 +94,11 @@ scene.add(spherePlanet2)
 let planet3 = new THREE.SphereGeometry(1, 16, 16);
 let materialPlanet3 = createPhongMaterial(
     {
-        
+        color: new THREE.Color(0xB08040), 
+        ambient: 0.0,
+        diffusivity: 1.0, 
+        specularity: 1.0,
+        smoothness: 100.0
     }
 )
 let spherePlanet3 = new THREE.Mesh(planet3, materialPlanet3);
@@ -113,7 +117,8 @@ let moon = null;
 planets = [
     // TODO: Fill in the planet's data here
     {mesh: spherePlanet1, distance: 5, speed: 1},
-    {mesh: spherePlanet2, distance: 8, speed: 5/8}
+    {mesh: spherePlanet2, distance: 8, speed: 5/8},
+    {mesh: spherePlanet3, distance: 11, speed: 5/11},
 ];
 
 // Handle window resize
@@ -567,6 +572,7 @@ function animate() {
     // e.g. updatePlanetMaterialUniforms(planets[1].mesh);
     // console.log(spherePlanet2.position.y)
     updatePlanetMaterialUniforms(spherePlanet2);
+    updatePlanetMaterialUniforms(spherePlanet3);
     
 
     // Update controls only when the camera is not attached
