@@ -60,13 +60,17 @@ let blendingFactor = 0.1;
 // Create additional variables as needed here
 
 // Starter code sphere, feel free to delete it afterwards
-let geometry = new THREE.SphereGeometry(1, 32, 32);
-let material = new THREE.MeshBasicMaterial({ color: 0xffffff });
-let sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
+// let geometry = new THREE.SphereGeometry(1, 32, 32);
+// let material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+// let sphere = new THREE.Mesh(geometry, material);
+// scene.add(sphere);
 
 // TODO: Create the sun
 let sun = new THREE.SphereGeometry(1,32, 32);
+let materialSun = new THREE.MeshBasicMaterial({ color: 0xffffff });
+let sphereSun = new THREE.Mesh(sun, materialSun);
+scene.add(sphereSun);
+
 
 // TODO: Create sun light
 let sunLight = null;
@@ -388,6 +392,7 @@ function onKeyDown(event) {
 }
 
 function timeToGetBigger(a_time){
+    let T = 3 // oscilation persiod in seconds
     //Using a (1/2)+(1/2)*cos((x*pi)/3+pi)
     let time = Math.cos((a_time*Math.PI)/T + Math.PI)
     return (0.5) + 0.5*time
@@ -402,7 +407,8 @@ function animate() {
     let period10 = time % 10.0;
 
     // TODO: Update sun light
-
+    let size = timeToGetBigger(period10) * 2 + 1;
+    sun.scale(size, size, size)
 
     // TODO: Loop through all the orbiting planets and apply transformation to create animation effect
     planets.forEach(function (obj, index) {
