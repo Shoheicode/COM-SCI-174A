@@ -86,7 +86,7 @@ scene.add(spherePlanet1)
 
 // TODO: Create Planet 2: Swampy Green-Blue with Dynamic Shading
 let planet2 = new THREE.SphereGeometry(1,8,8);
-let materialPlanet2 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true, shininess:40, });
+let materialPlanet2 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,shininess: 40,specular: 0xffffff, });
 let spherePlanet2 = new THREE.Mesh(planet2, materialPlanet2);
 scene.add(spherePlanet2)
 
