@@ -107,7 +107,7 @@ scene.add(spherePlanet3)
 let ring = new THREE.RingGeometry(1.5, 2.5, 64);
 let materialRing = createRingMaterial();
 let planet3Ring = new THREE.Mesh(ring, materialRing);
-planet3Ring.rotation.x = Math.PI / 2; // Rotate the ring to lie flat
+// planet3Ring.rotation.x = Math.PI / 2; // Rotate the ring to lie flat
 spherePlanet3.add(planet3Ring)
 
 
@@ -522,11 +522,25 @@ function animate() {
         
         // TODO: Implement the model transformations for the planets
         // Hint: Some of the planets have the same set of transformation matrices, but for some you have to apply some additional transformation to make it work (e.g. planet4's moon, planet3's wobbling effect(optional)).
-        model_transform = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
-        model_transform = model_transform.multiply(translationMatrix(distance,0,0),model_transform)
-
-        planet.matrix.copy(model_transform);
-        planet.matrixAutoUpdate = false;
+        if(index == 2){
+            const wobbleX = 0.05 * Math.sin(time * 2.0);
+            const wobbleZ = 0.05 * Math.sin(time * 1.5);
+            let mod = new THREE.Matrix4()
+            // mod = model_transform.multiply(rotationMatrixX(wobbleX*90), mod)
+            mod = model_transform.multiply(rotationMatrixX(wobbleZ*Math.PI), mod)
+            mod = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
+            console.log(-Math.sin(wobbleZ*Math.PI))
+            mod = model_transform.multiply(translationMatrix(distance,0 ,0),model_transform)
+            planet.matrix.copy(mod)
+            planet.matrixAutoUpdate = false;
+        }
+        else{
+        
+            model_transform = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
+            model_transform = model_transform.multiply(translationMatrix(distance,0,0),model_transform)
+            planet.matrix.copy(model_transform);
+            planet.matrixAutoUpdate = false;
+        }
 
         // console.log(planet.matrix)
         
