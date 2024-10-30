@@ -82,11 +82,13 @@ scene.add(sunLight)
 let planet1 = new THREE.SphereGeometry(1,8,6);
 let materialPlanet1 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true });
 let spherePlanet1 = new THREE.Mesh(planet1, materialPlanet1);
-// spherePlanet1.position.set(5,0,0)
 scene.add(spherePlanet1)
 
 // TODO: Create Planet 2: Swampy Green-Blue with Dynamic Shading
 let planet2 = new THREE.SphereGeometry(1,8,8);
+let materialPlanet2 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true });
+let spherePlanet2 = new THREE.Mesh(planet2, materialPlanet2);
+scene.add(spherePlanet2)
 
 // TODO: Create Planet 3: Muddy Brown-Orange Planet with Ring
 let planet3 = null;
