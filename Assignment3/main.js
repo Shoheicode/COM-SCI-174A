@@ -398,10 +398,10 @@ function animate() {
     let time = clock.getElapsedTime();
 
     // TODO: Animate sun radius and color
-    let period10 = time % 10.0;
+    let period10 = (time+5) % 10.0;
 
      // Auxiliary variable that goes from 0 to 1 in the first 5 seconds, then 1 to 0 in the next 5 seconds
-    const animationFactor = Math.abs((period10) / 5 - 1);
+    const animationFactor = Math.abs((period10) / 5-1);
 
     const scale = 1 + 2 * animationFactor
 
