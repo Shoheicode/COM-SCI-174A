@@ -491,7 +491,14 @@ function onKeyDown(event) {
     switch (event.keyCode) {
         case 48: // '0' key - Detach camera
             break;
-        
+        case 49:
+            attachedObject = 0;
+        case 50:
+            attachedObject = 1;
+        case 49:
+            attachedObject = 0;
+        case 50:
+            attachedObject = 1;
         //...
     }
 }
