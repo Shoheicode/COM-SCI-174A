@@ -527,10 +527,10 @@ function animate() {
             const wobbleZ = 0.05 * Math.sin(time * 1.5);
             let mod = new THREE.Matrix4()
             // mod = model_transform.multiply(rotationMatrixX(wobbleX*90), mod)
-            mod = model_transform.multiply(rotationMatrixX(wobbleX*Math.PI), mod)
-            mod = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
             console.log(-Math.sin(wobbleZ*Math.PI))
-            // mod = model_transform.multiply(translationMatrix(distance,0 ,0),model_transform)
+            mod = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
+            mod = model_transform.multiply(translationMatrix(distance,-Math.sin(Math.PI/2) ,0),model_transform)
+            mod = model_transform.multiply(rotationMatrixX(wobbleX*4), mod)
             planet.matrix.copy(mod)
             planet.matrixAutoUpdate = false;
         }
