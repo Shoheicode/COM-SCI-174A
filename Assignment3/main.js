@@ -490,6 +490,7 @@ function onWindowResize() {
 function onKeyDown(event) {
     switch (event.keyCode) {
         case 48: // '0' key - Detach camera
+            attachedObject = null
             break;
         case 49:
             attachedObject = 0;
