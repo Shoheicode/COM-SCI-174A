@@ -616,7 +616,6 @@ function animate() {
 
     // TODO: Update customized planet material uniforms
     // e.g. updatePlanetMaterialUniforms(planets[1].mesh);
-    // console.log(spherePlanet2.position.y)
     updatePlanetMaterialUniforms(spherePlanet2);
     updatePlanetMaterialUniforms(spherePlanet3);
     updatePlanetMaterialUniforms(spherePlanet4)
