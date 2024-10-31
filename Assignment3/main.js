@@ -599,7 +599,6 @@ function animate() {
                 smoothness: 40.0 
             }
         )
-        // planets[1].mesh.material = createGouraudMaterial(planets[1].mesh.material)
     }
 
     // TODO: Update customized planet material uniforms
