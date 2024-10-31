@@ -588,7 +588,6 @@ function animate() {
                 smoothness: 40.0 
             }
         )
-        // console.log(spherePlanet2.material)
     }
     if(Math.floor(time) % 2 == 1){
         spherePlanet2.material = createGouraudMaterial(
