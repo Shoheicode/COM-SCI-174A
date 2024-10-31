@@ -345,7 +345,7 @@ function createPhongMaterial(materialProperties) {
 // TODO: Finish the custom shader for planet 3's ring with sinusoidal brightness variation
 function createRingMaterial(materialProperties) {
     let vertexShader = `
-        varying vec3 vUv;
+        varying vec2 vUv;
         void main() {
             vUv = uv;
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
@@ -355,11 +355,11 @@ function createRingMaterial(materialProperties) {
     // TODO: Finish the fragment shader to create the brightness variation with sinine finction
     let fragmentShader = `
         uniform vec3 color;
-        varying vec3 vUv;
+        varying vec2 vUv;
 
         void main() {
             // Calculate the radial distance from the center
-            float radius = length(vUv - vec3(0.5));
+            float radius = length(vUv - vec2(0.5));
             
             // Sinusoidal brightness variation
             float frequency = 50.0;  // Adjust for more or fewer bands
