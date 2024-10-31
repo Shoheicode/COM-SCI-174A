@@ -113,12 +113,23 @@ spherePlanet3.add(planet3Ring)
 
 // TODO: Create Planet 4: Soft Light Blue Planet
 let planet4 = new THREE.SphereGeometry(1, 16, 16);
-let materialPlanet4 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true });
+let materialPlanet4 = createPhongMaterial(
+    {
+        color: new THREE.Color(0x0000D1), 
+        ambient: 0.0,
+        diffusivity: 1.0, 
+        specularity: 1.0,
+        smoothness: 100.0
+    }
+);
 let spherePlanet4 = new THREE.Mesh(planet4, materialPlanet4);
 scene.add(spherePlanet4)
 
 // TODO: Create Planet 4's Moon
-let moon = null;
+let moon = new THREE.SphereGeometry(1, 4, 4);
+let materialMoon = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true });
+let moonObj = new THREE.Mesh(moon, materialMoon);
+scene.add(moonObj)
 
 // TODO: Store planets and moon in an array for easy access, 
 // e.g. { mesh: planet1, distance: 5, speed: 1 },
@@ -601,6 +612,7 @@ function animate() {
     // console.log(spherePlanet2.position.y)
     updatePlanetMaterialUniforms(spherePlanet2);
     updatePlanetMaterialUniforms(spherePlanet3);
+    updatePlanetMaterialUniforms(spherePlanet4)
 
     // Update controls only when the camera is not attached
     if (controls.enabled) {
