@@ -527,7 +527,7 @@ function animate() {
             const wobbleZ = 0.05 * Math.sin(time * 1.5);
             let mod = new THREE.Matrix4()
             // mod = model_transform.multiply(rotationMatrixX(wobbleX*90), mod)
-            mod = model_transform.multiply(rotationMatrixX(wobbleZ*Math.PI), mod)
+            mod = model_transform.multiply(rotationMatrixX(wobbleX*Math.PI), mod)
             mod = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
             console.log(-Math.sin(wobbleZ*Math.PI))
             // mod = model_transform.multiply(translationMatrix(distance,0 ,0),model_transform)
