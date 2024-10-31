@@ -493,12 +493,16 @@ function onKeyDown(event) {
             break;
         case 49:
             attachedObject = 0;
+            break;
         case 50:
             attachedObject = 1;
-        case 49:
-            attachedObject = 0;
-        case 50:
-            attachedObject = 1;
+            break;
+        case 51:
+            attachedObject = 2;
+            break;
+        case 52:
+            attachedObject = 3;
+            break;
         //...
     }
 }
@@ -554,10 +558,10 @@ function animate() {
             planet.matrixAutoUpdate = false;
         }
         if(index == 3){
-            model_transform = new THREE.Matrix4(); 
-            model_transform = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
-            model_transform = model_transform.multiply(translationMatrix(2.5,0,0),model_transform)
-            moonObj.matrix.copy(model_transform);
+            let m = new THREE.Matrix4(); 
+            m = m.multiply(rotationMatrixY(speed * time), m)
+            m = m.multiply(translationMatrix(2.5,0,0),m)
+            moonObj.matrix.copy(m);
             moonObj.matrixAutoUpdate = false;
         }
 
