@@ -529,7 +529,7 @@ function animate() {
             // mod = model_transform.multiply(rotationMatrixX(wobbleX*90), mod)
             console.log(-Math.sin(wobbleZ*Math.PI))
             mod = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
-            mod = model_transform.multiply(translationMatrix(distance,-Math.sin(Math.PI/2) ,0),model_transform)
+            mod = model_transform.multiply(translationMatrix(distance,0 ,0),model_transform)
             mod = model_transform.multiply(rotationMatrixX(wobbleX*Math.PI), mod)
             mod = model_transform.multiply(rotationMatrixZ(wobbleZ*Math.PI), mod)
             planet.matrix.copy(mod)
