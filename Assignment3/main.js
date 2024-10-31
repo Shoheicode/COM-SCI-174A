@@ -358,8 +358,13 @@ function createRingMaterial(materialProperties) {
         varying vec3 vPosition;
 
         void main() {
-            float brightness = 0.5 + 0.5 * sin(vUv.x * 20.0); // Sinusoidal bands
-            gl_FragColor = vec4(color * brightness, 1.0);
+            // Create a sinusoidal pattern using the radial distance from the center
+            float radius = length(vUv - vec2(0.5));
+            float brightness = 0.5 + 0.5 * sin(20.0 * radius);  // Adjust frequency as needed
+            
+            // Mix color with brightness for faded bands effect
+            vec3 finalColor = color * brightness;
+            gl_FragColor = vec4(finalColor, 1.0);
         }
     `;
 
@@ -374,7 +379,7 @@ function createRingMaterial(materialProperties) {
     return new THREE.ShaderMaterial({
         uniforms: {color: { value: new THREE.Color(0xC0C0C0)}},
         vertexShader: vertexShader,
-        // fragmentShader: fragmentShader,
+        fragmentShader: fragmentShader,
         side: THREE.DoubleSide
     });
 }
