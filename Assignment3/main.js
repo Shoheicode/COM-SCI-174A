@@ -112,7 +112,10 @@ spherePlanet3.add(planet3Ring)
 
 
 // TODO: Create Planet 4: Soft Light Blue Planet
-let planet4 = null;
+let planet4 = new THREE.SphereGeometry(1, 16, 16);
+let materialPlanet4 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true });
+let spherePlanet4 = new THREE.Mesh(planet4, materialPlanet4);
+scene.add(spherePlanet4)
 
 // TODO: Create Planet 4's Moon
 let moon = null;
@@ -124,6 +127,7 @@ planets = [
     {mesh: spherePlanet1, distance: 5, speed: 1},
     {mesh: spherePlanet2, distance: 8, speed: 5/8},
     {mesh: spherePlanet3, distance: 11, speed: 5/11},
+    {mesh: spherePlanet4, distance: 14, speed: 5/14},
 ];
 
 // Handle window resize
