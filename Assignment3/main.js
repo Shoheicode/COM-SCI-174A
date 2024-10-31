@@ -579,8 +579,6 @@ function animate() {
     
     // TODO: Apply Gouraud/Phong shading alternatively to Planet 2
     if(Math.floor(time) % 2 == 0){
-        // console.log(spherePlanet2)
-        // console.log(materialPlanet2)
         spherePlanet2.material = createPhongMaterial(
             { 
                 color: new THREE.Color(0x80FFFF), 
