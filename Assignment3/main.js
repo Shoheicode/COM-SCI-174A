@@ -545,11 +545,12 @@ function animate() {
             const wobbleX = 0.05 * Math.sin(time * 2.0);
             const wobbleZ = 0.05 * Math.sin(time * 1.5);
             let mod = new THREE.Matrix4()
-            mod = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
-            mod = model_transform.multiply(translationMatrix(distance,0 ,0),model_transform)
-            mod = model_transform.multiply(rotationMatrixZ(wobbleZ*(10)), mod)
-            mod = model_transform.multiply(rotationMatrixX(wobbleX*(10)), mod)
+            mod = mod.multiply(rotationMatrixY(speed * time), mod)
+            mod = mod.multiply(translationMatrix(distance,0 ,0),mod)
+            mod = mod.multiply(rotationMatrixZ(wobbleZ*(10)), mod)
+            mod = mod.multiply(rotationMatrixX(wobbleX*(10)), mod)
             planet.matrix.copy(mod)
+            planet3Ring.matrix.copy(mod)
             planet.matrixAutoUpdate = false;
         }
         else{
@@ -595,10 +596,14 @@ function animate() {
 
         // TODO: If camera is detached, slowly lerp the camera back to the original position and look at the origin
         else if (attachedObject === null) {
+            camera.position.lerp(new THREE.Vector3(0, 10, 20), blendingFactor);
 
+            camera.lookAt(new THREE.Vector3(0,0,0))
 
             // Enable controls
             controls.enabled = true;
+
+            attachedObject = 5
         }
     });
     
