@@ -535,7 +535,6 @@ function animate() {
             planet.matrixAutoUpdate = false;
         }
         else{
-        
             model_transform = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
             model_transform = model_transform.multiply(translationMatrix(distance,0,0),model_transform)
             planet.matrix.copy(model_transform);
