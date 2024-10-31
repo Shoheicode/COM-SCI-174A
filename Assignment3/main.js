@@ -126,10 +126,10 @@ let spherePlanet4 = new THREE.Mesh(planet4, materialPlanet4);
 scene.add(spherePlanet4)
 
 // TODO: Create Planet 4's Moon
-let moon = new THREE.SphereGeometry(1, 4, 4);
-let materialMoon = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true });
+let moon = new THREE.SphereGeometry(1, 4, 2);
+let materialMoon = new THREE.MeshPhongMaterial({ color: 0xC83CB9, emissive: 0x000000,flatShading:true });
 let moonObj = new THREE.Mesh(moon, materialMoon);
-scene.add(moonObj)
+spherePlanet4.add(moonObj)
 
 // TODO: Store planets and moon in an array for easy access, 
 // e.g. { mesh: planet1, distance: 5, speed: 1 },
@@ -545,6 +545,13 @@ function animate() {
             model_transform = model_transform.multiply(translationMatrix(distance,0,0),model_transform)
             planet.matrix.copy(model_transform);
             planet.matrixAutoUpdate = false;
+        }
+        if(index == 3){
+            model_transform = new THREE.Matrix4(); 
+            model_transform = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
+            model_transform = model_transform.multiply(translationMatrix(2.5,0,0),model_transform)
+            moonObj.matrix.copy(model_transform);
+            moonObj.matrixAutoUpdate = false;
         }
 
         // console.log(planet.matrix)
