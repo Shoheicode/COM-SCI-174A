@@ -520,8 +520,8 @@ function animate() {
             let mod = new THREE.Matrix4()
             mod = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
             mod = model_transform.multiply(translationMatrix(distance,0 ,0),model_transform)
-            mod = model_transform.multiply(rotationMatrixX(wobbleX*Math.PI), mod)
-            mod = model_transform.multiply(rotationMatrixZ(wobbleZ*Math.PI), mod)
+            mod = model_transform.multiply(rotationMatrixZ(wobbleZ*(10)), mod)
+            mod = model_transform.multiply(rotationMatrixX(wobbleX*(10)), mod)
             planet.matrix.copy(mod)
             planet.matrixAutoUpdate = false;
         }
