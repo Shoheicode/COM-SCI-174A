@@ -553,7 +553,6 @@ function animate() {
             mod2.multiply(rotationMatrixZ(wobbleZ*(10)), mod2)
             mod2 = mod2.multiply(rotationMatrixX(wobbleX*(10)), mod2)
             planet3Ring.matrix.copy(mod2)
-            // planet3Ring.matrix.copy(translationMatrix(distance, 0,0))
             planet3Ring.matrixAutoUpdate = false;
             planet.matrixAutoUpdate = false;
         }
