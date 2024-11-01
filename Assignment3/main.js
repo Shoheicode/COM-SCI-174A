@@ -504,6 +504,9 @@ function onKeyDown(event) {
         case 52:
             attachedObject = 3;
             break;
+        case 53:
+            attachedObject = 4;
+            break;
         //...
     }
 }
@@ -515,9 +518,9 @@ function animate() {
     let time = clock.getElapsedTime();
 
     // TODO: Animate sun radius and color
-    let period10 = (time+5) % 10.0;
+    let period10 = (time+5) % 10.0; // Added 5 because the abs would start from 1 and go to 0 and we want it not to do that. 
 
-     // Auxiliary variable that goes from 0 to 1 in the first 5 seconds, then 1 to 0 in the next 5 seconds
+    // This animation factor helps make the animation smoother and allow for the translation go from 0->1 and 1->0
     const animationFactor = Math.abs((period10) / 5-1);
 
     const scale = 1 + 2 * animationFactor
