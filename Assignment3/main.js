@@ -242,7 +242,7 @@ function createGouraudMaterial(materialProperties) {
 
 // Custom Phong Shader has already been implemented, no need to make change.
 function createPhongMaterial(materialProperties) {
-    console.log("PHONGGG")
+    // console.log("PHONGGG")
     const numLights = 1;
     // Vertex Shader
     let vertexShader = `
@@ -490,7 +490,7 @@ function onWindowResize() {
 function onKeyDown(event) {
     switch (event.keyCode) {
         case 48: // '0' key - Detach camera
-            attachedObject = null
+            attachedObject = 5
             break;
         case 49:
             attachedObject = 0;
@@ -506,6 +506,9 @@ function onKeyDown(event) {
             break;
         case 53:
             attachedObject = 4;
+            break;
+        default:
+            attachedObject = null;
             break;
         //...
     }
@@ -552,7 +555,7 @@ function animate() {
         if(index == 2){
             const wobbleX = 0.05 * Math.sin(time * 2.0);
             const wobbleZ = 0.05 * Math.sin(time * 1.5);
-            console.log(wobbleX)
+            // console.log(wobbleX)
             let mod2 = new THREE.Matrix4()
             mod2.multiply(rotationMatrixZ(wobbleZ*(10)), mod2)
             mod2 = mod2.multiply(rotationMatrixX(wobbleX*(10)), mod2)
@@ -595,7 +598,7 @@ function animate() {
         } 
 
         // TODO: If camera is detached, slowly lerp the camera back to the original position and look at the origin
-        else if (attachedObject === null) {
+        else if (attachedObject === 5) {
             camera.position.lerp(new THREE.Vector3(0, 10, 20), blendingFactor);
 
             camera.lookAt(new THREE.Vector3(0,0,0))
@@ -603,7 +606,7 @@ function animate() {
             // Enable controls
             controls.enabled = true;
 
-            attachedObject = 5
+            attachedObject = null
         }
     });
     
