@@ -541,23 +541,20 @@ function animate() {
         
         // TODO: Implement the model transformations for the planets
         // Hint: Some of the planets have the same set of transformation matrices, but for some you have to apply some additional transformation to make it work (e.g. planet4's moon, planet3's wobbling effect(optional)).
+        model_transform = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
+        model_transform = model_transform.multiply(translationMatrix(distance,0,0),model_transform)
+        planet.matrix.copy(model_transform);
+        planet.matrixAutoUpdate = false;
+        
         if(index == 2){
             const wobbleX = 0.05 * Math.sin(time * 2.0);
             const wobbleZ = 0.05 * Math.sin(time * 1.5);
-            let mod = new THREE.Matrix4()
-            mod = mod.multiply(rotationMatrixY(speed * time), mod)
-            mod = mod.multiply(translationMatrix(distance, 0 ,0),mod)
-            mod = mod.multiply(rotationMatrixZ(wobbleZ*(10)), mod)
-            mod = mod.multiply(rotationMatrixX(wobbleX*(10)), mod)
-            planet.matrix.copy(mod)
+            let mod2 = new THREE.Matrix4()
+            mod2.multiply(rotationMatrixZ(wobbleZ*(10)), mod2)
+            mod2 = mod2.multiply(rotationMatrixX(wobbleX*(10)), mod2)
+            planet3Ring.matrix.copy(mod2)
             // planet3Ring.matrix.copy(translationMatrix(distance, 0,0))
             planet3Ring.matrixAutoUpdate = false;
-            planet.matrixAutoUpdate = false;
-        }
-        else{
-            model_transform = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
-            model_transform = model_transform.multiply(translationMatrix(distance,0,0),model_transform)
-            planet.matrix.copy(model_transform);
             planet.matrixAutoUpdate = false;
         }
         if(index == 3){
@@ -634,9 +631,9 @@ function animate() {
 
     // TODO: Update customized planet material uniforms
     // e.g. updatePlanetMaterialUniforms(planets[1].mesh);
-    updatePlanetMaterialUniforms(spherePlanet2);
-    updatePlanetMaterialUniforms(spherePlanet3);
-    updatePlanetMaterialUniforms(spherePlanet4)
+    updatePlanetMaterialUniforms(planets[1].mesh);
+    updatePlanetMaterialUniforms(planets[2].mesh);
+    updatePlanetMaterialUniforms(planets[3].mesh)
 
     // Update controls only when the camera is not attached
     if (controls.enabled) {
