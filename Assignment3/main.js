@@ -504,12 +504,9 @@ function onKeyDown(event) {
         case 52:
             attachedObject = 3;
             break;
-        case 53:
-            attachedObject = 4;
-            break;
-        default:
-            attachedObject = null;
-            break;
+        // case 53:
+        //     attachedObject = 4;
+        //     break;
         //...
     }
 }
@@ -606,7 +603,7 @@ function animate() {
             // Enable controls
             controls.enabled = true;
 
-            attachedObject = null
+            // attachedObject = null
         }
     });
     
