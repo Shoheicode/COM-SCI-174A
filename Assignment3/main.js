@@ -546,7 +546,7 @@ function animate() {
             const wobbleZ = 0.05 * Math.sin(time * 1.5);
             let mod = new THREE.Matrix4()
             mod = mod.multiply(rotationMatrixY(speed * time), mod)
-            mod = mod.multiply(translationMatrix(distance,0 ,0),mod)
+            mod = mod.multiply(translationMatrix(distance, 0 ,0),mod)
             mod = mod.multiply(rotationMatrixZ(wobbleZ*(10)), mod)
             mod = mod.multiply(rotationMatrixX(wobbleX*(10)), mod)
             planet.matrix.copy(mod)
