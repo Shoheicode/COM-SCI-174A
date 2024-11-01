@@ -554,7 +554,6 @@ function animate() {
             mod2 = mod2.multiply(rotationMatrixX(wobbleX*(10)), mod2)
             planet3Ring.matrix.copy(mod2)
             planet3Ring.matrixAutoUpdate = false;
-            planet.matrixAutoUpdate = false;
         }
         if(index == 3){
             let m = new THREE.Matrix4(); 
