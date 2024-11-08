@@ -129,7 +129,8 @@ scene.add(spherePlanet4)
 let moon = new THREE.SphereGeometry(1, 4, 2);
 let materialMoon = new THREE.MeshPhongMaterial({ color: 0xC83CB9, emissive: 0x000000,flatShading:true });
 let moonObj = new THREE.Mesh(moon, materialMoon);
-spherePlanet4.add(moonObj)
+scene.add(moonObj)
+// spherePlanet4.add(moonObj)
 
 // TODO: Store planets and moon in an array for easy access, 
 // e.g. { mesh: planet1, distance: 5, speed: 1 },
@@ -541,6 +542,15 @@ function animate() {
         let speed = obj.speed
         
         let model_transform = new THREE.Matrix4(); 
+
+        if(index == 3){
+            let m = new THREE.Matrix4(); 
+            m = m.multiply(translationMatrix(2.5,0,0),m)
+            m = m.multiply(rotationMatrixY(speed * time), m)
+            moonObj.matrix.copy(m);
+            moonObj.matrixAutoUpdate = false;
+        }
+
         
         // TODO: Implement the model transformations for the planets
         // Hint: Some of the planets have the same set of transformation matrices, but for some you have to apply some additional transformation to make it work (e.g. planet4's moon, planet3's wobbling effect(optional)).
@@ -562,11 +572,10 @@ function animate() {
         if(index == 3){
             let m = new THREE.Matrix4(); 
             m = m.multiply(rotationMatrixY(speed * time), m)
-            m = m.multiply(translationMatrix(2.5,0,0),m)
+            m = m.multiply(translationMatrix(distance,0,0),m)
             moonObj.matrix.copy(m);
             moonObj.matrixAutoUpdate = false;
         }
-
         // console.log(planet.matrix)
         
         // Camera attachment logic here, when certain planet is being attached, we want the camera to be following the planet by having the same transformation as the planet itself. No need to make changes.
