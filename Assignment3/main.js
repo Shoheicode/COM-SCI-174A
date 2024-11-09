@@ -565,8 +565,9 @@ function animate() {
         let model_transform = new THREE.Matrix4(); 
 
         if(index == 3){
-            // created a matrix to rotate the planet
+            // created a matrix to rotate the moon obj
             let m = new THREE.Matrix4(); 
+            // First translate the moon out for the moon obj
             m = translationMatrix(2.5,0,0).multiply(m)
             m = rotationMatrixY(speed * time).multiply(m)
 
