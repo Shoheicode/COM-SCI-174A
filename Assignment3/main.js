@@ -136,8 +136,9 @@ let materialPlanet4 = createPhongMaterial(
 let spherePlanet4 = new THREE.Mesh(planet4Geo, materialPlanet4);
 scene.add(spherePlanet4)
 
-// TODO: Create Planet 4's Moon
+// Create Planet 4's Moon
 let moon = new THREE.SphereGeometry(1, 4, 2);
+// 
 let materialMoon = new THREE.MeshPhongMaterial({ color: 0xC83CB9, emissive: 0x000000,flatShading:true });
 let moonObj = new THREE.Mesh(moon, materialMoon);
 scene.add(moonObj)
