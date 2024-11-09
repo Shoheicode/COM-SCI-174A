@@ -83,6 +83,7 @@ scene.add(sunLight)
 let planet1Geo = new THREE.SphereGeometry(1,8,6);
 // Material for the planet 1
 let materialPlanet1 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true });
+// Sphere Planet 1 mesh
 let spherePlanet1 = new THREE.Mesh(planet1Geo, materialPlanet1);
 scene.add(spherePlanet1)
 
