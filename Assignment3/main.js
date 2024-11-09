@@ -582,8 +582,7 @@ function animate() {
         }
 
         
-        // TODO: Implement the model transformations for the planets
-        // Hint: Some of the planets have the same set of transformation matrices, but for some you have to apply some additional transformation to make it work (e.g. planet4's moon, planet3's wobbling effect(optional)).
+        // Applies the translation of the planet first and then rotate the planet around the center of the sun
         model_transform = translationMatrix(distance,0,0).multiply(model_transform)
         model_transform = rotationMatrixY(speed * time).multiply(model_transform)
         planet.matrix.copy(model_transform);
