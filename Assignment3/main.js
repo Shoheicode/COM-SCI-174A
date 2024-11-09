@@ -92,6 +92,7 @@ scene.add(spherePlanet2)
 
 // Create Planet 3: Muddy Brown-Orange Planet with Ring
 let planet3Geo = new THREE.SphereGeometry(1, 16, 16);
+// Update the planet 3 material to be a phong material
 let materialPlanet3 = createPhongMaterial(
     {
         color: new THREE.Color(0xB08040), 
