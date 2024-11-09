@@ -534,7 +534,7 @@ function animate() {
 
     // has the color factor match the animation factor
     const colorFactor = animationFactor;
-    // 
+    // Update the material color based on RGB
     sphereSun.material.color.setRGB(1, colorFactor, colorFactor)
     
     // TODO: Update sun light
