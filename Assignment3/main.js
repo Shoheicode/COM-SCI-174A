@@ -130,7 +130,6 @@ let moon = new THREE.SphereGeometry(1, 4, 2);
 let materialMoon = new THREE.MeshPhongMaterial({ color: 0xC83CB9, emissive: 0x000000,flatShading:true });
 let moonObj = new THREE.Mesh(moon, materialMoon);
 scene.add(moonObj)
-// spherePlanet4.add(moonObj)
 
 // TODO: Store planets and moon in an array for easy access, 
 // e.g. { mesh: planet1, distance: 5, speed: 1 },
