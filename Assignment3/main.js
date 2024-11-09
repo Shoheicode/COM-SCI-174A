@@ -588,6 +588,7 @@ function animate() {
         planet.matrix.copy(model_transform);
         planet.matrixAutoUpdate = false;
         
+        // Check for planet 3
         if(index == 2){
             const wobbleX = 0.05 * Math.sin(time * 2.0);
             const wobbleZ = 0.05 * Math.sin(time * 1.5);
