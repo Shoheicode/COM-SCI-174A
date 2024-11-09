@@ -122,6 +122,7 @@ spherePlanet3.add(planet3Ring)
 // Create Planet 4: Soft Light Blue Planet
 //Specifications of the Sphere Geometry of the Planet4
 let planet4Geo = new THREE.SphereGeometry(1, 16, 16);
+// Creating the phong material for the planet 4
 let materialPlanet4 = createPhongMaterial(
     {
         color: new THREE.Color(0x0000D1), 
@@ -131,6 +132,7 @@ let materialPlanet4 = createPhongMaterial(
         smoothness: 100.0
     }
 );
+// Create the mesh for planet 4
 let spherePlanet4 = new THREE.Mesh(planet4Geo, materialPlanet4);
 scene.add(spherePlanet4)
 
