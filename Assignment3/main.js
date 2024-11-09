@@ -80,9 +80,10 @@ scene.add(sunLight)
 // Create orbiting planets
 // Create Planet 1: Flat-shaded Gray Planet
 // Create the Geometry for the plant
-let planet1 = new THREE.SphereGeometry(1,8,6);
+let planet1Geo = new THREE.SphereGeometry(1,8,6);
+// Material for the planet 1
 let materialPlanet1 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0x000000,flatShading:true });
-let spherePlanet1 = new THREE.Mesh(planet1, materialPlanet1);
+let spherePlanet1 = new THREE.Mesh(planet1Geo, materialPlanet1);
 scene.add(spherePlanet1)
 
 // TODO: Create Planet 2: Swampy Green-Blue with Dynamic Shading
