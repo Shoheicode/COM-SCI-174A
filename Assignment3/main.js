@@ -59,7 +59,7 @@ let attachedObject = null;
 let blendingFactor = 0.1;
 // Create additional variables as needed here
 
-// Create the sun
+// Create the sun geometry 
 let sun = new THREE.SphereGeometry(1,32, 32);
 let materialSun = new THREE.MeshBasicMaterial({ color: 0xffffff });
 let sphereSun = new THREE.Mesh(sun, materialSun);
