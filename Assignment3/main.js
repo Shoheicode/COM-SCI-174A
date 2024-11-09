@@ -666,7 +666,7 @@ function animate() {
         )
     }
 
-    // TODO: Update customized planet material uniforms
+    // Update customized planet material uniforms
     // e.g. updatePlanetMaterialUniforms(planets[1].mesh);
     updatePlanetMaterialUniforms(planets[1].mesh);
     updatePlanetMaterialUniforms(planets[2].mesh);
