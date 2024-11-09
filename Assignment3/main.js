@@ -526,6 +526,7 @@ function animate() {
     // This animation factor helps make the animation smoother and allow for the translation go from 0->1 and 1->0
     const animationFactor = Math.abs((period10) / 5-1);
 
+    // Scale amount and control the animation number
     const scale = 1 + 2 * animationFactor
 
     sphereSun.scale.set(scale, scale, scale)
