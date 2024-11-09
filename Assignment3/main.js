@@ -70,7 +70,7 @@ let sphereSun = new THREE.Mesh(sunGeo, materialSun);
 scene.add(sphereSun);
 
 
-// TODO: Create sun light
+// Added the Point Light that acts as the light source
 let sunLight = new THREE.PointLight(0xff0000, 1, 0, 1);
 sunLight.position.set(0,0,0);
 scene.add(sunLight)
