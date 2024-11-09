@@ -565,11 +565,11 @@ function animate() {
         let model_transform = new THREE.Matrix4(); 
 
         if(index == 3){
+            // created a matrix to rotate the planet
             let m = new THREE.Matrix4(); 
             m = translationMatrix(2.5,0,0).multiply(m)
-            // console.log(m)
             m = rotationMatrixY(speed * time).multiply(m)
-            // console.log(m)
+
             //Move it to match the planet
             m = translationMatrix(distance,0,0).multiply(m)
             m = rotationMatrixY(speed * time).multiply(m)
