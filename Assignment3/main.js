@@ -183,7 +183,7 @@ function createGouraudMaterial(materialProperties) {
         varying vec3 N, vertex_worldspace;
         varying vec3 vColor;  // Varying to pass the calculated color to the fragment shader
 
-        vec3 phong_model_lights(vec3 N, vec3 vertex_worldspace) {
+        vec3 gouraud_model_lights(vec3 N, vec3 vertex_worldspace) {
             vec3 E = normalize(camera_center - vertex_worldspace);
             vec3 result = vec3(0.0);
             for(int i = 0; i < N_LIGHTS; i++) {
@@ -209,7 +209,7 @@ function createGouraudMaterial(materialProperties) {
             N = normalize(mat3(model_transform) * normal / squared_scale);
             vertex_worldspace = (model_transform * vec4(position, 1.0)).xyz;
             vColor = shape_color.xyz * ambient;  // Start with ambient component
-            vColor += phong_model_lights(N, vertex_worldspace);  // Add lighting calculation
+            vColor += gouraud_model_lights(N, vertex_worldspace);  // Add lighting calculation
 
             gl_Position = projection_camera_model_transform * vec4(position, 1.0);
         }
