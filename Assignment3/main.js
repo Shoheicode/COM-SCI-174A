@@ -642,7 +642,7 @@ function animate() {
         }
     });
     
-    // TODO: Apply Gouraud/Phong shading alternatively to Planet 2
+    // Apply Gouraud/Phong shading alternatively to Planet 2 when time is odd or even
     if(Math.floor(time) % 2 == 0){
         // console.log("BING PHONG")
         spherePlanet2.material = createPhongMaterial(
