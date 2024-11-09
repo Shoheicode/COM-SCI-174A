@@ -66,6 +66,7 @@ let sunGeo = new THREE.SphereGeometry(1,32, 32);
 let materialSun = new THREE.MeshBasicMaterial({ color: 0xffffff });
 // Create the sphere sun mesh
 let sphereSun = new THREE.Mesh(sunGeo, materialSun);
+// Added the sun to the scene
 scene.add(sphereSun);
 
 
