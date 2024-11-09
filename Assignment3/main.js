@@ -87,7 +87,7 @@ let materialPlanet1 = new THREE.MeshPhongMaterial({ color: 0x808080, emissive: 0
 let spherePlanet1 = new THREE.Mesh(planet1Geo, materialPlanet1);
 scene.add(spherePlanet1)
 
-// TODO: Create Planet 2: Swampy Green-Blue with Dynamic Shading
+//  Create Planet 2: Swampy Green-Blue with Dynamic Shading
 let planet2 = new THREE.SphereGeometry(1,8,8);
 let materialPlanet2 = new THREE.MeshPhongMaterial({ color: 0x80FFFF, emissive: 0x000000,shininess: 40,specular: 0xffffff, });
 let spherePlanet2 = new THREE.Mesh(planet2, materialPlanet2);
@@ -165,11 +165,11 @@ document.addEventListener('keydown', onKeyDown, false);
 
 animate();
 
-// TODO: Implement the Gouraud Shader for Planet 2
+//  Implement the Gouraud Shader for Planet 2
 function createGouraudMaterial(materialProperties) {  
     // console.log(materialProperties)
     const numLights = 1;  
-    // TODO: Implement the Vertex Shader in GLSL
+    //  Implement the Vertex Shader in GLSL
     let vertexShader = `
         precision mediump float;
         const int N_LIGHTS = ${numLights};
@@ -382,7 +382,7 @@ function createRingMaterial(materialProperties) {
         }
     `;
 
-    // TODO: Finish the fragment shader to create the brightness variation with sinine finction
+    // Finish the fragment shader to create the brightness variation with sinine finction
     let fragmentShader = `
         uniform vec3 color;
         varying vec2 vUv;
@@ -402,7 +402,7 @@ function createRingMaterial(materialProperties) {
         }
     `;
 
-    // TODO: Fill in the values to be passed in to create the custom shader
+    // Fill in the values to be passed in to create the custom shader
     return new THREE.ShaderMaterial({
         uniforms: {color: { value: new THREE.Color(0xB08040)}},
         vertexShader: vertexShader,
@@ -501,7 +501,7 @@ function onWindowResize() {
 }
 
 
-// TODO: Implement the camera attachment given the key being pressed
+//  Implement the camera attachment given the key being pressed
 // Hint: This step you only need to determine the object that are attached to and assign it to a variable you have to store the attached object.
 function onKeyDown(event) {
     switch (event.keyCode) {
