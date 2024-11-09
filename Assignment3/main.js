@@ -629,8 +629,9 @@ function animate() {
             controls.enabled = false;
         } 
 
-        // TODO: If camera is detached, slowly lerp the camera back to the original position and look at the origin
+        // If camera is detached, slowly lerp the camera back to the original position and look at the origin
         else if (attachedObject === 5) {
+            // added a smooth transition for lerping
             camera.position.lerp(new THREE.Vector3(0, 10, 20), blendingFactor);
 
             // looks back at the center of the solar system
