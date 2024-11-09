@@ -572,6 +572,7 @@ function animate() {
             m = rotationMatrixY(speed * time).multiply(m)
 
             //Move it to match the planet
+            // Translate the moon out the same distance as the planet 4
             m = translationMatrix(distance,0,0).multiply(m)
             m = rotationMatrixY(speed * time).multiply(m)
             moonObj.matrix.copy(m);
