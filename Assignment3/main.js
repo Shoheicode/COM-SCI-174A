@@ -137,11 +137,11 @@ let spherePlanet4 = new THREE.Mesh(planet4Geo, materialPlanet4);
 scene.add(spherePlanet4)
 
 // Create Planet 4's Moon
-let moon = new THREE.SphereGeometry(1, 4, 2);
+let moonGeo = new THREE.SphereGeometry(1, 4, 2);
 // Create the material for the moon
 let materialMoon = new THREE.MeshPhongMaterial({ color: 0xC83CB9, emissive: 0x000000,flatShading:true });
 // Created the actual moon object
-let moonObj = new THREE.Mesh(moon, materialMoon);
+let moonObj = new THREE.Mesh(moonGeo, materialMoon);
 scene.add(moonObj)
 
 // Store planets and moon in an array for easy access, 
