@@ -183,7 +183,6 @@ function createGouraudMaterial(materialProperties) {
         varying vec3 N, vertex_worldspace;
         varying vec3 vColor;  // Varying to pass the calculated color to the fragment shader
 
-        // ***** PHONG SHADING HAPPENS HERE: *****
         vec3 phong_model_lights(vec3 N, vec3 vertex_worldspace) {
             vec3 E = normalize(camera_center - vertex_worldspace);
             vec3 result = vec3(0.0);
