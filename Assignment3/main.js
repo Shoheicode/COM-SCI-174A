@@ -579,14 +579,6 @@ function animate() {
             planet3Ring.matrix.copy(mod2)
             planet3Ring.matrixAutoUpdate = false;
         }
-        // if(index == 3){
-        //     let m = new THREE.Matrix4(); 
-        //     m = m.multiply(rotationMatrixY(speed * time), m)
-        //     m = m.multiply(translationMatrix(distance,0,0),m)
-        //     moonObj.matrix.copy(m);
-        //     moonObj.matrixAutoUpdate = false;
-        // }
-        // console.log(planet.matrix)
         
         // Camera attachment logic here, when certain planet is being attached, we want the camera to be following the planet by having the same transformation as the planet itself. No need to make changes.
         if (attachedObject === index){
