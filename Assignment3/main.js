@@ -372,7 +372,7 @@ function createPhongMaterial(materialProperties) {
     });
 }
 
-// TODO: Finish the custom shader for planet 3's ring with sinusoidal brightness variation
+// Finish the custom shader for planet 3's ring with sinusoidal brightness variation
 function createRingMaterial(materialProperties) {
     let vertexShader = `
         varying vec2 vUv;
@@ -392,6 +392,7 @@ function createRingMaterial(materialProperties) {
             float radius = length(vUv - vec2(0.5));
             
             // Sinusoidal brightness variation
+            // Applying the sinusoidal rings
             float frequency = 50.0;  // Adjust for more or fewer bands
             float brightness = 0.5 + 0.5 * sin(frequency * radius * 3.14159);  // Modulate brightness
             
