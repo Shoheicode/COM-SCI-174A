@@ -102,6 +102,7 @@ let materialPlanet3 = createPhongMaterial(
         smoothness: 100.0
     }
 )
+// Create the mesh for the planet 3
 let spherePlanet3 = new THREE.Mesh(planet3Geo, materialPlanet3);
 scene.add(spherePlanet3)
 
