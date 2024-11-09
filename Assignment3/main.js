@@ -131,7 +131,7 @@ let materialMoon = new THREE.MeshPhongMaterial({ color: 0xC83CB9, emissive: 0x00
 let moonObj = new THREE.Mesh(moon, materialMoon);
 scene.add(moonObj)
 
-// TODO: Store planets and moon in an array for easy access, 
+// Store planets and moon in an array for easy access, 
 // e.g. { mesh: planet1, distance: 5, speed: 1 },]
 
 // The first planet is out 5 units and each planet is 3 units out further from the prior one
