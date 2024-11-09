@@ -633,12 +633,11 @@ function animate() {
         else if (attachedObject === 5) {
             camera.position.lerp(new THREE.Vector3(0, 10, 20), blendingFactor);
 
+            // looks back at the center of the solar system
             camera.lookAt(new THREE.Vector3(0,0,0))
 
             // Enable controls
             controls.enabled = true;
-
-            // attachedObject = null
         }
     });
     
