@@ -520,6 +520,7 @@ function animate() {
     let time = clock.getElapsedTime();
 
     // TODO: Animate sun radius and color
+    // Makes a 10 second interval for time
     let period10 = (time+5) % 10.0; // Added 5 because the abs would start from 1 and go to 0 and we want it not to do that. 
 
     // This animation factor helps make the animation smoother and allow for the translation go from 0->1 and 1->0
