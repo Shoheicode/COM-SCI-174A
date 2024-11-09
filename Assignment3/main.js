@@ -557,6 +557,7 @@ function animate() {
 
     // Loop through all the orbiting planets and apply transformation to create animation effect
     planets.forEach(function (obj, index) {
+        // variables to store features of the obj in planets
         let planet = obj.mesh
         let distance = obj.distance
         let speed = obj.speed
