@@ -135,7 +135,7 @@ scene.add(moonObj)
 // e.g. { mesh: planet1, distance: 5, speed: 1 },]
 
 // The first planet is out 5 units and each planet is 3 units out further from the prior one
-// 
+// The speed is the inversely proportional to its distance. Thus, the speed is 5/(distance away from sun)
 planets = [
     // TODO: Fill in the planet's data here
     {mesh: spherePlanet1, distance: 5, speed: 1},
