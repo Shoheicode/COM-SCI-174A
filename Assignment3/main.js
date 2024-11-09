@@ -90,8 +90,8 @@ let materialPlanet2 = new THREE.MeshPhongMaterial({ color: 0x80FFFF, emissive: 0
 let spherePlanet2 = new THREE.Mesh(planet2, materialPlanet2);
 scene.add(spherePlanet2)
 
-// TODO: Create Planet 3: Muddy Brown-Orange Planet with Ring
-let planet3 = new THREE.SphereGeometry(1, 16, 16);
+// Create Planet 3: Muddy Brown-Orange Planet with Ring
+let planet3Geo = new THREE.SphereGeometry(1, 16, 16);
 let materialPlanet3 = createPhongMaterial(
     {
         color: new THREE.Color(0xB08040), 
@@ -101,13 +101,13 @@ let materialPlanet3 = createPhongMaterial(
         smoothness: 100.0
     }
 )
-let spherePlanet3 = new THREE.Mesh(planet3, materialPlanet3);
+let spherePlanet3 = new THREE.Mesh(planet3Geo, materialPlanet3);
 scene.add(spherePlanet3)
+
 // Planet 3 Ring
 let ring = new THREE.RingGeometry(1.5, 2.5, 64);
 let materialRing = createRingMaterial();
 let planet3Ring = new THREE.Mesh(ring, materialRing);
-// planet3Ring.rotation.x = Math.PI / 2; // Rotate the ring to lie flat
 spherePlanet3.add(planet3Ring)
 
 
