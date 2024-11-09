@@ -72,7 +72,9 @@ scene.add(sphereSun);
 
 // Added the Point Light that acts as the light source
 let sunLight = new THREE.PointLight(0xff0000, 1, 0, 1);
+// Sets the light to the center of the world
 sunLight.position.set(0,0,0);
+// Add the Sunlight to the Scene.
 scene.add(sunLight)
 
 // Create orbiting planets
