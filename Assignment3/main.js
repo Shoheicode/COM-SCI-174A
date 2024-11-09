@@ -529,7 +529,7 @@ function animate() {
     // Scale amount and control the amount of scaling happening in the sun
     const scale = 1 + 2 * animationFactor
 
-    //Helps scale the 
+    // Scales the sphere of the sun to match the scale factor
     sphereSun.scale.set(scale, scale, scale)
 
     const colorFactor = animationFactor;
