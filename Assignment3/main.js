@@ -53,6 +53,7 @@ function rotationMatrixZ(theta) {
 	);
 }
 
+//List of the planets
 let planets = [];
 let clock = new THREE.Clock();
 let attachedObject = null;
