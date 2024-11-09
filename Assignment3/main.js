@@ -644,6 +644,7 @@ function animate() {
     
     // Apply Gouraud/Phong shading alternatively to Planet 2 when time is odd or even
     if(Math.floor(time) % 2 == 0){
+        // Change to Phong Material
         spherePlanet2.material = createPhongMaterial(
             { 
                 color: new THREE.Color(0x80FFFF), 
@@ -655,6 +656,7 @@ function animate() {
         )
     }
     if(Math.floor(time) % 2 == 1){
+        // Change to gouraud material
         spherePlanet2.material = createGouraudMaterial(
             { 
                 color: new THREE.Color(0x80FFFF), 
