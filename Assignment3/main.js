@@ -597,8 +597,9 @@ function animate() {
 
             // Created a mod to help with caluculations
             let mod2 = new THREE.Matrix4()
-            mod2.multiply(rotationMatrixZ(wobbleZ*(10)), mod2)
-            mod2 = mod2.multiply(rotationMatrixX(wobbleX*(10)), mod2)
+            // Apply the rotation from the wobbles
+            mod2.multiply(rotationMatrixZ(wobbleZ*(10)))
+            mod2 = mod2.multiply(rotationMatrixX(wobbleX*(10)))
             planet3Ring.matrix.copy(mod2)
             planet3Ring.matrixAutoUpdate = false;
         }
