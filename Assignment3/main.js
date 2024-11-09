@@ -138,8 +138,9 @@ scene.add(spherePlanet4)
 
 // Create Planet 4's Moon
 let moon = new THREE.SphereGeometry(1, 4, 2);
-// 
+// Create the material for the moon
 let materialMoon = new THREE.MeshPhongMaterial({ color: 0xC83CB9, emissive: 0x000000,flatShading:true });
+
 let moonObj = new THREE.Mesh(moon, materialMoon);
 scene.add(moonObj)
 
