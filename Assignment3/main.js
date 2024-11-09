@@ -516,6 +516,7 @@ function animate() {
     
     requestAnimationFrame(animate);
 
+    //Use this timer to help with making the sun bigger and smaller and changing the color
     let time = clock.getElapsedTime();
 
     // TODO: Animate sun radius and color
