@@ -111,7 +111,8 @@ let planet3Ring = new THREE.Mesh(ring, materialRing);
 spherePlanet3.add(planet3Ring)
 
 
-// TODO: Create Planet 4: Soft Light Blue Planet
+// Create Planet 4: Soft Light Blue Planet
+//Specifications of the Sphere Geometry of the Planet4
 let planet4 = new THREE.SphereGeometry(1, 16, 16);
 let materialPlanet4 = createPhongMaterial(
     {
