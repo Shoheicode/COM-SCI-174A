@@ -532,7 +532,9 @@ function animate() {
     // Scales the sphere of the sun to match the scale factor
     sphereSun.scale.set(scale, scale, scale)
 
+    // has the color factor match the animation factor
     const colorFactor = animationFactor;
+    // 
     sphereSun.material.color.setRGB(1, colorFactor, colorFactor)
     
     // TODO: Update sun light
