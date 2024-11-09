@@ -535,11 +535,11 @@ function animate() {
     // Update the material color based on RGB
     sphereSun.material.color.setRGB(1, colorFactor, colorFactor)
     
-    // TODO: Update sun light
+    // Chnages the sun color and the power of the sunlight
     sunLight.color.setRGB(1, colorFactor, colorFactor)
     sunLight.power = Math.pow(10, scale)
 
-    // TODO: Loop through all the orbiting planets and apply transformation to create animation effect
+    // Loop through all the orbiting planets and apply transformation to create animation effect
     planets.forEach(function (obj, index) {
         let planet = obj.mesh
         let distance = obj.distance
