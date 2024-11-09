@@ -60,9 +60,10 @@ let blendingFactor = 0.1;
 // Create additional variables as needed here
 
 // Create the sun geometry 
-let sun = new THREE.SphereGeometry(1,32, 32);
+let sunGeo = new THREE.SphereGeometry(1,32, 32);
+// Create the material for the sun
 let materialSun = new THREE.MeshBasicMaterial({ color: 0xffffff });
-let sphereSun = new THREE.Mesh(sun, materialSun);
+let sphereSun = new THREE.Mesh(sunGeo, materialSun);
 scene.add(sphereSun);
 
 
