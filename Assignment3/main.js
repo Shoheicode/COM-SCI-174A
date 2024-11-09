@@ -114,6 +114,7 @@ scene.add(spherePlanet3)
 let ringGeo = new THREE.RingGeometry(1.5, 2.5, 64);
 // Called the function for creating the ring material
 let materialRing = createRingMaterial();
+// Planet 3 Ring mesh
 let planet3Ring = new THREE.Mesh(ringGeo, materialRing);
 spherePlanet3.add(planet3Ring)
 
