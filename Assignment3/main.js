@@ -59,13 +59,7 @@ let attachedObject = null;
 let blendingFactor = 0.1;
 // Create additional variables as needed here
 
-// Starter code sphere, feel free to delete it afterwards
-// let geometry = new THREE.SphereGeometry(1, 32, 32);
-// let material = new THREE.MeshBasicMaterial({ color: 0xffffff });
-// let sphere = new THREE.Mesh(geometry, material);
-// scene.add(sphere);
-
-// TODO: Create the sun
+// Create the sun
 let sun = new THREE.SphereGeometry(1,32, 32);
 let materialSun = new THREE.MeshBasicMaterial({ color: 0xffffff });
 let sphereSun = new THREE.Mesh(sun, materialSun);
@@ -545,8 +539,13 @@ function animate() {
 
         if(index == 3){
             let m = new THREE.Matrix4(); 
-            m = m.multiply(translationMatrix(2.5,0,0),m)
-            m = m.multiply(rotationMatrixY(speed * time), m)
+            m = translationMatrix(2.5,0,0).multiply(m)
+            // console.log(m)
+            m = rotationMatrixY(speed * time).multiply(m)
+            // console.log(m)
+            //Move it to match the planet
+            m = translationMatrix(distance,0,0).multiply(m)
+            m = rotationMatrixY(speed * time).multiply(m)
             moonObj.matrix.copy(m);
             moonObj.matrixAutoUpdate = false;
         }
@@ -554,8 +553,8 @@ function animate() {
         
         // TODO: Implement the model transformations for the planets
         // Hint: Some of the planets have the same set of transformation matrices, but for some you have to apply some additional transformation to make it work (e.g. planet4's moon, planet3's wobbling effect(optional)).
-        model_transform = model_transform.multiply(rotationMatrixY(speed * time), model_transform)
-        model_transform = model_transform.multiply(translationMatrix(distance,0,0),model_transform)
+        model_transform = translationMatrix(distance,0,0).multiply(model_transform)
+        model_transform = rotationMatrixY(speed * time).multiply(model_transform)
         planet.matrix.copy(model_transform);
         planet.matrixAutoUpdate = false;
         
@@ -569,13 +568,13 @@ function animate() {
             planet3Ring.matrix.copy(mod2)
             planet3Ring.matrixAutoUpdate = false;
         }
-        if(index == 3){
-            let m = new THREE.Matrix4(); 
-            m = m.multiply(rotationMatrixY(speed * time), m)
-            m = m.multiply(translationMatrix(distance,0,0),m)
-            moonObj.matrix.copy(m);
-            moonObj.matrixAutoUpdate = false;
-        }
+        // if(index == 3){
+        //     let m = new THREE.Matrix4(); 
+        //     m = m.multiply(rotationMatrixY(speed * time), m)
+        //     m = m.multiply(translationMatrix(distance,0,0),m)
+        //     moonObj.matrix.copy(m);
+        //     moonObj.matrixAutoUpdate = false;
+        // }
         // console.log(planet.matrix)
         
         // Camera attachment logic here, when certain planet is being attached, we want the camera to be following the planet by having the same transformation as the planet itself. No need to make changes.
