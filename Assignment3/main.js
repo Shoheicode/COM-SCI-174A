@@ -595,6 +595,7 @@ function animate() {
             const wobbleX = 0.05 * Math.sin(time * 2.0);
             const wobbleZ = 0.05 * Math.sin(time * 1.5);
 
+            // Created a mod to help with caluculations
             let mod2 = new THREE.Matrix4()
             mod2.multiply(rotationMatrixZ(wobbleZ*(10)), mod2)
             mod2 = mod2.multiply(rotationMatrixX(wobbleX*(10)), mod2)
