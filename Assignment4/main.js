@@ -82,7 +82,7 @@ class Texture_Scroll_X {
 
             // TODO: 2.b Translate the texture varying the s texture coordinate by 4 texture units per second, 
             float scroll_speed = 4.0;
-            scaledUv.x = mod(scaledUv.x + animation_time * scroll_speed, 1.0);
+            scaledUv.x = mod(scaledUv.x + animation_time * scroll_speed, 2.0);
 
             // TODO: 1.b Load the texture color from the texture map
             // Hint: Use texture2D function to get the color of the texture at the current UV coordinates
@@ -170,7 +170,8 @@ function animate() {
 
     // TODO: 2.b&2.c Update uniform values
     // e.g. cube1_uniforms.animation_time.value = ...
-
+    cube2_uniforms.animation_time.value =animation_time;
+    animation_time = clock.elapsedTime;
 
     // TODO: 2.e Rotate the cubes if the key 'c' is pressed to start the animation
     // Cube #1 should rotate around its own X-axis at a rate of 15 rpm.
