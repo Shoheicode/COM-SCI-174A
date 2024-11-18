@@ -73,19 +73,21 @@ class Texture_Scroll_X {
         return `
         uniform sampler2D uTexture;
         uniform float animation_time;
+        // uniform float scroll_speed = 2.0
         varying vec2 vUv;
         varying vec3 vPosition;
         void main() {
             // TODO: 2.a Shrink the texuture by 50% so that the texture is repeated twice in each direction
-
+            vec2 scaledUv = vUv * 2.0;
 
             // TODO: 2.b Translate the texture varying the s texture coordinate by 4 texture units per second, 
-
+            float scroll_speed = 4.0;
+            scaledUv.x = mod(scaledUv.x + animation_time * scroll_speed, 1.0);
 
             // TODO: 1.b Load the texture color from the texture map
             // Hint: Use texture2D function to get the color of the texture at the current UV coordinates
             // vec4 tex_color = vec4(0.0, 1.0, 0.0, 1.0);
-            vec4 tex_color = texture2D(uTexture, vUv);
+            vec4 tex_color = texture2D(uTexture, scaledUv);
             
 
             // TODO: 2.d add the outline of a black square in the center of each texture that moves with the texture
@@ -112,6 +114,9 @@ cube1_texture.minFilter = THREE.NearestFilter
 cube1_texture.magFilter = THREE.NearestFilter
 
 // TODO: 2.a Enable texture repeat wrapping for Cube 1
+cube1_texture.wrapS = THREE.RepeatWrapping;
+cube1_texture.wrapT = THREE.RepeatWrapping;
+// cube1_texture.needsUpdate = true;
 
 const cube1_uniforms = {
     uTexture: { value: cube1_texture },
@@ -137,9 +142,11 @@ const cube2_texture = new THREE.TextureLoader().load('assets/earth.gif');
 // Linear Mipmapping Texture Filtering
 // e.g. cube2_texture.minFilter = ...
 cube2_texture.minFilter = THREE.LinearMipMapLinearFilter
+cube2_texture.needsUpdate = true;
 
 // TODO: 2.a Enable texture repeat wrapping for Cube 2
-
+cube2_texture.wrapS = THREE.RepeatWrapping;
+cube2_texture.wrapT = THREE.RepeatWrapping;
 
 const cube2_uniforms = {
     uTexture: { value: cube2_texture },
