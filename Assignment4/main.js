@@ -101,7 +101,7 @@ let animation_time = 0.0;
 const cube1_geometry = new THREE.BoxGeometry(2, 2, 2);
 
 // TODO: 1.a Load texture map 
-const cube1_texture = null;
+const cube1_texture = new THREE.TextureLoader().load('assets/stars.png');
 
 // TODO: 1.c Apply Texture Filtering Techniques to Cube 1
 // Nearest Neighbor Texture Filtering
@@ -128,7 +128,7 @@ scene.add(cube1_mesh);
 const cube2_geometry = new THREE.BoxGeometry(2, 2, 2);
 
 // TODO: 1.a Load texture map 
-const cube2_texture = null;
+const cube2_texture = new THREE.TextureLoader().load('assets/earth.gif');
 
 // TODO: 1.c Apply Texture Filtering Techniques to Cube 2
 // Linear Mipmapping Texture Filtering
