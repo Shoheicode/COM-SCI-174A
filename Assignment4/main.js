@@ -232,6 +232,9 @@ cube2_mesh.position.set(-2, 0, 0)
 scene.add(cube2_mesh);
 
 const clock = new THREE.Clock();
+let cPressed = false;
+let prevTime = 0;
+let timeDiff = 0;
 
 function animate() {
     controls.update();
@@ -239,6 +242,8 @@ function animate() {
     // TODO: 2.b&2.c Update uniform values
     // e.g. cube1_uniforms.animation_time.value = ...
     animation_time = clock.getElapsedTime()
+    timeDiff = animation_time-prevTime;
+
     // console.log(animation_time)
     cube1_uniforms.animation_time.value = animation_time;
     cube2_uniforms.animation_time.value = animation_time;
@@ -247,9 +252,13 @@ function animate() {
     // TODO: 2.e Rotate the cubes if the key 'c' is pressed to start the animation
     // Cube #1 should rotate around its own X-axis at a rate of 15 rpm.
     // Cube #2 should rotate around its own Y-axis at a rate of 40 rpm
-
+    if(cPressed){
+        cube1_mesh.rotateX(-1.57079*timeDiff)
+        cube2_mesh.rotateY(4.1887902*timeDiff)
+    }
 
     renderer.render(scene, camera);
+    prevTime = animation_time;
 }
 
 renderer.setAnimationLoop(animate);
@@ -258,7 +267,12 @@ renderer.setAnimationLoop(animate);
 // Press 'c' to start and stop the rotating both cubes
 window.addEventListener('keydown', onKeyPress);
 function onKeyPress(event) {
+    console.log(event.key)
     switch (event.key) {
         // ...
+        case 'c':
+            // console.log("HIHIH")
+            cPressed = !cPressed;
+            break;
     }
 }
