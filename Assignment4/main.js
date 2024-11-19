@@ -36,7 +36,7 @@ class Texture_Rotate {
         varying vec2 vUv;
         varying vec3 vPosition;
         void main() {    
-            float speed = animation_time * (4*PI/15)
+            float speed = animation_time * (4*3.14159/15)
             // TODO: 2.c Rotate the texture map around the center of each face at a rate of 8 rpm.
             vec2 new_vUv;
             new_vUv.x = vUv.x * cos(speed) - vUv.y * sin(speed);
