@@ -232,6 +232,8 @@ function animate() {
 
     // Update uniform values
     animation_time = clock.getElapsedTime()
+
+    // Time difference allows us to track how much time has passed for the rotation to occur. Allows for fairly constant speed
     timeDiff = animation_time-prevTime;
 
     cube1_uniforms.animation_time.value = animation_time;
