@@ -53,8 +53,7 @@ class Texture_Rotate {
             // Return the vector back to the center
             new_vUv += vec2(0.5, 0.5);
 
-            // Load the texture color from the texture map
-            // Hint: Use texture2D function to get the color of the texture at the current UV coordinates
+            // Load the texture color from the texture map using texture2D function to get the color of the texture at the current UV coordinates
             vec4 tex_color = texture2D(uTexture, new_vUv);
             
             // TODO: 2.d add the outline of a black square in the center of each texture that moves with the texture
