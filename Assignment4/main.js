@@ -230,8 +230,7 @@ let timeDiff = 0;
 function animate() {
     controls.update();
 
-    // TODO: 2.b&2.c Update uniform values
-    // e.g. cube1_uniforms.animation_time.value = ...
+    // Update uniform values
     animation_time = clock.getElapsedTime()
     timeDiff = animation_time-prevTime;
 
