@@ -37,7 +37,8 @@ class Texture_Rotate {
         varying vec3 vPosition;
         void main() {    
             // TODO: 2.c Rotate the texture map around the center of each face at a rate of 8 rpm.
-
+            vec2 new_vUv.x = vUv.x * cos(angle) - vUv.y * sin(angle);
+            new_vUv.y = vUv.y * sin(angle) + vUv.y * cos(angle);
 
             // TODO: 1.b Load the texture color from the texture map
             // Hint: Use texture2D function to get the color of the texture at the current UV coordinates
