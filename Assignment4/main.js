@@ -197,14 +197,11 @@ scene.add(cube1_mesh);
 
 const cube2_geometry = new THREE.BoxGeometry(2, 2, 2);
 
-// TODO: 1.a Load texture map 
+// A Load texture map 
 const cube2_texture = new THREE.TextureLoader().load('assets/earth.gif');
 
-// TODO: 1.c Apply Texture Filtering Techniques to Cube 2
-// Linear Mipmapping Texture Filtering
-// e.g. cube2_texture.minFilter = ...
+// Apply Texture Filtering Techniques to Cube 2
 cube2_texture.minFilter = THREE.LinearMipMapLinearFilter
-cube2_texture.needsUpdate = true;
 
 // TODO: 2.a Enable texture repeat wrapping for Cube 2
 cube2_texture.wrapS = THREE.RepeatWrapping;
