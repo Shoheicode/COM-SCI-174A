@@ -152,6 +152,7 @@ class Texture_Scroll_X {
             bool inInnerSquare = (tileUv.x >= innerMin.x && tileUv.x <= innerMax.x &&
                                 tileUv.y >= innerMin.y && tileUv.y <= innerMax.y);
 
+            // Create  new texture color
             vec4 textureColor = texture2D(uTexture, new_vUv);
 
             if (inSquare && !inInnerSquare) {
