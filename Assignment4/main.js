@@ -260,9 +260,7 @@ window.addEventListener('keydown', onKeyPress);
 function onKeyPress(event) {
     console.log(event.key)
     switch (event.key) {
-        // ...
         case 'c':
-            // console.log("HIHIH")
             cPressed = !cPressed;
             break;
     }
