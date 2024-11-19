@@ -203,7 +203,7 @@ const cube2_texture = new THREE.TextureLoader().load('assets/earth.gif');
 // Apply Texture Filtering Techniques to Cube 2
 cube2_texture.minFilter = THREE.LinearMipMapLinearFilter
 
-// TODO: 2.a Enable texture repeat wrapping for Cube 2
+// Enable texture repeat wrapping for Cube 2
 cube2_texture.wrapS = THREE.RepeatWrapping;
 cube2_texture.wrapT = THREE.RepeatWrapping;
 
