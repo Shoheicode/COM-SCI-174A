@@ -36,9 +36,10 @@ class Texture_Rotate {
         varying vec2 vUv;
         varying vec3 vPosition;
         void main() {    
+            float speed = animation_time * (4*PI/15)
             // TODO: 2.c Rotate the texture map around the center of each face at a rate of 8 rpm.
-            vec2 new_vUv.x = vUv.x * cos(angle) - vUv.y * sin(angle);
-            new_vUv.y = vUv.y * sin(angle) + vUv.y * cos(angle);
+            vec2 new_vUv.x = vUv.x * cos(speed) - vUv.y * sin(speed);
+            new_vUv.y = vUv.y * sin(speed) + vUv.y * cos(speed);
 
             // TODO: 1.b Load the texture color from the texture map
             // Hint: Use texture2D function to get the color of the texture at the current UV coordinates
@@ -173,6 +174,7 @@ function animate() {
     // e.g. cube1_uniforms.animation_time.value = ...
     animation_time = clock.getElapsedTime()
     // console.log(animation_time)
+    cube1_uniforms.animation_time.value = animation_time;
     cube2_uniforms.animation_time.value = animation_time;
 
 
