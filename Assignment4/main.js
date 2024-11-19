@@ -159,8 +159,6 @@ class Texture_Scroll_X {
             } else {
                 gl_FragColor = textureColor; // Default texture color
             }
-            
-            // gl_FragColor = tex_color;
         }
         `;
     }
