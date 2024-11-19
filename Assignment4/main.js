@@ -253,8 +253,8 @@ function animate() {
     // Cube #1 should rotate around its own X-axis at a rate of 15 rpm.
     // Cube #2 should rotate around its own Y-axis at a rate of 40 rpm
     if(cPressed){
-        cube1_mesh.rotateX(-1.57079*timeDiff)
-        cube2_mesh.rotateY(4.1887902*timeDiff)
+        cube1_mesh.rotation.x += -1.57079*timeDiff
+        cube2_mesh.rotation.y += (4.1887902*timeDiff)
     }
 
     renderer.render(scene, camera);
