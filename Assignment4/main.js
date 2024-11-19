@@ -115,10 +115,10 @@ class Texture_Scroll_X {
         varying vec2 vUv;
         varying vec3 vPosition;
         void main() {
-            // TODO: 2.a Shrink the texuture by 50% so that the texture is repeated twice in each direction
+            // Shrink the texuture by 50% so that the texture is repeated twice in each direction
             vec2 new_vUv = vUv * 2.0;
 
-            // TODO: 2.b Translate the texture varying the s texture coordinate by 4 texture units per second, 
+            // Translate the texture varying the s texture coordinate by 4 texture units per second, 
             float scroll_speed = -4.0;
             new_vUv.x = mod(new_vUv.x + animation_time * scroll_speed, 1.0);
 
