@@ -102,8 +102,41 @@ class Texture_Scroll_X {
             // TODO: 2.d add the outline of a black square in the center of each texture that moves with the texture
             // Hint: Tell whether the current pixel is within the black square or not using the UV coordinates
             //       If the pixel is within the black square, set the tex_color to vec4(0.0, 0.0, 0.0, 1.0)
+            int repeatCount = 1;
+            
+            vec2 scaledUv = new_vUv * float(repeatCount);      // Scale UV coordinates for repeats
+            vec2 tileUv = mod(scaledUv, 1.0);              // Get UV within a single tile
 
-            gl_FragColor = tex_color;
+            
+            vec2 center = vec2(0.5,0.5);
+
+            // Define the bounds of the black square
+            float side_length = 0.7;
+
+            vec2 minBound = center - vec2(side_length / 2.0);
+            vec2 maxBound = center + vec2(side_length / 2.0);
+
+            float border_thickness = 0.1; // Since the innerMin and innerMax add and subtract the vec2 border thickness, it gives it a thickness of 0.2
+
+            // Define the bounds of the black border
+            vec2 innerMin = minBound + vec2(border_thickness);
+            vec2 innerMax = maxBound - vec2(border_thickness);
+
+            // Determine if the fragment is in the black border region
+            bool inSquare = (tileUv.x >= minBound.x && tileUv.x <= maxBound.x &&
+                            tileUv.y >= minBound.y && tileUv.y <= maxBound.y);
+            bool inInnerSquare = (tileUv.x >= innerMin.x && tileUv.x <= innerMax.x &&
+                                tileUv.y >= innerMin.y && tileUv.y <= innerMax.y);
+
+            vec4 textureColor = texture2D(uTexture, new_vUv);
+
+            if (inSquare && !inInnerSquare) {
+                gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); // Black border
+            } else {
+                gl_FragColor = textureColor; // Default texture color
+            }
+            
+            // gl_FragColor = tex_color;
         }
         `;
     }
