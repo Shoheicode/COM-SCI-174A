@@ -261,7 +261,7 @@ function onKeyPress(event) {
     console.log(event.key)
     switch (event.key) {
         case 'c':
-            cPressed = !cPressed;
+            cPressed = !cPressed; // When pressed, make it not pressed and vice versa.
             break;
     }
 }
