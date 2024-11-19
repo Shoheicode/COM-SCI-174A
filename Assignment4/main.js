@@ -127,13 +127,8 @@ class Texture_Scroll_X {
             vec4 tex_color = texture2D(uTexture, new_vUv);
             
 
-            // TODO: 2.d add the outline of a black square in the center of each texture that moves with the texture
-            // Hint: Tell whether the current pixel is within the black square or not using the UV coordinates
-            //       If the pixel is within the black square, set the tex_color to vec4(0.0, 0.0, 0.0, 1.0)
-            int repeatCount = 1;
-            
-            vec2 scaledUv = new_vUv * float(repeatCount);      // Scale UV coordinates for repeats
-            vec2 tileUv = mod(scaledUv, 1.0);              // Get UV within a single tile
+            // Does the tile square
+            vec2 tileUv = mod(new_vUv, 1.0);              // Get UV within a single tile
 
             
             vec2 center = vec2(0.5,0.5);
