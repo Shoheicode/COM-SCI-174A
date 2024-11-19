@@ -176,10 +176,9 @@ const cube1_texture = new THREE.TextureLoader().load('assets/stars.png');
 cube1_texture.minFilter = THREE.NearestFilter
 cube1_texture.magFilter = THREE.NearestFilter
 
-// TODO: 2.a Enable texture repeat wrapping for Cube 1
+// Enable texture repeat wrapping for Cube 1
 cube1_texture.wrapS = THREE.RepeatWrapping;
 cube1_texture.wrapT = THREE.RepeatWrapping;
-// cube1_texture.needsUpdate = true;
 
 const cube1_uniforms = {
     uTexture: { value: cube1_texture },
