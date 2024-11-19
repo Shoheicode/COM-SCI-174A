@@ -60,30 +60,33 @@ class Texture_Rotate {
             // Tell whether the current pixel is within the black square or not using the UV coordinates
             //       If the pixel is within the black square, set the tex_color to vec4(0.0, 0.0, 0.0, 1.0)
 
+            // Side length is 0.7 and border thickness is 0.1 because we subtract the min and max bound from the border min and max
             float side_length = 0.7;
             float border_thickness = 0.1;
 
             vec2 center = vec2(0.5, 0.5);
 
+            // Finds the minimum and max bounds for the edges of the rectangle
             vec2 minBound = center - vec2(side_length / 2.0);
             vec2 maxBound = center + vec2(side_length / 2.0);
 
+            // Finds the inner min and inner max for the inner square
             vec2 innerMin = minBound + vec2(border_thickness);
             vec2 innerMax = maxBound - vec2(border_thickness);
 
+            // Checks if texture is on the square and in the inner square
             bool inSquare = (new_vUv.x >= minBound.x && new_vUv.x <= maxBound.x &&
                     new_vUv.y >= minBound.y && new_vUv.y <= maxBound.y);
             bool inInnerSquare = (new_vUv.x >= innerMin.x && new_vUv.x <= innerMax.x &&
                     new_vUv.y >= innerMin.y && new_vUv.y <= innerMax.y);
 
             // Set the color based on whether the fragment is in the border region
+            //if it is in the square and not in the inner square, make the black border. Otherwise it will make the texture. 
             if (inSquare && !inInnerSquare) {
                 gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); // Black border
             } else {
                 gl_FragColor = tex_color; // Default texture color
             }
-
-            // gl_FragColor = tex_color;
         }
         `;
     }
