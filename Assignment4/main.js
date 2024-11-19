@@ -169,12 +169,10 @@ let animation_time = 0.0;
 
 const cube1_geometry = new THREE.BoxGeometry(2, 2, 2);
 
-// TODO: 1.a Load texture map 
+// Load texture map 
 const cube1_texture = new THREE.TextureLoader().load('assets/stars.png');
 
-// TODO: 1.c Apply Texture Filtering Techniques to Cube 1
-// Nearest Neighbor Texture Filtering
-// e.g. cube1_texture.minFilter = ...
+// Apply Texture Filtering Techniques to Cube 1
 cube1_texture.minFilter = THREE.NearestFilter
 cube1_texture.magFilter = THREE.NearestFilter
 
