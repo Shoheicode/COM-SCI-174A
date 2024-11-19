@@ -234,12 +234,11 @@ function animate() {
     animation_time = clock.getElapsedTime()
     timeDiff = animation_time-prevTime;
 
-    // console.log(animation_time)
     cube1_uniforms.animation_time.value = animation_time;
     cube2_uniforms.animation_time.value = animation_time;
 
 
-    // TODO: 2.e Rotate the cubes if the key 'c' is pressed to start the animation
+    // Rotate the cubes if the key 'c' is pressed to start the animation
     // Cube #1 should rotate around its own X-axis at a rate of 15 rpm.
     // Cube #2 should rotate around its own Y-axis at a rate of 40 rpm
     if(cPressed){
