@@ -56,12 +56,9 @@ class Texture_Rotate {
             // Load the texture color from the texture map using texture2D function to get the color of the texture at the current UV coordinates
             vec4 tex_color = texture2D(uTexture, new_vUv);
             
-            // TODO: 2.d add the outline of a black square in the center of each texture that moves with the texture
-            // Hint: Tell whether the current pixel is within the black square or not using the UV coordinates
+            // Add the outline of a black square in the center of each texture that moves with the texture
+            // Tell whether the current pixel is within the black square or not using the UV coordinates
             //       If the pixel is within the black square, set the tex_color to vec4(0.0, 0.0, 0.0, 1.0)
-            // int repeatCount = 1;
-            // vec2 scaledUv = new_vUv * float(repeatCount);
-            // vec2 tileUv = mod(scaledUv, 1.0);
 
             float side_length = 0.7;
             float border_thickness = 0.1;
