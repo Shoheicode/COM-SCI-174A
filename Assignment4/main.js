@@ -254,7 +254,7 @@ function animate() {
 
 renderer.setAnimationLoop(animate);
 
-// TODO: 2.e Keyboard Event Listener
+// Keyboard Event Listener
 // Press 'c' to start and stop the rotating both cubes
 window.addEventListener('keydown', onKeyPress);
 function onKeyPress(event) {
