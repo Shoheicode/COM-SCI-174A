@@ -136,6 +136,7 @@ class Texture_Scroll_X {
             // Define the bounds of the black square
             float side_length = 0.7;
 
+            // Finds the minimum and max bounds for the edges of the rectangle
             vec2 minBound = center - vec2(side_length / 2.0);
             vec2 maxBound = center + vec2(side_length / 2.0);
 
