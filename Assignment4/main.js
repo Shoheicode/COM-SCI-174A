@@ -78,16 +78,16 @@ class Texture_Scroll_X {
         varying vec3 vPosition;
         void main() {
             // TODO: 2.a Shrink the texuture by 50% so that the texture is repeated twice in each direction
-            vec2 scaledUv = vUv * 2.0;
+            vec2 vUv = vUv * 2.0;
 
             // TODO: 2.b Translate the texture varying the s texture coordinate by 4 texture units per second, 
             float scroll_speed = 4.0;
-            scaledUv.x = mod(scaledUv.x + animation_time * scroll_speed, 2.0);
+            vUv.x = mod(vUv.x + animation_time * scroll_speed, 1.0);
 
             // TODO: 1.b Load the texture color from the texture map
             // Hint: Use texture2D function to get the color of the texture at the current UV coordinates
             // vec4 tex_color = vec4(0.0, 1.0, 0.0, 1.0);
-            vec4 tex_color = texture2D(uTexture, scaledUv);
+            vec4 tex_color = texture2D(uTexture, vUv);
             
 
             // TODO: 2.d add the outline of a black square in the center of each texture that moves with the texture
@@ -170,8 +170,10 @@ function animate() {
 
     // TODO: 2.b&2.c Update uniform values
     // e.g. cube1_uniforms.animation_time.value = ...
-    cube2_uniforms.animation_time.value =animation_time;
-    animation_time = clock.elapsedTime;
+    animation_time = clock.getElapsedTime()
+    // console.log(animation_time)
+    cube2_uniforms.animation_time.value = animation_time;
+
 
     // TODO: 2.e Rotate the cubes if the key 'c' is pressed to start the animation
     // Cube #1 should rotate around its own X-axis at a rate of 15 rpm.
