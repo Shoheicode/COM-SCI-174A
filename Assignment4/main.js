@@ -122,9 +122,8 @@ class Texture_Scroll_X {
             float scroll_speed = -4.0;
             new_vUv.x = mod(new_vUv.x + animation_time * scroll_speed, 1.0);
 
-            // TODO: 1.b Load the texture color from the texture map
-            // Hint: Use texture2D function to get the color of the texture at the current UV coordinates
-            // vec4 tex_color = vec4(0.0, 1.0, 0.0, 1.0);
+            // Load the texture color from the texture map
+            // Use texture2D function to get the color of the texture at the current UV coordinates
             vec4 tex_color = texture2D(uTexture, new_vUv);
             
 
