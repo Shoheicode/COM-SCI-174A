@@ -37,20 +37,24 @@ class Texture_Rotate {
         varying vec3 vPosition;
         void main() {    
             float speed = (-4.0*3.14159)/15.0;
-            // TODO: 2.c Rotate the texture map around the center of each face at a rate of 8 rpm.
+            //vRotate the texture map around the center of each face at a rate of 8 rpm.
+            // Angle that is the speed times the animation time and mod to prevent the rotation angle from going on forever.
             float angle = mod(speed*animation_time, 2.0*3.14159);
 
+            // Create a new vector2 for storing the vector that will be used for doing all the translation
+            // Create a centered to translate the values to the center to have the proper effect
             vec2 new_vUv;
             vec2 centered =  vUv - vec2(0.5,0.5);
 
+            // Perform the rotations based on 2D rotation matrix
             new_vUv.x = centered.x * cos(angle) - centered.y * sin(angle);
             new_vUv.y = centered.x * sin(angle) + centered.y * cos(angle);
 
+            // Return the vector back to the center
             new_vUv += vec2(0.5, 0.5);
 
-            // TODO: 1.b Load the texture color from the texture map
+            // Load the texture color from the texture map
             // Hint: Use texture2D function to get the color of the texture at the current UV coordinates
-            // vec4 tex_color = vec4(1.0, 0.0, 0.0, 1.0);
             vec4 tex_color = texture2D(uTexture, new_vUv);
             
             // TODO: 2.d add the outline of a black square in the center of each texture that moves with the texture
